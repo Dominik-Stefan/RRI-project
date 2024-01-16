@@ -9,8 +9,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        // Move our position a step closer to the target.
-        float step = moveSpeed * Time.deltaTime; // calculate distance to move
+        float step = moveSpeed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, player.position, step);
     }
 }
