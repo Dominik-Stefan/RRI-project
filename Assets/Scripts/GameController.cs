@@ -1,18 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public UIDocument pauseMenuUI;
+    public static bool paused;
+    public KeyCode pauseButton;
     void Start()
     {
-        
+        ResumeGame();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(pauseButton))
+        {
+            if (paused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+    }
+
+    public void ResumeGame()
+    {
+        paused = false;
+        pauseMenuUI.rootVisualElement.style.display = DisplayStyle.None;
+        Time.timeScale = 1f;
+    }
+
+    private void PauseGame()
+    {
+        paused = true;
+        pauseMenuUI.rootVisualElement.style.display = DisplayStyle.Flex;
+        Time.timeScale = 0f;
     }
 }

@@ -18,29 +18,32 @@ public class ShootingController : MonoBehaviour
 
     void Update()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        Vector3 rotation = mousePosition - transform.position;
-
-        float rotationZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.Euler(0, 0, rotationZ);
-
-        if (!canFire)
+        if (GameController.paused == false)
         {
-            timer += Time.deltaTime;
-            if (timer >= timeBetweenFiring)
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            Vector3 rotation = mousePosition - transform.position;
+
+            float rotationZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+            transform.rotation = Quaternion.Euler(0, 0, rotationZ);
+
+            if (!canFire)
             {
-                canFire = true;
-                timer = 0;
+                timer += Time.deltaTime;
+                if (timer >= timeBetweenFiring)
+                {
+                    canFire = true;
+                    timer = 0;
+                }
             }
-        }
 
-        if (Input.GetMouseButtonDown(0) && canFire)
-        {
-            canFire = false;
-            GameObject copy = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-            Destroy(copy, 5);
+            if (Input.GetMouseButtonDown(0) && canFire)
+            {
+                canFire = false;
+                GameObject copy = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+                Destroy(copy, 5);
+            }
         }
     }
 }
