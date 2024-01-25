@@ -4,11 +4,15 @@ using UnityEngine.UIElements;
 public class GameController : MonoBehaviour
 {
     public UIDocument pauseMenuUI;
+    public UIDocument gameOverMenuUI;
     public static bool paused;
+    public bool gameOver;
     public KeyCode pauseButton;
     void Start()
     {
+        gameOverMenuUI.rootVisualElement.style.display = DisplayStyle.None;
         ResumeGame();
+        gameOver = false;
     }
 
     void Update()
@@ -23,6 +27,11 @@ public class GameController : MonoBehaviour
             {
                 PauseGame();
             }
+        }
+        if (gameOver)
+        {
+            gameOverMenuUI.rootVisualElement.style.display = DisplayStyle.Flex;
+            Time.timeScale = 0f;
         }
     }
 
