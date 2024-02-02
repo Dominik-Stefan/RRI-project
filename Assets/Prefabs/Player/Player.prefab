@@ -188,7 +188,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
   moveSpeed: 5
-  rb: {fileID: 0}
+  health: 5
+  damegeTimer: 0.5
 --- !u!61 &4864236329555033359
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -259,7 +260,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &4611550423319282173
 CircleCollider2D:
