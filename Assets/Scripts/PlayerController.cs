@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameController gameController;
     public float moveSpeed;
     public int health = 5;
     private Vector2 mov;
@@ -23,20 +22,5 @@ public class PlayerController : MonoBehaviour
     {
         mov = mov.normalized * Time.fixedDeltaTime * moveSpeed;
         rb.MovePosition(rb.position + mov);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            if (health > 0)
-            {
-                health--;
-            }
-            if (health == 0)
-            {
-                gameController.gameOver = true;
-            }
-        }
     }
 }
