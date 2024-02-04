@@ -7,13 +7,19 @@ public class EnemyController : MonoBehaviour
 
     public float moveSpeed = 5f;
     public float damegeTimer = 0.2f;
-    public int health = 2;
+    public int enemyHealth = 20;
+    public int enemyDamage = 5;
+    public int enemyExp = 10;
     private GameObject player;
+    private PlayerController playerController;
+    private GameController gameController;
     private float timer;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
     private void Update()
@@ -27,15 +33,16 @@ public class EnemyController : MonoBehaviour
     {
         if (collison.gameObject.CompareTag("Bullet"))
         {
-            if (health > 0)
+            if (enemyHealth > 0)
             {
-                health--;
+                enemyHealth -= playerController.playerDamage;
                 Destroy(collison.gameObject);
             }
-            if (health == 0)
+            if (enemyHealth <= 0)
             {
                 Destroy(gameObject);
                 Destroy(collison.gameObject);
+                playerController.AddExpToPlayer(enemyExp);
             }
         }
     }
@@ -44,15 +51,15 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (player.GetComponent<PlayerController>().health > 0 && timer >= damegeTimer)
+            if (playerController.playerHealth > 0 && timer >= damegeTimer)
             {
-                player.GetComponent<PlayerController>().health--;
+                playerController.playerHealth -= enemyDamage;
                 timer = 0;
-                Debug.Log("Health: " + player.GetComponent<PlayerController>().health);
+                Debug.Log("Health: " + playerController.playerHealth);
             }
-            if (player.GetComponent<PlayerController>().health == 0)
+            if (playerController.playerHealth <= 0)
             {
-                GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().gameOver = true;
+                gameController.gameOver = true;
             }
         }
     }
