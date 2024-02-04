@@ -184,7 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f76706dbed47d0147a36ca7f4cdae31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 943009607}
 --- !u!1001 &548548511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -368,6 +367,7 @@ MonoBehaviour:
   gameOverMenuUI: {fileID: 420050623}
   gameUI: {fileID: 1210553949}
   gameOver: 0
+  timerActive: 1
   pauseButton: 27
 --- !u!1 &1210553947
 GameObject:
@@ -430,54 +430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4355a97470abf7499774897795e712d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 0}
---- !u!1 &1772209721
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1772209722}
-  - component: {fileID: 1772209723}
-  m_Layer: 0
-  m_Name: EnemySpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1772209722
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772209721}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.13236953, y: 0.13236953, z: 0.13236953}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 892616054}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1772209723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772209721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72a84761f070a3e4da60464b9efbaee1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5836843166377663602, guid: 153b38d5f978f1e4983938deec1e1575, type: 3}
-  interval: 100
-  spawnRadius: 20
 --- !u!1001 &8220160855789296194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -530,16 +482,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2995622480924098697, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
-      propertyPath: gameController
-      value: 
-      objectReference: {fileID: 943009607}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2553496147054739282, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1772209722}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
 --- !u!1660057539 &9223372036854775807

@@ -55,7 +55,6 @@ public class EnemyController : MonoBehaviour
             {
                 playerController.playerHealth -= enemyDamage;
                 timer = 0;
-                Debug.Log("Health: " + playerController.playerHealth);
             }
             if (playerController.playerHealth <= 0)
             {
