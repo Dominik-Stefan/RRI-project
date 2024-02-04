@@ -4,7 +4,6 @@ using UnityEngine.UIElements;
 
 public class GameOverController : MonoBehaviour
 {
-    public GameController gameController;
     private void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;

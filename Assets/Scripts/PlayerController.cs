@@ -4,13 +4,13 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
     public int playerHealth = 100;
+    public int playerMaxHealth = 100;
     public int playerDamage = 10;
+    public int exp = 0;
+    public int expToLevelUp = 100;
     private Vector2 mov;
     private Rigidbody2D rb;
     private int level = 1;
-    private int exp = 0;
-
-    private int expToLevelUp = 100;
 
     void Start()
     {
@@ -33,8 +33,6 @@ public class PlayerController : MonoBehaviour
     {
         exp += expGained;
 
-        Debug.Log("Exp: " + exp);
-
         ExpChecker();
     }
 
@@ -45,7 +43,6 @@ public class PlayerController : MonoBehaviour
             level++;
             exp -= expToLevelUp;
             expToLevelUp = expToLevelUp + (int)(expToLevelUp * 0.1f);
-            Debug.Log("Level Up! ExpToLevelUp:" + expToLevelUp);
         }
     }
 }
