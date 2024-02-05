@@ -10,15 +10,17 @@ public class ShootingController : MonoBehaviour
     private bool canFire;
     private float timer;
     private Vector3 mousePosition;
+    private GameController gameController;
 
     void Start()
     {
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
         canFire = true;
     }
 
     void Update()
     {
-        if (GameController.paused == false)
+        if (GameController.paused == false && !gameController.levelUp && !gameController.gameOver)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
