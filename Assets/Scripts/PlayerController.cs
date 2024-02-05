@@ -48,4 +48,9 @@ public class PlayerController : MonoBehaviour
             gameController.ShowLevelUpMenu();
         }
     }
+
+    public int GetLevel()
+    {
+        return level;
+    }
 }

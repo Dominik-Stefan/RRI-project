@@ -310,6 +310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8288999182144440544}
   - component: {fileID: 3581409362475770569}
+  - component: {fileID: 1821850055668941404}
   m_Layer: 0
   m_Name: RotatePoint
   m_TagString: Untagged
@@ -345,9 +346,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a366319703eb424e8cebcdfd4b0a53e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingTypes: {fileID: 1821850055668941404}
+  timeBetweenFiring: 1
+--- !u!114 &1821850055668941404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3980927398390076272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63564ab1fdee7ce43a0191eb524c0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 10
   bullet: {fileID: 8098148162706533617, guid: 53206dfa721102c43bc4654080b82723, type: 3}
   bulletTransform: {fileID: 7300053752888322676}
-  timeBetweenFiring: 0
 --- !u!1 &5445607774117240744
 GameObject:
   m_ObjectHideFlags: 0

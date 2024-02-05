@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ShootingController : MonoBehaviour
 {
-    public GameObject bullet;
-    public Transform bulletTransform;
+    public ShootingTypes shootingTypes;
     public float timeBetweenFiring;
     private bool canFire;
     private float timer;
+    private Vector3 localMousePosition;
     private Vector3 mousePosition;
     private GameController gameController;
 
@@ -22,12 +22,8 @@ public class ShootingController : MonoBehaviour
     {
         if (GameController.paused == false && !gameController.levelUp && !gameController.gameOver)
         {
-            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            Vector3 rotation = mousePosition - transform.position;
-
-            float rotationZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-
+            localMousePosition = GetMousePosition();
+            float rotationZ = Mathf.Atan2(localMousePosition.y, localMousePosition.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, rotationZ);
 
             if (!canFire)
@@ -43,9 +39,25 @@ public class ShootingController : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && canFire)
             {
                 canFire = false;
-                GameObject copy = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-                Destroy(copy, 5);
+
+                if (playerController.GetLevel() < 2)
+                {
+                    shootingTypes.SingleShoot();
+                }
+                else if (playerController.GetLevel() < 3)
+                {
+                    shootingTypes.DoubleShoot();
+                }
+                else
+                {
+                    shootingTypes.SpreadShoot();
+                }
             }
         }
+    }
+
+    public Vector3 GetMousePosition()
+    {
+        return Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
     }
 }
