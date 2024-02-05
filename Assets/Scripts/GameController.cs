@@ -5,23 +5,25 @@ public class GameController : MonoBehaviour
 {
     public UIDocument pauseMenuUI;
     public UIDocument gameOverMenuUI;
-    public UIDocument gameUI;
+    public UIDocument inGameHUD;
+    public UIDocument levelUpMenuUI;
     public static bool paused;
     public bool gameOver;
     public bool timerActive = true;
+    public bool levelUp = false;
     public KeyCode pauseButton;
-    private InGameHUDController inGameHUDController;
     void Start()
     {
         gameOverMenuUI.rootVisualElement.style.display = DisplayStyle.None;
-        gameUI.rootVisualElement.style.display = DisplayStyle.Flex;
+        levelUpMenuUI.rootVisualElement.style.display = DisplayStyle.None;
+        inGameHUD.rootVisualElement.style.display = DisplayStyle.Flex;
         ResumeGame();
         gameOver = false;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(pauseButton) && !gameOver)
+        if (Input.GetKeyDown(pauseButton) && !gameOver && !levelUp)
         {
             if (paused)
             {
@@ -54,5 +56,21 @@ public class GameController : MonoBehaviour
         pauseMenuUI.rootVisualElement.style.display = DisplayStyle.Flex;
         Time.timeScale = 0f;
         timerActive = false;
+    }
+
+    public void ShowLevelUpMenu()
+    {
+        levelUp = true;
+        levelUpMenuUI.rootVisualElement.style.display = DisplayStyle.Flex;
+        Time.timeScale = 0f;
+        timerActive = false;
+    }
+
+    public void HideLevelUpMenu()
+    {
+        levelUp = false;
+        levelUpMenuUI.rootVisualElement.style.display = DisplayStyle.None;
+        Time.timeScale = 1f;
+        timerActive = true;
     }
 }

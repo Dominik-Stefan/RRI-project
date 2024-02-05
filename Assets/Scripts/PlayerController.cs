@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed;
+    public float moveSpeed = 5;
     public int playerHealth = 100;
     public int playerMaxHealth = 100;
     public int playerDamage = 10;
     public int exp = 0;
     public int expToLevelUp = 100;
+    private GameController gameController;
     private Vector2 mov;
     private Rigidbody2D rb;
     private int level = 1;
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
     void Update()
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
             level++;
             exp -= expToLevelUp;
             expToLevelUp = expToLevelUp + (int)(expToLevelUp * 0.1f);
+            gameController.ShowLevelUpMenu();
         }
     }
 }
