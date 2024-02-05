@@ -45,4 +45,9 @@ public class PlayerController : MonoBehaviour
             expToLevelUp = expToLevelUp + (int)(expToLevelUp * 0.1f);
         }
     }
+
+    public int GetLevel()
+    {
+        return level;
+    }
 }
