@@ -9,10 +9,13 @@ public class ShootingController : MonoBehaviour
     private bool canFire;
     private float timer;
     private Vector3 localMousePosition;
+    private Vector3 mousePosition;
+    private GameController gameController;
     private PlayerController playerController;
 
     void Start()
     {
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
         playerController = GetComponentInParent<PlayerController>();
         canFire = true;
     }
