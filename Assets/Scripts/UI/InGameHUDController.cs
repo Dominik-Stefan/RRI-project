@@ -40,9 +40,11 @@ public class InGameHUDController : MonoBehaviour
     void Update()
     {
         hpBar.value = playerController.playerHealth;
+        hpBar.highValue = playerController.playerMaxHealth;
         hpBar.title = "HP: " + playerController.playerHealth + "/" + playerController.playerMaxHealth;
 
         expBar.value = playerController.exp;
+        expBar.highValue = playerController.expToLevelUp;
         expBar.title = "EXP: " + playerController.exp + "/" + playerController.expToLevelUp;
 
         if (gameController.timerActive)

@@ -4,8 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 
-
-
 public class LevelUpMenuController : MonoBehaviour
 {
     private class BasicStatUpgrade
@@ -36,6 +34,7 @@ public class LevelUpMenuController : MonoBehaviour
             }
             player.moveSpeed = player.moveSpeed + player.moveSpeed * moveSpeed;
             player.playerDamage = player.playerDamage + (int)(player.playerDamage * attack);
+            Debug.Log("Player stats: " + player.playerMaxHealth + " " + player.moveSpeed + " " + player.playerDamage);
         }
     }
 
@@ -45,18 +44,15 @@ public class LevelUpMenuController : MonoBehaviour
     private PlayerController playerController;
     private GameController gameController;
     private RadioButtonGroup levelUpOptions;
-
+    private List<BasicStatUpgrade> options;
+    private List<string> choices;
     private void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
 
-        List<BasicStatUpgrade> options = new List<BasicStatUpgrade> { new BasicStatUpgrade(), new BasicStatUpgrade(), new BasicStatUpgrade() };
-
-        List<string> choices = new List<string> { options[0].description, options[1].description, options[2].description };
-
         levelUpOptions = root.Q<RadioButtonGroup>("LevelUpOptions");
-        levelUpOptions.choices = choices;
-        levelUpOptions.value = 0;
+
+        Refresh();
 
         buttonConfirm = root.Q<Button>("ConfirmButton");
 
@@ -67,10 +63,20 @@ public class LevelUpMenuController : MonoBehaviour
         };
     }
 
-    void Start()
+    private void Start()
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+    }
+
+    public void Refresh()
+    {
+        options = new List<BasicStatUpgrade> { new BasicStatUpgrade(), new BasicStatUpgrade(), new BasicStatUpgrade() };
+
+        choices = new List<string> { options[0].description, options[1].description, options[2].description };
+
+        levelUpOptions.choices = choices;
+        levelUpOptions.value = 0;
     }
 }
 

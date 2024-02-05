@@ -61,6 +61,7 @@ public class GameController : MonoBehaviour
     public void ShowLevelUpMenu()
     {
         levelUp = true;
+        levelUpMenuUI.GetComponent<LevelUpMenuController>().Refresh();
         levelUpMenuUI.rootVisualElement.style.display = DisplayStyle.Flex;
         Time.timeScale = 0f;
         timerActive = false;
