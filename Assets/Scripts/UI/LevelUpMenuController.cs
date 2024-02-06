@@ -17,7 +17,7 @@ public class LevelUpMenuController : MonoBehaviour
 
         public BasicStatUpgrade()
         {
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>(); ;
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
             rnd = new System.Random();
             maxHealth = 0.05f * rnd.Next(-5, 6);
             attack = 0.05f * rnd.Next(-5, 6);
