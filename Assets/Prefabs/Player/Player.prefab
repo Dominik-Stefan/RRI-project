@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingTypes: {fileID: 1821850055668941404}
-  timeBetweenFiring: 1
+  timeBetweenFiring: 0.5
 --- !u!114 &1821850055668941404
 MonoBehaviour:
   m_ObjectHideFlags: 0

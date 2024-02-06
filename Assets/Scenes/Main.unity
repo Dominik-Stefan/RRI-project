@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -253,21 +253,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8433912864746799764, guid: 153b38d5f978f1e4983938deec1e1575, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 892616054}
-    - target: {fileID: -8433912864746799764, guid: 153b38d5f978f1e4983938deec1e1575, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5836843166377663602, guid: 153b38d5f978f1e4983938deec1e1575, type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6141903818827385888, guid: 153b38d5f978f1e4983938deec1e1575, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9049193495688393281, guid: 153b38d5f978f1e4983938deec1e1575, type: 3}
       propertyPath: m_LocalPosition.x
@@ -376,11 +364,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 943009607}
---- !u!4 &892616054 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2553496147054739282, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
-  m_PrefabInstance: {fileID: 8220160855789296194}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &943009605
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,10 +532,6 @@ PrefabInstance:
     - target: {fileID: 2965968991322167371, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3581409362475770569, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
-      propertyPath: timeBetweenFiring
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
