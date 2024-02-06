@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class ShootingTypes : MonoBehaviour
 {
+    public float angle = 80;
     public float force = 10;
     public GameObject bullet;
     public Transform bulletTransform;
@@ -33,18 +31,22 @@ public class ShootingTypes : MonoBehaviour
     {
         SingleShoot();
 
-        GameObject copy = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-        Quaternion newRotation = transform.rotation;
-        newRotation.z += 10 * Mathf.Deg2Rad;
-        //Debug.Log(newRotation.z);
-        copy.GetComponent<Rigidbody2D>().velocity = (newRotation * Vector2.right).normalized * force;
-        Destroy(copy, 5);
-
         GameObject copy2 = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-        Quaternion newRotation2 = transform.rotation;
-        newRotation2.z -= 10 * Mathf.Deg2Rad;
-        //Debug.Log(newRotation2.z);
-        copy2.GetComponent<Rigidbody2D>().velocity = (newRotation2 * Vector2.right).normalized * force;
+
+        float directionX = bulletTransform.position.x + Mathf.Sin(angle * Mathf.PI / 180);
+        float directionY = bulletTransform.position.y + Mathf.Cos(angle * Mathf.PI / 180);
+        Vector3 direction = new Vector3(directionX, directionY, 0);
+
+        copy2.GetComponent<Rigidbody2D>().velocity = (transform.rotation * (direction - bulletTransform.position)).normalized * force;
         Destroy(copy2, 5);
+
+        GameObject copy3 = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+
+        directionX = bulletTransform.position.x + Mathf.Sin((angle + 20) * Mathf.PI / 180);
+        directionY = bulletTransform.position.y + Mathf.Cos((angle + 20) * Mathf.PI / 180);
+        direction = new Vector3(directionX, directionY, 0);
+        
+        copy3.GetComponent<Rigidbody2D>().velocity = (transform.rotation * (direction - bulletTransform.position)).normalized * force;
+        Destroy(copy3, 5);
     }
 }
