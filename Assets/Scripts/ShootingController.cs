@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootingController : MonoBehaviour
@@ -9,7 +7,6 @@ public class ShootingController : MonoBehaviour
     private bool canFire;
     private float timer;
     private Vector3 localMousePosition;
-    private Vector3 mousePosition;
     private GameController gameController;
     private PlayerController playerController;
 
@@ -24,7 +21,7 @@ public class ShootingController : MonoBehaviour
     {
         if (GameController.paused == false && !gameController.levelUp && !gameController.gameOver)
         {
-            localMousePosition = GetMousePosition();
+            localMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             float rotationZ = Mathf.Atan2(localMousePosition.y, localMousePosition.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, rotationZ);
 
@@ -50,16 +47,15 @@ public class ShootingController : MonoBehaviour
                 {
                     shootingTypes.DoubleShoot();
                 }
-                else
+                else if (playerController.GetLevel() < 4)
                 {
                     shootingTypes.SpreadShoot();
                 }
+                else
+                {
+                    shootingTypes.SpreadShoot(5);
+                }
             }
         }
-    }
-
-    public Vector3 GetMousePosition()
-    {
-        return Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
     }
 }

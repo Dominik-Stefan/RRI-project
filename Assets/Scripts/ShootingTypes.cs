@@ -2,23 +2,29 @@ using UnityEngine;
 
 public class ShootingTypes : MonoBehaviour
 {
-    public float angle = 80;
+    public float angle = 10;
     public float force = 10;
+    public float bulletTimeToDeath = 5;
     public GameObject bullet;
     public Transform bulletTransform;
-    private ShootingController shootingController;
 
     public void Start()
     {
-        shootingController = GetComponent<ShootingController>();
+
+    }
+
+    public void SingleShoot(Vector2 direction)
+    {
+        GameObject copy = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+        copy.GetComponent<Rigidbody2D>().velocity = (transform.rotation * direction).normalized * force;
+        Destroy(copy, bulletTimeToDeath);
     }
 
     public void SingleShoot()
     {
         GameObject copy = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-        //Debug.Log(transform.rotation);
         copy.GetComponent<Rigidbody2D>().velocity = (transform.rotation * Vector2.right).normalized * force;
-        Destroy(copy, 5);
+        Destroy(copy, bulletTimeToDeath);
     }
 
     public void DoubleShoot()
@@ -27,26 +33,21 @@ public class ShootingTypes : MonoBehaviour
         Invoke("SingleShoot", 0.05f);
     }
 
-    public void SpreadShoot()
+    public void SpreadShoot(int bulletNumber = 3)
     {
-        SingleShoot();
+        if (bulletNumber % 2 == 0) bulletNumber = 3;
 
-        GameObject copy2 = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+        float angleForBullet = 90 - angle * (bulletNumber - 1) / 2;
 
-        float directionX = bulletTransform.position.x + Mathf.Sin(angle * Mathf.PI / 180);
-        float directionY = bulletTransform.position.y + Mathf.Cos(angle * Mathf.PI / 180);
-        Vector3 direction = new Vector3(directionX, directionY, 0);
+        for (int i = 0; i < bulletNumber; i++)
+        {
+            float directionX = bulletTransform.position.x + Mathf.Sin(angleForBullet * Mathf.PI / 180);
+            float directionY = bulletTransform.position.y + Mathf.Cos(angleForBullet * Mathf.PI / 180);
+            Vector2 direction = new Vector2(directionX, directionY);
 
-        copy2.GetComponent<Rigidbody2D>().velocity = (transform.rotation * (direction - bulletTransform.position)).normalized * force;
-        Destroy(copy2, 5);
-
-        GameObject copy3 = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-
-        directionX = bulletTransform.position.x + Mathf.Sin((angle + 20) * Mathf.PI / 180);
-        directionY = bulletTransform.position.y + Mathf.Cos((angle + 20) * Mathf.PI / 180);
-        direction = new Vector3(directionX, directionY, 0);
-        
-        copy3.GetComponent<Rigidbody2D>().velocity = (transform.rotation * (direction - bulletTransform.position)).normalized * force;
-        Destroy(copy3, 5);
+            angleForBullet += angle;
+            
+            SingleShoot(direction - new Vector2(bulletTransform.position.x, bulletTransform.position.y));
+        }
     }
 }

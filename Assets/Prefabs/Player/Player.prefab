@@ -360,8 +360,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63564ab1fdee7ce43a0191eb524c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 80
+  angle: 10
   force: 10
+  bulletTimeToDeath: 5
   bullet: {fileID: 8098148162706533617, guid: 53206dfa721102c43bc4654080b82723, type: 3}
   bulletTransform: {fileID: 7300053752888322676}
 --- !u!1 &5445607774117240744
