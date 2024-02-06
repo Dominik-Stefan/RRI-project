@@ -6,7 +6,7 @@ public class EnemySpawnerController : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public float interval = 100;
-    public float spawnRadius = 5;
+    public float spawnRadius = 20;
     private float counter = 0;
 
     void FixedUpdate()
@@ -16,7 +16,7 @@ public class EnemySpawnerController : MonoBehaviour
         if (counter >= interval)
         {
             counter = 0;
-            Vector2 spawnPosition = (Vector2)transform.position - Random.insideUnitCircle * spawnRadius;
+            Vector2 spawnPosition = (Vector2)transform.position - Random.insideUnitCircle.normalized * spawnRadius;
             Instantiate(enemyPrefab, spawnPosition, transform.rotation);
         }
     }
