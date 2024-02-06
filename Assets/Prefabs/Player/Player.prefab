@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  playerHealth: 100
-  playerMaxHealth: 100
+  playerHealth: 1000
+  playerMaxHealth: 1000
   playerDamage: 10
   exp: 0
   expToLevelUp: 100
