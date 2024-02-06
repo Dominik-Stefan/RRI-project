@@ -7,9 +7,10 @@ public class EnemyController : MonoBehaviour
 
     public float moveSpeed = 5f;
     public float damegeTimer = 0.2f;
-    public int enemyHealth = 20;
+    public int enemyMaxHealth = 20;
     public int enemyDamage = 5;
     public int enemyExp = 10;
+    private int enemyHealth;
     private GameObject player;
     private PlayerController playerController;
     private GameController gameController;
@@ -17,6 +18,7 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
+        this.enemyHealth = this.enemyMaxHealth;
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
@@ -29,22 +31,19 @@ public class EnemyController : MonoBehaviour
         timer += Time.deltaTime;
     }
 
-    private void OnTriggerEnter2D(Collider2D collison)
+    public void TakeDamage()
     {
-        if (collison.gameObject.CompareTag("Bullet"))
+        if (this.enemyHealth > 0)
         {
-            if (enemyHealth > 0)
-            {
-                enemyHealth -= playerController.playerDamage;
-                Destroy(collison.gameObject);
-            }
-            if (enemyHealth <= 0)
-            {
-                Destroy(gameObject);
-                Destroy(collison.gameObject);
-                playerController.AddExpToPlayer(enemyExp);
-            }
+            this.enemyHealth -= playerController.playerDamage;
+            Debug.Log("Hit: " + this.enemyHealth);
         }
+        if (this.enemyHealth <= 0)
+        {
+            Destroy(gameObject);
+            playerController.AddExpToPlayer(enemyExp);
+        }
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
