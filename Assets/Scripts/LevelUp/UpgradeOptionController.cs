@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using Grit;
+using Upgrades;
 
 public class UpgradeOptionController : MonoBehaviour
 {

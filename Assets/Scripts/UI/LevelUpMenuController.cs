@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 
+using Upgrades;
+
 public class LevelUpMenuController : MonoBehaviour
 {
     private class BasicStatUpgrade
@@ -44,7 +46,7 @@ public class LevelUpMenuController : MonoBehaviour
     private PlayerController playerController;
     private GameController gameController;
     private RadioButtonGroup levelUpOptions;
-    private List<BasicStatUpgrade> options;
+    private List<Grit> options;
     private List<string> choices;
     private void OnEnable()
     {
@@ -71,9 +73,13 @@ public class LevelUpMenuController : MonoBehaviour
 
     public void Refresh()
     {
-        options = new List<BasicStatUpgrade> { new BasicStatUpgrade(), new BasicStatUpgrade(), new BasicStatUpgrade() };
+        //options = new List<BasicStatUpgrade> { new BasicStatUpgrade(), new BasicStatUpgrade(), new BasicStatUpgrade() };
 
-        choices = new List<string> { options[0].description, options[1].description, options[2].description };
+        //choices = new List<string> { options[0].description, options[1].description, options[2].description };
+
+        options = new List<Grit> { new Grit()};
+
+        choices = new List<string> { options[0].GetDescription()};
 
         levelUpOptions.choices = choices;
         levelUpOptions.value = 0;
