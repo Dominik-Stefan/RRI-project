@@ -127,9 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  damegeTimer: 0.2
+  damegeTimer: 0.05
   enemyMaxHealth: 20
-  enemyDamage: 5
+  enemyDamage: 25
   enemyExp: 10
 --- !u!58 &8122573809963652052
 CircleCollider2D:
