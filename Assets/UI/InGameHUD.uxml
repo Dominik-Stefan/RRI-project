@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Time" style="position: absolute; right: 0; top: 0; -unity-text-align: middle-center; font-size: 25px; -unity-font-style: normal;" />
     <ui:ProgressBar value="22" name="HP" focusable="false" style="width: 150px; height: 25px; font-size: 15px; -unity-text-align: middle-center; text-overflow: clip;" />
-    <ui:ProgressBar value="22" name="EXP" style="width: 150px; height: 25px; font-size: 15px; -unity-text-align: middle-center;" />
+    <ui:ProgressBar value="22" name="EXP" style="width: 150px; height: 25px; font-size: 15px; -unity-text-align: middle-center; rotate: -90deg; position: absolute; top: 203px; left: -54px;" />
 </ui:UXML>
