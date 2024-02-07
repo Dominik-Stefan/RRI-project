@@ -6,10 +6,17 @@ using Upgrades;
 
 public class UpgradeOptionController : MonoBehaviour
 {
-    private List<Upgrade> allOptions = new List<Upgrade> { new Grit(), new Rush(), new Might() };
+    private List<Upgrade> allOptions = new List<Upgrade> { new Grit(), new Rush(), new Might(), new CompanyBonus() };
 
     public List<Upgrade> GetUpgradeOptions()
     {
+        PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
+
+        if (player.GetLevel() > 5)
+        {
+            allOptions.RemoveAll(upgrade => upgrade.GetID() == 4);
+        }
+
         List<Upgrade> options = new List<Upgrade>();
 
         switch (allOptions.Count)

@@ -30,7 +30,6 @@ public class LevelUpMenuController : MonoBehaviour
 
         buttonConfirm.clicked += () =>
         {
-            Debug.Log(Gun.selectedGun);
             options[levelUpOptions.value].Execute();
             upgradeOptionController.RemoveOption(options[levelUpOptions.value]);
             gameController.HideLevelUpMenu();
