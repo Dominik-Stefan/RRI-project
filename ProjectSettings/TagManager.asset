@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - UpgradeOption
   - DistanceCheck
+  - GunPicker
   layers:
   - Default
   - TransparentFX

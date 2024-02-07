@@ -6,6 +6,8 @@ public class MainMenuController : MonoBehaviour
 {
     public UIDocument menuUIDocument;
     public UIDocument controlsUIDocument;
+    public UIDocument gunMenuUIDocument;
+
     private void OnEnable()
     {
         VisualElement root = menuUIDocument.rootVisualElement;
@@ -14,11 +16,17 @@ public class MainMenuController : MonoBehaviour
         Button buttonControls = root.Q<Button>("ControlsButton");
         Button buttonQuit = root.Q<Button>("QuitButton");
 
-        buttonStart.clicked += () => SceneManager.LoadScene("Main");
+        buttonStart.clicked += () => ShowGunMenu();
         buttonControls.clicked += () => ShowControls();
         buttonQuit.clicked += () => Application.Quit();
 
         controlsUIDocument.rootVisualElement.style.display = DisplayStyle.None;
+        gunMenuUIDocument.rootVisualElement.style.display = DisplayStyle.None;
+    }
+
+    private void ShowGunMenu()
+    {
+        gunMenuUIDocument.rootVisualElement.style.display = DisplayStyle.Flex;
     }
 
     private void ShowControls()

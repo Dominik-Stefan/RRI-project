@@ -195,4 +195,49 @@ namespace Upgrades
             return mightMaxLVL;
         }
     }
+
+    public class CompanyBonus : Upgrade
+    {
+        private static int id = 4;
+        private static int companyBonusLVL = 0;
+        private static int companyBonusMaxLVL = 1;
+
+        public CompanyBonus()
+        {
+            title = "Company bonus";
+            description = "Max health, movement speed and damage +5%";
+        }
+
+        public override void Execute()
+        {
+            companyBonusLVL++;
+
+            PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
+
+            int healthGain = (int)(player.GetPlayerBaseHealth() * 0.05f);
+
+            player.playerMaxHealth += healthGain;
+
+            player.playerHealth += healthGain;
+
+            player.moveSpeed += (player.GetBaseMoveSpeed() * 0.05f);
+
+            player.playerDamage += (int)(player.GetPlayerBaseDamage() * 0.05f);
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return companyBonusLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return companyBonusMaxLVL;
+        }
+    }
 }

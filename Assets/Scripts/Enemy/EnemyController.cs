@@ -36,7 +36,6 @@ public class EnemyController : MonoBehaviour
         if (this.enemyHealth > 0)
         {
             this.enemyHealth -= playerController.playerDamage;
-            Debug.Log("Hit: " + this.enemyHealth);
         }
         if (this.enemyHealth <= 0)
         {
