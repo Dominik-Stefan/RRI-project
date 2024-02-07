@@ -1,8 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <ui:VisualElement style="flex-grow: 1; justify-content: center; background-color: rgba(0, 0, 0, 0.5);">
-        <ui:VisualElement style="flex-grow: 1; height: 50%; max-height: 50%; align-self: auto; justify-content: space-around; align-items: center;">
+        <ui:VisualElement style="flex-grow: 1; height: 50%; max-height: 70%; align-self: auto; justify-content: space-around; align-items: center;">
             <ui:Label tabindex="-1" text="PAUSED" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PausedText" style="align-items: auto; justify-content: flex-start; align-self: auto; font-size: 50px; color: rgb(255, 255, 255);" />
             <ui:Button text="Resume Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ResumeButton" style="max-width: 50%; width: 50%;" />
+            <ui:Button text="Controls" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ControlsButton" style="width: 50%; max-width: 50%;" />
             <ui:Button text="Main Menu" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MainMenuButton" style="width: 50%; max-width: 50%;" />
             <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitButton" style="max-width: 50%; width: 50%;" />
         </ui:VisualElement>
