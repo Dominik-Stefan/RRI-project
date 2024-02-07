@@ -30,12 +30,5 @@ public class EnemyObjectPool : MonoBehaviour
         return inactiveObjects.Count > 0 ?
          inactiveObjects[ Random.Range(0, inactiveObjects.Count) ] :
          null;
-
-        /*for(int i = 0; i < amountToPool; i++){
-            if(!pooledEnemyObjects[i].activeInHierarchy){
-                return pooledEnemyObjects[i];
-            }
-        }
-        return null;*/
     }
 }
