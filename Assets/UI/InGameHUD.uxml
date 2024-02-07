@@ -1,5 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Time" style="position: absolute; right: 0; top: 0; -unity-text-align: middle-center; font-size: 25px; -unity-font-style: normal;" />
-    <ui:ProgressBar value="22" name="HP" focusable="false" style="width: 150px; height: 25px; font-size: 15px; -unity-text-align: middle-center; text-overflow: clip;" />
-    <ui:ProgressBar value="22" name="EXP" style="width: 150px; height: 25px; font-size: 15px; -unity-text-align: middle-center; rotate: -90deg; position: absolute; top: 203px; left: -54px;" />
+    <ui:VisualElement style="flex-grow: 1; justify-content: flex-end; align-self: stretch; align-items: auto; flex-wrap: nowrap;">
+        <ui:VisualElement style="flex-grow: 1; justify-content: center; align-items: auto; align-self: flex-start;">
+            <ui:ProgressBar value="22" name="EXP" style="width: 200px; height: 25px; font-size: 15px; -unity-text-align: middle-center; rotate: -90deg; position: relative; top: auto; left: -77px; justify-content: center; align-self: auto; align-items: stretch;" />
+        </ui:VisualElement>
+        <ui:ProgressBar value="22" name="HP" focusable="false" style="font-size: 15px; -unity-text-align: middle-center; text-overflow: clip; position: relative; top: auto; left: auto; justify-content: center; align-items: stretch; align-self: center; height: 25px; width: 200px; background-color: rgba(0, 0, 0, 0);" />
+    </ui:VisualElement>
 </ui:UXML>

@@ -38,6 +38,49 @@ namespace Upgrades
         }
     }
 
+    public class Heal : Upgrade
+    {
+        private static int id = 0;
+        private static int healLVL = 0;
+        private static int healMaxLVL = 1;
+
+        public Heal()
+        {
+            title = "Heal";
+            description = "Heal 25% base health";
+        }
+
+        public override void Execute()
+        {
+            PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
+
+            int healthGain = (int)(player.GetPlayerBaseHealth() * 0.25f);
+
+            if (player.playerHealth + healthGain >= player.playerMaxHealth)
+            {
+                player.playerHealth = player.playerMaxHealth;
+                return;
+            }
+
+            player.playerHealth += healthGain;
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return healLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return healMaxLVL;
+        }
+    }
+
     public class Grit : Upgrade
     {
         private static int id = 1;
