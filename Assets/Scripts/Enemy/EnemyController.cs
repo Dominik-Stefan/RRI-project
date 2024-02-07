@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
 
     public float moveSpeed = 5f;
-    public float damegeTimer = 0.2f;
+    public float damageTimer = 0.2f;
     public int enemyMaxHealth = 20;
     public int enemyDamage = 5;
     public int enemyExp = 10;
@@ -40,7 +40,10 @@ public class EnemyController : MonoBehaviour
         }
         if (this.enemyHealth <= 0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            this.enemyHealth = this.enemyMaxHealth;
+            gameObject.SetActive(false);
+
             playerController.AddExpToPlayer(enemyExp);
         }
 
@@ -50,7 +53,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (playerController.playerHealth > 0 && timer >= damegeTimer)
+            if (playerController.playerHealth > 0 && timer >= damageTimer)
             {
                 playerController.playerHealth -= enemyDamage;
                 timer = 0;
