@@ -14,6 +14,9 @@ public class UpgradeOptionController : MonoBehaviour
 
         switch (allOptions.Count)
         {
+            case 0:
+                options.Add(new Heal());
+                return options;
             case 1:
                 options.Add(allOptions[0]);
                 return options;
