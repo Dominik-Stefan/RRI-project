@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 78981856}
   - component: {fileID: 78981857}
   - component: {fileID: 78981858}
+  - component: {fileID: 78981859}
   m_Layer: 5
   m_Name: LevelUpMenu
   m_TagString: Untagged
@@ -182,6 +183,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45759c4f581debb49a3a50abd5cd7eb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &78981859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78981855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7058bad24e95d44185cd310e68d0fb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &420050622

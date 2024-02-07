@@ -6,18 +6,51 @@ using Upgrades;
 
 public class UpgradeOptionController : MonoBehaviour
 {
-    void Start()
-    {
+    private List<Upgrade> allOptions = new List<Upgrade> { new Grit(), new Rush(), new Might() };
 
+    public List<Upgrade> GetUpgradeOptions()
+    {
+        List<Upgrade> options = new List<Upgrade>();
+
+        switch (allOptions.Count)
+        {
+            case 1:
+                options.Add(allOptions[0]);
+                return options;
+            case 2:
+                options.Add(allOptions[0]);
+                options.Add(allOptions[1]);
+                return options;
+            case 3:
+                options.Add(allOptions[0]);
+                options.Add(allOptions[1]);
+                options.Add(allOptions[2]);
+                return options;
+        }
+
+        System.Random rand = new System.Random();
+
+        HashSet<int> selectedIndices = new HashSet<int>();
+
+        while (selectedIndices.Count < 3)
+        {
+            int randIndex = rand.Next(0, allOptions.Count);
+            if (!selectedIndices.Contains(randIndex))
+            {
+                selectedIndices.Add(randIndex);
+                options.Add(allOptions[randIndex]);
+            }
+        }
+
+        return options;
     }
 
-    void Update()
+    public void RemoveOption(Upgrade option)
     {
-
-    }
-
-    public void Refresh()
-    {
-
+        if (option.GetLVL() == option.GetMaxLVL())
+        {
+            Debug.Log("Tu sam" + option.GetID());
+            allOptions.RemoveAll(upgrade => upgrade.GetID() == option.GetID());
+        }
     }
 }

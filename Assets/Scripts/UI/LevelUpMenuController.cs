@@ -45,8 +45,9 @@ public class LevelUpMenuController : MonoBehaviour
     private Button buttonConfirm;
     private PlayerController playerController;
     private GameController gameController;
+    private UpgradeOptionController upgradeOptionController;
     private RadioButtonGroup levelUpOptions;
-    private List<Grit> options;
+    private List<Upgrade> options;
     private List<string> choices;
     private void OnEnable()
     {
@@ -54,18 +55,21 @@ public class LevelUpMenuController : MonoBehaviour
 
         levelUpOptions = root.Q<RadioButtonGroup>("LevelUpOptions");
 
+        upgradeOptionController = gameObject.GetComponent<UpgradeOptionController>();
+
         Refresh();
 
         buttonConfirm = root.Q<Button>("ConfirmButton");
 
         buttonConfirm.clicked += () =>
         {
-            options[levelUpOptions.value].Upgrade();
+            options[levelUpOptions.value].Execute();
+            upgradeOptionController.RemoveOption(options[levelUpOptions.value]);
             gameController.HideLevelUpMenu();
         };
     }
 
-    private void Start()
+    void Start()
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
@@ -77,9 +81,14 @@ public class LevelUpMenuController : MonoBehaviour
 
         //choices = new List<string> { options[0].description, options[1].description, options[2].description };
 
-        options = new List<Grit> { new Grit()};
+        options = upgradeOptionController.GetUpgradeOptions();
 
-        choices = new List<string> { options[0].GetDescription()};
+        choices = new List<string>();
+
+        for (int i = 0; i < options.Count; i++)
+        {
+            choices.Add(options[i].GetDescription());
+        }
 
         levelUpOptions.choices = choices;
         levelUpOptions.value = 0;
