@@ -17,7 +17,14 @@ public class EnemySpawnerController : MonoBehaviour
         {
             counter = 0;
             Vector2 spawnPosition = (Vector2)transform.position - Random.insideUnitCircle.normalized * spawnRadius;
-            Instantiate(enemyPrefab, spawnPosition, transform.rotation);
+
+            //Instantiate(enemyPrefab, spawnPosition, transform.rotation);
+            GameObject enemy = EnemyObjectPool.SharedInstance.getPooledEnemyObject();
+            if(enemy != null){
+                enemy.transform.position = spawnPosition;
+                enemy.transform.rotation = transform.rotation;
+                enemy.SetActive(true);
+            }
         }
     }
 }

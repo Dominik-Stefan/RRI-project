@@ -15,16 +15,30 @@ public class ShootingTypes : MonoBehaviour
 
     public void SingleShoot(Vector2 direction)
     {
-        GameObject copy = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-        copy.GetComponent<Rigidbody2D>().velocity = (transform.rotation * direction).normalized * force;
-        Destroy(copy, bulletTimeToDeath);
+        //GameObject copy = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+        GameObject bulletCopy = BulletObjectPool.SharedInstance.getPooledBulletObject();
+        if(bulletCopy != null){
+            bulletCopy.transform.position = bulletTransform.position;
+            bulletCopy.transform.rotation = Quaternion.identity;
+            bulletCopy.SetActive(true);
+        }
+
+        bulletCopy.GetComponent<Rigidbody2D>().velocity = (transform.rotation * direction).normalized * force;
+        //Destroy(copy, bulletTimeToDeath);
     }
 
     public void SingleShoot()
     {
-        GameObject copy = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-        copy.GetComponent<Rigidbody2D>().velocity = (transform.rotation * Vector2.right).normalized * force;
-        Destroy(copy, bulletTimeToDeath);
+        //GameObject copy = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+        GameObject bulletCopy = BulletObjectPool.SharedInstance.getPooledBulletObject();
+        if(bulletCopy != null){
+            bulletCopy.transform.position = bulletTransform.position;
+            bulletCopy.transform.rotation = Quaternion.identity;
+            bulletCopy.SetActive(true);
+        }
+
+        bulletCopy.GetComponent<Rigidbody2D>().velocity = (transform.rotation * Vector2.right).normalized * force;
+        //Destroy(copy, bulletTimeToDeath);
     }
 
     public void DoubleShoot()
@@ -33,9 +47,9 @@ public class ShootingTypes : MonoBehaviour
         Invoke("SingleShoot", 0.05f);
     }
 
-    public void SpreadShoot(int bulletNumber = 3)
+    public void SpreadShoot(int bulletNumber = 2)
     {
-        if (bulletNumber % 2 == 0) bulletNumber = 3;
+        //if (bulletNumber % 2 == 0) bulletNumber = 3;
 
         float angleForBullet = 90 - angle * (bulletNumber - 1) / 2;
 

@@ -53,7 +53,7 @@ public class ShootingController : MonoBehaviour
                 }
                 else
                 {
-                    shootingTypes.SpreadShoot(5);
+                    shootingTypes.SpreadShoot(6);
                 }
             }
         }
