@@ -52,7 +52,6 @@ public class UpgradeOptionController : MonoBehaviour
     {
         if (option.GetLVL() == option.GetMaxLVL())
         {
-            Debug.Log("Tu sam" + option.GetID());
             allOptions.RemoveAll(upgrade => upgrade.GetID() == option.GetID());
         }
     }

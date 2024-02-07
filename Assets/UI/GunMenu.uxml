@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; justify-content: center; align-self: stretch;">
+        <ui:GroupBox style="justify-content: center; align-items: stretch; align-self: center; background-color: rgb(176, 176, 176);">
+            <ui:Label tabindex="-1" text="Choose gun" parse-escape-sequences="true" display-tooltip-when-elided="true" style="justify-content: center; align-self: center; position: relative; top: auto; -unity-font-style: bold; font-size: 15px;" />
+            <ui:GroupBox style="flex-direction: row; justify-content: center; align-items: stretch; align-self: center;">
+                <ui:Button text="Pistol" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PistolButton" style="justify-content: center; align-self: center; font-size: 15px; margin-right: 10px;" />
+                <ui:Button text="Shotgun" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ShotgunButton" style="align-self: center; justify-content: center; font-size: 15px; margin-right: 10px; margin-left: 10px;" />
+                <ui:Button text="Minigun" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MinigunButton" style="align-self: center; justify-content: center; font-size: 15px; margin-left: 10px;" />
+            </ui:GroupBox>
+        </ui:GroupBox>
+    </ui:VisualElement>
+</ui:UXML>
