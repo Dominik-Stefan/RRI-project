@@ -36,7 +36,7 @@ public class ShootingController : MonoBehaviour
                 timeBetweenFiring = 0.5f;
                 reloadTime = 3f;
                 pellets = 4;
-                spreadAngle = 10f;
+                spreadAngle = 1f;
                 playerController.playerDamage = 10;
                 break;
             case "Minigun":
