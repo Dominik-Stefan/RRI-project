@@ -88,7 +88,7 @@ public class ShootingTypes : MonoBehaviour
         }
     } */
 
-    public void SpreadShoot(int bulletNumber = 4, float spreadAngle = 10f)
+    /* public void SpreadShoot(int bulletNumber = 4, float spreadAngle = 10f)
     {
         Vector2[] directions = new Vector2[bulletNumber];
 
@@ -100,6 +100,22 @@ public class ShootingTypes : MonoBehaviour
 
         foreach (var direction in directions)
         {
+            SingleShoot(direction * force);
+        }
+    } */
+
+    public void SpreadShoot(int bulletNumber = 4, float spreadAngle = 1f)
+    {
+        for (int i = 0; i < bulletNumber; i++)
+        {
+            float spreadDirection = Random.Range(-spreadAngle / 2f, spreadAngle / 2f);
+
+            Vector2 randomOffset = Random.insideUnitCircle * spreadDirection;
+
+            Vector2 direction = Vector2.right + randomOffset;
+
+            direction = direction.normalized;
+
             SingleShoot(direction * force);
         }
     }
