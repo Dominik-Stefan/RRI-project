@@ -5,6 +5,6 @@
             <ui:ProgressBar value="22" name="EXP" style="width: 200px; height: 25px; font-size: 15px; -unity-text-align: middle-center; rotate: -90deg; position: relative; top: auto; left: -77px; justify-content: center; align-self: auto; align-items: stretch;" />
         </ui:VisualElement>
         <ui:ProgressBar value="22" name="HP" focusable="false" style="font-size: 15px; -unity-text-align: middle-center; text-overflow: clip; position: relative; top: auto; left: auto; justify-content: center; align-items: stretch; align-self: center; height: 25px; width: 250px; background-color: rgba(0, 0, 0, 0);" />
-        <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Ammo" style="position: absolute; top: 275px; left: auto; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 12px; color: rgb(132, 38, 38); -unity-text-align: middle-center; justify-content: center; align-self: center;" />
+        <ui:ProgressBar value="22" name="Ammo" style="position: absolute; justify-content: center; align-self: flex-end; align-items: stretch; bottom: 4px; right: 4px; height: 25px; width: 100px; font-size: 15px; -unity-text-align: middle-center;" />
     </ui:VisualElement>
 </ui:UXML>

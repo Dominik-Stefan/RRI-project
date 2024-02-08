@@ -200,11 +200,11 @@ namespace Upgrades
     {
         private static int id = 4;
         private static int companyBonusLVL = 0;
-        private static int companyBonusMaxLVL = 5;
+        private static int companyBonusMaxLVL = 1;
 
         public CompanyBonus()
         {
-            title = "Company bonus LVL " + (companyBonusLVL + 1);
+            title = "Company bonus";
             description = "Max health, movement speed and damage +5%";
         }
 
