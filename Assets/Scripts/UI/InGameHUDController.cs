@@ -45,6 +45,7 @@ public class InGameHUDController : MonoBehaviour
             ammoBar.value = ShootingController.currentAmmo;
             ammoBar.highValue = ShootingController.ammo;
             ammoBar.title = ShootingController.currentAmmo + "/" + ShootingController.ammo;
+            reloadTimer = 0;
         }
         else
         {
