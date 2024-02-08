@@ -11,7 +11,11 @@ public class EnemyGunman : EnemyController
     public int shootingForce = 10;
     private int counter = 0;
     private bool canShoot = false;
+    public int level = 1;
+    public float spreadAngle = 1f;
+    public int bulletCount = 4;
 
+    //1 - pistol, 2 - shotgun
     void Update(){
         switch(follow){
             case 1:
@@ -28,15 +32,40 @@ public class EnemyGunman : EnemyController
         if (counter >= shootingInterval && canShoot && GameController.paused == false && !gameController.levelUp && !gameController.gameOver){
             counter = 0;
 
-            GameObject bulletCopy = EnemyBulletObjectPool.SharedInstance.getPooledEnemyBulletObject();
-            if(bulletCopy != null){
-                bulletCopy.transform.position = transform.position;
-                bulletCopy.transform.rotation = transform.rotation;
-                bulletCopy.SetActive(true);
+            if(level == 1){
+                SingleShoot();
+            }else if(level == 2){
+                for (int i = 0; i < bulletCount; i++){
+                    float spreadDirection = Random.Range(-spreadAngle / 2f, spreadAngle / 2f);
+                    Vector2 randomOffset = Random.insideUnitCircle * spreadDirection;
+                    Vector2 direction = ((Vector2)player.transform.position - (Vector2)transform.position).normalized * shootingForce + randomOffset;
+                    SingleShoot(direction * shootingForce);
+                }
             }
+        }
+    }
+
+    private void SingleShoot(){
+        GameObject bulletCopy = EnemyBulletObjectPool.SharedInstance.getPooledEnemyBulletObject();
+        if(bulletCopy != null){
+            bulletCopy.transform.position = transform.position;
+            bulletCopy.transform.rotation = transform.rotation;
+            bulletCopy.SetActive(true);
 
             Vector2 moveDirection = (player.transform.position - transform.position).normalized * shootingForce;
             bulletCopy.GetComponent<Rigidbody2D>().velocity = new Vector2(moveDirection.x, moveDirection.y);
+        }
+    }
+
+    private void SingleShoot(Vector2 direction){
+        GameObject bulletCopy = EnemyBulletObjectPool.SharedInstance.getPooledEnemyBulletObject();
+        if (bulletCopy != null)
+        {
+            bulletCopy.transform.position = transform.position;
+            bulletCopy.transform.rotation = Quaternion.identity;
+            bulletCopy.SetActive(true);
+
+            bulletCopy.GetComponent<Rigidbody2D>().velocity = (transform.rotation * direction).normalized * shootingForce;
         }
     }
 
