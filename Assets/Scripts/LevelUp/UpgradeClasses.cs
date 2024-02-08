@@ -240,4 +240,39 @@ namespace Upgrades
             return companyBonusMaxLVL;
         }
     }
+
+    public class QuickReload : Upgrade
+    {
+        private static int id = 5;
+        private static int quickReloadLVL = 0;
+        private static int quickReloadMaxLVL = 1;
+
+        public QuickReload()
+        {
+            title = "Quick Reload";
+            description = "Reload speed +50%";
+        }
+
+        public override void Execute()
+        {
+            quickReloadLVL++;
+
+            ShootingController.reloadTime -= (0.5f * ShootingController.reloadTime);
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return quickReloadLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return quickReloadMaxLVL;
+        }
+    }
 }

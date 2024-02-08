@@ -6,7 +6,7 @@ using Upgrades;
 
 public class UpgradeOptionController : MonoBehaviour
 {
-    private List<Upgrade> allOptions = new List<Upgrade> { new Grit(), new Rush(), new Might(), new CompanyBonus() };
+    private List<Upgrade> allOptions = new List<Upgrade> { new Grit(), new Rush(), new Might(), new CompanyBonus(), new QuickReload() };
 
     public List<Upgrade> GetUpgradeOptions()
     {
