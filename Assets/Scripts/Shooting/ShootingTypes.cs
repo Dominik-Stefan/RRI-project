@@ -4,7 +4,7 @@ public class ShootingTypes : MonoBehaviour
 {
     public float angle = 10;
     public float force = 10;
-    public float bulletTimeToDeath = 5;
+    //public float bulletTimeToDeath = 5;
     public GameObject bullet;
     public Transform bulletTransform;
 
@@ -17,7 +17,8 @@ public class ShootingTypes : MonoBehaviour
     {
         //GameObject copy = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
         GameObject bulletCopy = BulletObjectPool.SharedInstance.getPooledBulletObject();
-        if(bulletCopy != null){
+        if (bulletCopy != null)
+        {
             bulletCopy.transform.position = bulletTransform.position;
             bulletCopy.transform.rotation = Quaternion.identity;
             bulletCopy.SetActive(true);
@@ -31,7 +32,8 @@ public class ShootingTypes : MonoBehaviour
     {
         //GameObject copy = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
         GameObject bulletCopy = BulletObjectPool.SharedInstance.getPooledBulletObject();
-        if(bulletCopy != null){
+        if (bulletCopy != null)
+        {
             bulletCopy.transform.position = bulletTransform.position;
             bulletCopy.transform.rotation = Quaternion.identity;
             bulletCopy.SetActive(true);
@@ -47,7 +49,25 @@ public class ShootingTypes : MonoBehaviour
         Invoke("SingleShoot", 0.05f);
     }
 
-    public void SpreadShoot(int bulletNumber = 2)
+    public void MinigunShoot()
+    {
+        GameObject bulletCopy = BulletObjectPool.SharedInstance.getPooledBulletObject();
+        if (bulletCopy != null)
+        {
+            bulletCopy.transform.position = bulletTransform.position;
+            bulletCopy.transform.rotation = Quaternion.identity;
+            bulletCopy.SetActive(true);
+        }
+
+        float randomOffsetX = Random.Range(-force * 0.015f, force * 0.015f);
+        float randomOffsetY = Random.Range(-force * 0.015f, force * 0.015f);
+
+        Vector2 randomDirection = new Vector2((transform.right.x + randomOffsetX), (transform.right.y + randomOffsetY)).normalized;
+        bulletCopy.GetComponent<Rigidbody2D>().velocity = randomDirection * force;
+    }
+
+
+    /* public void SpreadShoot(int bulletNumber = 2)
     {
         //if (bulletNumber % 2 == 0) bulletNumber = 3;
 
@@ -60,8 +80,24 @@ public class ShootingTypes : MonoBehaviour
             Vector2 direction = new Vector2(directionX, directionY);
 
             angleForBullet += angle;
-            
+
             SingleShoot(direction - new Vector2(bulletTransform.position.x, bulletTransform.position.y));
+        }
+    } */
+
+    public void SpreadShoot(int bulletNumber = 2, float spreadAngle = 10f)
+    {
+        Vector2[] directions = new Vector2[bulletNumber];
+
+        for (int i = 0; i < bulletNumber; i++)
+        {
+            float spreadDirection = angle - spreadAngle / 2 + spreadAngle * i / (bulletNumber - 1);
+            directions[i] = Quaternion.Euler(0, 0, spreadDirection) * Vector2.right;
+        }
+
+        foreach (var direction in directions)
+        {
+            SingleShoot(direction * force);
         }
     }
 }
