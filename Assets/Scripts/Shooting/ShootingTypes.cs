@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class ShootingTypes : MonoBehaviour
 {
@@ -43,12 +44,19 @@ public class ShootingTypes : MonoBehaviour
         //Destroy(copy, bulletTimeToDeath);
     }
 
-    public void DoubleShoot(bool doubleShoot = false)
+    public void QuickShoot(int bulletNumber)
+    {
+        StartCoroutine(ShootBullets(bulletNumber));
+    }
+
+    private IEnumerator ShootBullets(int bulletNumber)
     {
         SingleShoot();
-        if (doubleShoot)
+
+        for (int i = 0; i < bulletNumber - 1; i++)
         {
-            Invoke("SingleShoot", 0.05f);
+            yield return new WaitForSeconds(0.05f);
+            SingleShoot();
         }
     }
 
@@ -68,41 +76,6 @@ public class ShootingTypes : MonoBehaviour
         Vector2 randomDirection = new Vector2((transform.right.x + randomOffsetX), (transform.right.y + randomOffsetY)).normalized;
         bulletCopy.GetComponent<Rigidbody2D>().velocity = randomDirection * force;
     }
-
-
-    /* public void SpreadShoot(int bulletNumber = 2)
-    {
-        //if (bulletNumber % 2 == 0) bulletNumber = 3;
-
-        float angleForBullet = 90 - angle * (bulletNumber - 1) / 2;
-
-        for (int i = 0; i < bulletNumber; i++)
-        {
-            float directionX = bulletTransform.position.x + Mathf.Sin(angleForBullet * Mathf.PI / 180);
-            float directionY = bulletTransform.position.y + Mathf.Cos(angleForBullet * Mathf.PI / 180);
-            Vector2 direction = new Vector2(directionX, directionY);
-
-            angleForBullet += angle;
-
-            SingleShoot(direction - new Vector2(bulletTransform.position.x, bulletTransform.position.y));
-        }
-    } */
-
-    /* public void SpreadShoot(int bulletNumber = 4, float spreadAngle = 10f)
-    {
-        Vector2[] directions = new Vector2[bulletNumber];
-
-        for (int i = 0; i < bulletNumber; i++)
-        {
-            float spreadDirection = 10 - spreadAngle / 2 + spreadAngle * i / (bulletNumber - 1);
-            directions[i] = Quaternion.Euler(0, 0, spreadDirection) * Vector2.right;
-        }
-
-        foreach (var direction in directions)
-        {
-            SingleShoot(direction * force);
-        }
-    } */
 
     public void SpreadShoot(int bulletNumber = 4, float spreadAngle = 1f)
     {
