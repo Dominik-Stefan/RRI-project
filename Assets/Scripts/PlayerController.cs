@@ -1,5 +1,7 @@
 using UnityEngine;
 
+using Upgrades;
+
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5;
@@ -64,11 +66,13 @@ public class PlayerController : MonoBehaviour
         return playerBaseHealth;
     }
 
-    public float GetBaseMoveSpeed(){
+    public float GetBaseMoveSpeed()
+    {
         return baseMoveSpeed;
     }
-    
-    public int GetPlayerBaseDamage(){
+
+    public int GetPlayerBaseDamage()
+    {
         return playerBaseDamage;
     }
 }
