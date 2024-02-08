@@ -8,6 +8,7 @@ public class InGameHUDController : MonoBehaviour
     private Label timeLabel;
     private ProgressBar hpBar;
     private ProgressBar expBar;
+    private Label ammoLabel;
     private PlayerController playerController;
     private GameController gameController;
     private float currentTime = 0f;
@@ -19,6 +20,7 @@ public class InGameHUDController : MonoBehaviour
         timeLabel = root.Q<Label>("Time");
         hpBar = root.Q<ProgressBar>("HP");
         expBar = root.Q<ProgressBar>("EXP");
+        ammoLabel = root.Q<Label>("Ammo");
     }
 
 
@@ -35,10 +37,21 @@ public class InGameHUDController : MonoBehaviour
 
         expBar.value = 0;
         expBar.title = "EXP: 0/100";
+
+        ammoLabel.text = ShootingController.currentAmmo + "/" + ShootingController.ammo;
     }
 
     void Update()
     {
+        if (ShootingController.currentAmmo > 0)
+        {
+            ammoLabel.text = ShootingController.currentAmmo + "/" + ShootingController.ammo;
+        }
+        else
+        {
+            ammoLabel.text = "---";
+        }
+
         hpBar.value = playerController.playerHealth;
         hpBar.highValue = playerController.playerMaxHealth;
         hpBar.title = "HP: " + playerController.playerHealth + "/" + playerController.playerMaxHealth;
