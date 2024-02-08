@@ -6,11 +6,30 @@ using Upgrades;
 
 public class UpgradeOptionController : MonoBehaviour
 {
-    private List<Upgrade> allOptions = new List<Upgrade> { new Grit(), new Rush(), new Might(), new CompanyBonus() };
+    private bool added = false;
+    private List<Upgrade> allOptions = new List<Upgrade> { new Grit(), new Rush(), new Might(), new CompanyBonus(), new QuickReload() };
 
     public List<Upgrade> GetUpgradeOptions()
     {
         PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
+
+        if (!added)
+        {
+            switch (Gun.selectedGun)
+            {
+                case "Pistol":
+                    allOptions.Add(new BulletSpeed());
+                    allOptions.Add(new RapidFire());
+                    break;
+                case "Shotgun":
+                    allOptions.Add(new MorePellets());
+                    allOptions.Add(new IncreaseSpread());
+                    break;
+                case "Minigun":
+                    break;
+            }
+            added = true;
+        }
 
         if (player.GetLevel() > 5)
         {

@@ -3,11 +3,13 @@ using UnityEngine;
 public class ShootingController : MonoBehaviour
 {
     public ShootingTypes shootingTypes;
-    public float timeBetweenFiring;
+    public static float timeBetweenFiring;
     public static int currentAmmo;
-    public int ammo;
-    public float reloadTime;
-    public int pellets;
+    public static int ammo;
+    public static float reloadTime;
+    public static int pellets;
+    public static float spreadAngle;
+    public static bool doubleShoot;
     private bool canFire;
     private float timerForReload;
     private float timerForShooting;
@@ -26,6 +28,7 @@ public class ShootingController : MonoBehaviour
                 ammo = 6;
                 timeBetweenFiring = 0.5f;
                 reloadTime = 2f;
+                doubleShoot = false;
                 playerController.playerDamage = 20;
                 break;
             case "Shotgun":
@@ -33,16 +36,19 @@ public class ShootingController : MonoBehaviour
                 timeBetweenFiring = 0.5f;
                 reloadTime = 3f;
                 pellets = 4;
+                spreadAngle = 10f;
                 playerController.playerDamage = 10;
                 break;
             case "Minigun":
                 ammo = 50;
                 timeBetweenFiring = 0.2f;
                 reloadTime = 5f;
+                spreadAngle = 0.01f;
                 playerController.playerDamage = 5;
                 break;
         }
 
+        ShootingTypes.force = 10;
         currentAmmo = ammo;
     }
 
@@ -85,13 +91,13 @@ public class ShootingController : MonoBehaviour
                 switch (Gun.selectedGun)
                 {
                     case "Pistol":
-                        shootingTypes.SingleShoot();
+                        shootingTypes.DoubleShoot(doubleShoot);
                         break;
                     case "Shotgun":
-                        shootingTypes.SpreadShoot(pellets);
+                        shootingTypes.SpreadShoot(pellets, spreadAngle);
                         break;
                     case "Minigun":
-                        shootingTypes.MinigunShoot();
+                        shootingTypes.MinigunShoot(spreadAngle);
                         break;
                 }
 

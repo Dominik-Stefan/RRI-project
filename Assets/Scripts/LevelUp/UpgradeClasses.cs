@@ -240,4 +240,179 @@ namespace Upgrades
             return companyBonusMaxLVL;
         }
     }
+
+    public class QuickReload : Upgrade
+    {
+        private static int id = 5;
+        private static int quickReloadLVL = 0;
+        private static int quickReloadMaxLVL = 1;
+
+        public QuickReload()
+        {
+            title = "Quick Reload";
+            description = "Reload speed +50%";
+        }
+
+        public override void Execute()
+        {
+            quickReloadLVL++;
+
+            ShootingController.reloadTime -= (0.5f * ShootingController.reloadTime);
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return quickReloadLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return quickReloadMaxLVL;
+        }
+    }
+
+    public class BulletSpeed : Upgrade
+    {
+        private static int id = 6;
+        private static int bulletSpeedLVL = 0;
+        private static int bulletSpeedMaxLVL = 1;
+
+        public BulletSpeed()
+        {
+            title = "Bullet Speed";
+            description = "Bullet speed +25%";
+        }
+
+        public override void Execute()
+        {
+            bulletSpeedLVL++;
+
+            ShootingTypes.force += (0.25f * ShootingTypes.force);
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return bulletSpeedLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return bulletSpeedMaxLVL;
+        }
+    }
+
+    public class RapidFire : Upgrade
+    {
+        private static int id = 7;
+        private static int rapidFireLVL = 0;
+        private static int rapidFireMaxLVL = 1;
+
+        public RapidFire()
+        {
+            title = "Rapid Fire";
+            description = "Fires one more bullet";
+        }
+
+        public override void Execute()
+        {
+            rapidFireLVL++;
+
+            ShootingController.doubleShoot = true;
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return rapidFireLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return rapidFireMaxLVL;
+        }
+    }
+
+    public class MorePellets : Upgrade
+    {
+        private static int id = 8;
+        private static int morePelletsLVL = 0;
+        private static int morePelletsMaxLVL = 1;
+
+        public MorePellets()
+        {
+            title = "More Pellets";
+            description = "Pellet count +3";
+        }
+
+        public override void Execute()
+        {
+            morePelletsLVL++;
+
+            ShootingController.pellets += 3;
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return morePelletsLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return morePelletsMaxLVL;
+        }
+    }
+
+    public class IncreaseSpread : Upgrade
+    {
+        private static int id = 9;
+        private static int increaseSpreadLVL = 0;
+        private static int increaseSpreadMaxLVL = 1;
+
+        public IncreaseSpread()
+        {
+            title = "Increase Spread";
+            description = "Spread +50%";
+        }
+
+        public override void Execute()
+        {
+            increaseSpreadLVL++;
+
+            ShootingController.spreadAngle += (0.5f * ShootingController.spreadAngle);
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return increaseSpreadLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return increaseSpreadMaxLVL;
+        }
+    }
 }
