@@ -73,5 +73,6 @@ public class GameController : MonoBehaviour
         levelUpMenuUI.rootVisualElement.style.display = DisplayStyle.None;
         Time.timeScale = 1f;
         timerActive = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().AddExpToPlayer(0);
     }
 }

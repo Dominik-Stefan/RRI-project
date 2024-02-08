@@ -9,12 +9,12 @@ public class EnemyController : MonoBehaviour
     public float damageTimer = 0.2f;
     public int enemyMaxHealth = 20;
     public int enemyDamage = 5;
-    public int enemyExp = 10;
-    private int enemyHealth;
-    private GameObject player;
-    private PlayerController playerController;
-    private GameController gameController;
-    private float timer;
+    public GameObject gem;
+    protected int enemyHealth;
+    protected GameObject player;
+    protected PlayerController playerController;
+    protected GameController gameController;
+    protected float timer;
 
     void Start()
     {
@@ -22,13 +22,6 @@ public class EnemyController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-    }
-
-    private void Update()
-    {
-        float step = moveSpeed * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
-        timer += Time.deltaTime;
     }
 
     public void TakeDamage()
@@ -40,12 +33,20 @@ public class EnemyController : MonoBehaviour
         if (this.enemyHealth <= 0)
         {
             //Destroy(gameObject);
-            this.enemyHealth = this.enemyMaxHealth;
-            gameObject.SetActive(false);
-
-            playerController.AddExpToPlayer(enemyExp);
+            Death();
         }
+    }
 
+    public void TakeExplosionDamage(){
+        if (this.enemyHealth > 0)
+        {
+            this.enemyHealth -= 200;
+        }
+        if (this.enemyHealth <= 0)
+        {
+            //Destroy(gameObject);
+            Death();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -62,6 +63,24 @@ public class EnemyController : MonoBehaviour
                 gameController.gameOver = true;
             }
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision){
+        if (collision.gameObject.CompareTag("DistanceCheck"))
+        {
+            OutsideOfBorder();
+        }
+    }
+
+    public virtual void Death(){
+        Instantiate(gem, transform.position, transform.rotation);
+        this.enemyHealth = this.enemyMaxHealth;
+        gameObject.SetActive(false);
+    }
+
+    public virtual void OutsideOfBorder(){
+        
+        gameObject.SetActive(false);
     }
 }
 

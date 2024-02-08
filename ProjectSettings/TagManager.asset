@@ -9,6 +9,10 @@ TagManager:
   - UpgradeOption
   - DistanceCheck
   - GunPicker
+  - EnemyRunCheck
+  - EnemyStandCheck
+  - EnemyShootCheck
+  - Explosion
   layers:
   - Default
   - TransparentFX

@@ -1,4 +1,8 @@
-public static class Gun
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Gun : MonoBehaviour
 {
     // Pistol , Shotgun , Minigun
     public static string selectedGun = "";
