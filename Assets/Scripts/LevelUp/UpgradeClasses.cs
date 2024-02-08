@@ -345,4 +345,74 @@ namespace Upgrades
             return rapidFireMaxLVL;
         }
     }
+
+    public class MorePellets : Upgrade
+    {
+        private static int id = 8;
+        private static int morePelletsLVL = 0;
+        private static int morePelletsMaxLVL = 1;
+
+        public MorePellets()
+        {
+            title = "More Pellets";
+            description = "Pellet count +3";
+        }
+
+        public override void Execute()
+        {
+            morePelletsLVL++;
+
+            ShootingController.pellets += 3;
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return morePelletsLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return morePelletsMaxLVL;
+        }
+    }
+
+    public class IncreaseSpread : Upgrade
+    {
+        private static int id = 9;
+        private static int increaseSpreadLVL = 0;
+        private static int increaseSpreadMaxLVL = 1;
+
+        public IncreaseSpread()
+        {
+            title = "Increase Spread";
+            description = "Spread +50%";
+        }
+
+        public override void Execute()
+        {
+            increaseSpreadLVL++;
+
+            ShootingController.spreadAngle += (0.5f * ShootingController.spreadAngle);
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return increaseSpreadLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return increaseSpreadMaxLVL;
+        }
+    }
 }

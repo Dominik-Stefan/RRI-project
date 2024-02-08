@@ -22,6 +22,8 @@ public class UpgradeOptionController : MonoBehaviour
                     allOptions.Add(new RapidFire());
                     break;
                 case "Shotgun":
+                    allOptions.Add(new MorePellets());
+                    allOptions.Add(new IncreaseSpread());
                     break;
                 case "Minigun":
                     break;
