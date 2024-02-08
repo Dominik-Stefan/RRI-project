@@ -486,4 +486,47 @@ namespace Upgrades
             return ammoReserveMaxLVL;
         }
     }
+
+    public class Curse : Upgrade
+    {
+        private static int id = 12;
+        private static int curseLVL = 0;
+        private static int curseMaxLVL = 1;
+
+        public Curse()
+        {
+            title = "Curse";
+            description = "33% max health, +50% damage, x2 movement speed";
+        }
+
+        public override void Execute()
+        {
+            curseLVL++;
+
+            PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
+
+            player.playerMaxHealth = (int)(player.playerMaxHealth * 0.33f);
+
+            player.playerHealth = player.playerMaxHealth;
+
+            player.moveSpeed = player.GetBaseMoveSpeed() * 2f;
+
+            player.playerDamage += (int)(player.GetPlayerBaseDamage() * 0.5f);
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return curseLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return curseMaxLVL;
+        }
+    }
 }

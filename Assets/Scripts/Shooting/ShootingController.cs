@@ -48,7 +48,7 @@ public class ShootingController : MonoBehaviour
                 break;
         }
 
-        ShootingTypes.force = 10;
+        ShootingTypes.force = 20;
         currentAmmo = ammo;
     }
 

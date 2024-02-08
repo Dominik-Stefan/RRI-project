@@ -33,11 +33,6 @@ public class UpgradeOptionController : MonoBehaviour
             added = true;
         }
 
-        if (player.GetLevel() > 5)
-        {
-            allOptions.RemoveAll(upgrade => upgrade.GetID() == 4);
-        }
-
         List<Upgrade> options = new List<Upgrade>();
 
         switch (allOptions.Count)
@@ -71,6 +66,11 @@ public class UpgradeOptionController : MonoBehaviour
                 selectedIndices.Add(randIndex);
                 options.Add(allOptions[randIndex]);
             }
+        }
+
+        if (player.GetLevel() == 2)
+        {
+            options.Add(new Curse());
         }
 
         return options;
