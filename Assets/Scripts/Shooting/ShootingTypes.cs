@@ -41,12 +41,17 @@ public class ShootingTypes : MonoBehaviour
 
         bulletCopy.GetComponent<Rigidbody2D>().velocity = (transform.rotation * Vector2.right).normalized * force;
         //Destroy(copy, bulletTimeToDeath);
+
+
     }
 
-    public void DoubleShoot()
+    public void DoubleShoot(bool doubleShoot = false)
     {
         SingleShoot();
-        Invoke("SingleShoot", 0.05f);
+        if (doubleShoot)
+        {
+            Invoke("SingleShoot", 0.05f);
+        }
     }
 
     public void MinigunShoot(float spreadAngle = 0.01f)

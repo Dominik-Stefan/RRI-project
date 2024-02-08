@@ -9,6 +9,7 @@ public class ShootingController : MonoBehaviour
     public static float reloadTime;
     public static int pellets;
     public static float spreadAngle;
+    public static bool doubleShoot;
     private bool canFire;
     private float timerForReload;
     private float timerForShooting;
@@ -27,6 +28,7 @@ public class ShootingController : MonoBehaviour
                 ammo = 6;
                 timeBetweenFiring = 0.5f;
                 reloadTime = 2f;
+                doubleShoot = false;
                 playerController.playerDamage = 20;
                 break;
             case "Shotgun":
@@ -89,7 +91,7 @@ public class ShootingController : MonoBehaviour
                 switch (Gun.selectedGun)
                 {
                     case "Pistol":
-                        shootingTypes.SingleShoot();
+                        shootingTypes.DoubleShoot(doubleShoot);
                         break;
                     case "Shotgun":
                         shootingTypes.SpreadShoot(pellets, spreadAngle);
