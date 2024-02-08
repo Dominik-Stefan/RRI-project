@@ -26,6 +26,8 @@ public class UpgradeOptionController : MonoBehaviour
                     allOptions.Add(new IncreaseSpread());
                     break;
                 case "Minigun":
+                    allOptions.Add(new FireRate());
+                    allOptions.Add(new AmmoReserve());
                     break;
             }
             added = true;
