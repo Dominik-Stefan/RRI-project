@@ -31,6 +31,7 @@ public class LevelUpMenuController : MonoBehaviour
         buttonConfirm.clicked += () =>
         {
             options[levelUpOptions.value].Execute();
+            upgradeOptionController.AddSelectedOption(options[levelUpOptions.value]);
             upgradeOptionController.RemoveOption(options[levelUpOptions.value]);
             gameController.HideLevelUpMenu();
         };
@@ -50,6 +51,7 @@ public class LevelUpMenuController : MonoBehaviour
 
         for (int i = 0; i < options.Count; i++)
         {
+            options[i].UpdateTitle();
             choices.Add(options[i].GetTitle() + "\n" + options[i].GetDescription());
         }
 

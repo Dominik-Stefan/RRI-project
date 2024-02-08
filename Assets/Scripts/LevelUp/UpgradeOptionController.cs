@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 using Upgrades;
 
 public class UpgradeOptionController : MonoBehaviour
 {
+    public static List<Upgrade> selectedOptions;
     private bool added = false;
     private List<Upgrade> allOptions = new List<Upgrade> { new Grit(), new Rush(), new Might(), new CompanyBonus(), new QuickReload() };
 
@@ -15,6 +17,8 @@ public class UpgradeOptionController : MonoBehaviour
 
         if (!added)
         {
+            selectedOptions = new List<Upgrade>();
+
             switch (Gun.selectedGun)
             {
                 case "Pistol":
@@ -30,7 +34,13 @@ public class UpgradeOptionController : MonoBehaviour
                     allOptions.Add(new AmmoReserve());
                     break;
             }
+
             added = true;
+        }
+
+        if (RapidFire.rapidFireLVL == RapidFire.rapidFireMaxLVL && !selectedOptions.Any(upgrade => upgrade.GetID() == 13))
+        {
+            allOptions.Add(new DualWielding());
         }
 
         List<Upgrade> options = new List<Upgrade>();
@@ -82,5 +92,15 @@ public class UpgradeOptionController : MonoBehaviour
         {
             allOptions.RemoveAll(upgrade => upgrade.GetID() == option.GetID());
         }
+    }
+
+    public void AddSelectedOption(Upgrade option)
+    {
+        selectedOptions.Add(option);
+    }
+
+    public static void RemoveSelectedOption(int id)
+    {
+        selectedOptions.RemoveAll(upgrade => upgrade.GetID() == id);
     }
 }
