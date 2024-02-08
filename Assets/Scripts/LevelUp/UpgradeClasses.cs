@@ -200,7 +200,7 @@ namespace Upgrades
     {
         private static int id = 4;
         private static int companyBonusLVL = 0;
-        private static int companyBonusMaxLVL = 5;
+        private static int companyBonusMaxLVL = 1;
 
         public CompanyBonus()
         {
@@ -249,7 +249,7 @@ namespace Upgrades
 
         public QuickReload()
         {
-            title = "Quick Reload";
+            title = "Quick Reload LVL " + (quickReloadLVL + 1);
             description = "Reload speed +15%";
         }
 
@@ -284,7 +284,7 @@ namespace Upgrades
 
         public BulletSpeed()
         {
-            title = "Bullet Speed";
+            title = "Bullet Speed LVL " + (bulletSpeedLVL + 1);
             description = "Bullet speed +25%";
         }
 
@@ -319,7 +319,7 @@ namespace Upgrades
 
         public RapidFire()
         {
-            title = "Rapid Fire";
+            title = "Rapid Fire LVL " + (rapidFireLVL + 1);
             description = "Fires one more bullet";
         }
 
@@ -354,7 +354,7 @@ namespace Upgrades
 
         public MorePellets()
         {
-            title = "More Pellets";
+            title = "More Pellets LVL " + (morePelletsLVL + 1);
             description = "Pellet count +3";
         }
 
@@ -389,7 +389,7 @@ namespace Upgrades
 
         public IncreaseSpread()
         {
-            title = "Increase Spread";
+            title = "Increase Spread LVL " + (increaseSpreadLVL + 1);
             description = "Spread +30%";
         }
 
@@ -424,7 +424,7 @@ namespace Upgrades
 
         public FireRate()
         {
-            title = "Fire Rate";
+            title = "Fire Rate LVL " + (fireRateLVL + 1);
             description = "FireRate +20%";
         }
 
@@ -459,7 +459,7 @@ namespace Upgrades
 
         public AmmoReserve()
         {
-            title = "AmmoReserve";
+            title = "Ammo Reserve LVL " + (ammoReserveLVL + 1);
             description = "Max ammo +20%";
         }
 
