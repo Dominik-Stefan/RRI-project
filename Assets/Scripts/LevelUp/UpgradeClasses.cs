@@ -415,4 +415,75 @@ namespace Upgrades
             return increaseSpreadMaxLVL;
         }
     }
+
+    public class FireRate : Upgrade
+    {
+        private static int id = 10;
+        private static int fireRateLVL = 0;
+        private static int fireRateMaxLVL = 1;
+
+        public FireRate()
+        {
+            title = "Fire Rate";
+            description = "FireRate +50%";
+        }
+
+        public override void Execute()
+        {
+            fireRateLVL++;
+
+            ShootingController.timeBetweenFiring -= (0.5f * ShootingController.timeBetweenFiring);
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return fireRateLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return fireRateMaxLVL;
+        }
+    }
+
+    public class AmmoReserve : Upgrade
+    {
+        private static int id = 11;
+        private static int ammoReserveLVL = 0;
+        private static int ammoReserveMaxLVL = 1;
+
+        public AmmoReserve()
+        {
+            title = "AmmoReserve";
+            description = "Max ammo +50%";
+        }
+
+        public override void Execute()
+        {
+            ammoReserveLVL++;
+
+            ShootingController.ammo += (int)(0.5f * ShootingController.ammo);
+            ShootingController.currentAmmo = ShootingController.ammo;
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return ammoReserveLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return ammoReserveMaxLVL;
+        }
+    }
 }
