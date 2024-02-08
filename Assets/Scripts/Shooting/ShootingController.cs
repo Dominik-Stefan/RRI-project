@@ -32,7 +32,7 @@ public class ShootingController : MonoBehaviour
                 ammo = 2;
                 timeBetweenFiring = 0.5f;
                 reloadTime = 3f;
-                pellets = 5;
+                pellets = 4;
                 playerController.playerDamage = 10;
                 break;
             case "Minigun":

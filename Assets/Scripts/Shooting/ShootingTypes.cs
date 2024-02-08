@@ -49,7 +49,7 @@ public class ShootingTypes : MonoBehaviour
         Invoke("SingleShoot", 0.05f);
     }
 
-    public void SpreadShoot(int bulletNumber = 2)
+    /* public void SpreadShoot(int bulletNumber = 2)
     {
         //if (bulletNumber % 2 == 0) bulletNumber = 3;
 
@@ -64,6 +64,24 @@ public class ShootingTypes : MonoBehaviour
             angleForBullet += angle;
 
             SingleShoot(direction - new Vector2(bulletTransform.position.x, bulletTransform.position.y));
+        }
+    } */
+
+    public void SpreadShoot(int bulletNumber = 2, float spreadAngle = 10f)
+    {
+        Vector2[] directions = new Vector2[bulletNumber];
+
+        // Calculate the spread directions around the forward direction
+        for (int i = 0; i < bulletNumber; i++)
+        {
+            float spreadDirection = angle - spreadAngle / 2 + spreadAngle * i / (bulletNumber - 1);
+            directions[i] = Quaternion.Euler(0, 0, spreadDirection) * Vector2.right;
+        }
+
+        // Fire each bullet in the calculated directions
+        foreach (var direction in directions)
+        {
+            SingleShoot(direction * force);
         }
     }
 }
