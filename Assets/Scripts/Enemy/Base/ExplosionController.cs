@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ExplosionController : MonoBehaviour
-{
+{   
+    private bool exploded = false;
+
     public void Start(){
         StartCoroutine(Cor());
         StartCoroutine(Fade());
@@ -25,7 +27,7 @@ public class ExplosionController : MonoBehaviour
     }
 
     public void OnTriggerEnter2D(Collider2D collision){
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !exploded)
         {
             PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
             playerController.playerHealth -= 250;

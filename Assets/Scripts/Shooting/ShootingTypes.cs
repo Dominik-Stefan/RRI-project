@@ -23,9 +23,9 @@ public class ShootingTypes : MonoBehaviour
             bulletCopy.transform.position = bulletTransform.position;
             bulletCopy.transform.rotation = Quaternion.identity;
             bulletCopy.SetActive(true);
-        }
 
-        bulletCopy.GetComponent<Rigidbody2D>().velocity = (transform.rotation * direction).normalized * force;
+            bulletCopy.GetComponent<Rigidbody2D>().velocity = (transform.rotation * direction).normalized * force;
+        }
         //Destroy(copy, bulletTimeToDeath);
     }
 
@@ -38,9 +38,9 @@ public class ShootingTypes : MonoBehaviour
             bulletCopy.transform.position = bulletTransform.position;
             bulletCopy.transform.rotation = Quaternion.identity;
             bulletCopy.SetActive(true);
-        }
 
-        bulletCopy.GetComponent<Rigidbody2D>().velocity = (transform.rotation * Vector2.right).normalized * force;
+            bulletCopy.GetComponent<Rigidbody2D>().velocity = (transform.rotation * Vector2.right).normalized * force;
+        }
         //Destroy(copy, bulletTimeToDeath);
     }
 
@@ -68,13 +68,13 @@ public class ShootingTypes : MonoBehaviour
             bulletCopy.transform.position = bulletTransform.position;
             bulletCopy.transform.rotation = Quaternion.identity;
             bulletCopy.SetActive(true);
+
+            float randomOffsetX = Random.Range(-force * spreadAngle, force * spreadAngle);
+            float randomOffsetY = Random.Range(-force * spreadAngle, force * spreadAngle);
+
+            Vector2 randomDirection = new Vector2((transform.right.x + randomOffsetX), (transform.right.y + randomOffsetY)).normalized;
+            bulletCopy.GetComponent<Rigidbody2D>().velocity = randomDirection * force;
         }
-
-        float randomOffsetX = Random.Range(-force * spreadAngle, force * spreadAngle);
-        float randomOffsetY = Random.Range(-force * spreadAngle, force * spreadAngle);
-
-        Vector2 randomDirection = new Vector2((transform.right.x + randomOffsetX), (transform.right.y + randomOffsetY)).normalized;
-        bulletCopy.GetComponent<Rigidbody2D>().velocity = randomDirection * force;
     }
 
     public void SpreadShoot(int bulletNumber = 4, float spreadAngle = 1f)
