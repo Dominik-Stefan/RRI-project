@@ -91,7 +91,7 @@ public class ShootingController : MonoBehaviour
                         shootingTypes.SpreadShoot(pellets);
                         break;
                     case "Minigun":
-                        shootingTypes.SingleShoot();
+                        shootingTypes.MinigunShoot();
                         break;
                 }
 

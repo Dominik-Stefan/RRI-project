@@ -49,6 +49,24 @@ public class ShootingTypes : MonoBehaviour
         Invoke("SingleShoot", 0.05f);
     }
 
+    public void MinigunShoot()
+    {
+        GameObject bulletCopy = BulletObjectPool.SharedInstance.getPooledBulletObject();
+        if (bulletCopy != null)
+        {
+            bulletCopy.transform.position = bulletTransform.position;
+            bulletCopy.transform.rotation = Quaternion.identity;
+            bulletCopy.SetActive(true);
+        }
+
+        float randomOffsetX = Random.Range(-force * 0.015f, force * 0.015f);
+        float randomOffsetY = Random.Range(-force * 0.015f, force * 0.015f);
+
+        Vector2 randomDirection = new Vector2((transform.right.x + randomOffsetX), (transform.right.y + randomOffsetY)).normalized;
+        bulletCopy.GetComponent<Rigidbody2D>().velocity = randomDirection * force;
+    }
+
+
     /* public void SpreadShoot(int bulletNumber = 2)
     {
         //if (bulletNumber % 2 == 0) bulletNumber = 3;
@@ -71,14 +89,12 @@ public class ShootingTypes : MonoBehaviour
     {
         Vector2[] directions = new Vector2[bulletNumber];
 
-        // Calculate the spread directions around the forward direction
         for (int i = 0; i < bulletNumber; i++)
         {
             float spreadDirection = angle - spreadAngle / 2 + spreadAngle * i / (bulletNumber - 1);
             directions[i] = Quaternion.Euler(0, 0, spreadDirection) * Vector2.right;
         }
 
-        // Fire each bullet in the calculated directions
         foreach (var direction in directions)
         {
             SingleShoot(direction * force);
