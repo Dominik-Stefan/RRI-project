@@ -85,7 +85,7 @@ namespace Upgrades
     {
         private static int id = 1;
         private static int gritLVL = 0;
-        private static int gritMaxLVL = 3;
+        private static int gritMaxLVL = 5;
 
         public Grit()
         {
@@ -126,7 +126,7 @@ namespace Upgrades
     {
         private static int id = 2;
         private static int rushLVL = 0;
-        private static int rushMaxLVL = 3;
+        private static int rushMaxLVL = 5;
 
         public Rush()
         {
@@ -163,7 +163,7 @@ namespace Upgrades
     {
         private static int id = 3;
         private static int mightLVL = 0;
-        private static int mightMaxLVL = 3;
+        private static int mightMaxLVL = 5;
 
         public Might()
         {
@@ -200,7 +200,7 @@ namespace Upgrades
     {
         private static int id = 4;
         private static int companyBonusLVL = 0;
-        private static int companyBonusMaxLVL = 1;
+        private static int companyBonusMaxLVL = 5;
 
         public CompanyBonus()
         {
@@ -245,19 +245,19 @@ namespace Upgrades
     {
         private static int id = 5;
         private static int quickReloadLVL = 0;
-        private static int quickReloadMaxLVL = 1;
+        private static int quickReloadMaxLVL = 5;
 
         public QuickReload()
         {
             title = "Quick Reload";
-            description = "Reload speed +50%";
+            description = "Reload speed +15%";
         }
 
         public override void Execute()
         {
             quickReloadLVL++;
 
-            ShootingController.reloadTime -= (0.5f * ShootingController.reloadTime);
+            ShootingController.reloadTime -= (0.15f * ShootingController.reloadTime);
         }
 
         public override int GetID()
@@ -280,7 +280,7 @@ namespace Upgrades
     {
         private static int id = 6;
         private static int bulletSpeedLVL = 0;
-        private static int bulletSpeedMaxLVL = 1;
+        private static int bulletSpeedMaxLVL = 5;
 
         public BulletSpeed()
         {
@@ -315,7 +315,7 @@ namespace Upgrades
     {
         private static int id = 7;
         private static int rapidFireLVL = 0;
-        private static int rapidFireMaxLVL = 1;
+        private static int rapidFireMaxLVL = 5;
 
         public RapidFire()
         {
@@ -327,7 +327,7 @@ namespace Upgrades
         {
             rapidFireLVL++;
 
-            ShootingController.doubleShoot = true;
+            ShootingController.quickShoot += 1;
         }
 
         public override int GetID()
@@ -350,7 +350,7 @@ namespace Upgrades
     {
         private static int id = 8;
         private static int morePelletsLVL = 0;
-        private static int morePelletsMaxLVL = 1;
+        private static int morePelletsMaxLVL = 5;
 
         public MorePellets()
         {
@@ -385,19 +385,19 @@ namespace Upgrades
     {
         private static int id = 9;
         private static int increaseSpreadLVL = 0;
-        private static int increaseSpreadMaxLVL = 1;
+        private static int increaseSpreadMaxLVL = 5;
 
         public IncreaseSpread()
         {
             title = "Increase Spread";
-            description = "Spread +50%";
+            description = "Spread +30%";
         }
 
         public override void Execute()
         {
             increaseSpreadLVL++;
 
-            ShootingController.spreadAngle += (0.5f * ShootingController.spreadAngle);
+            ShootingController.spreadAngle += (0.3f * ShootingController.spreadAngle);
         }
 
         public override int GetID()
@@ -420,19 +420,19 @@ namespace Upgrades
     {
         private static int id = 10;
         private static int fireRateLVL = 0;
-        private static int fireRateMaxLVL = 1;
+        private static int fireRateMaxLVL = 5;
 
         public FireRate()
         {
             title = "Fire Rate";
-            description = "FireRate +50%";
+            description = "FireRate +20%";
         }
 
         public override void Execute()
         {
             fireRateLVL++;
 
-            ShootingController.timeBetweenFiring -= (0.5f * ShootingController.timeBetweenFiring);
+            ShootingController.timeBetweenFiring -= (0.2f * ShootingController.timeBetweenFiring);
         }
 
         public override int GetID()
@@ -455,19 +455,19 @@ namespace Upgrades
     {
         private static int id = 11;
         private static int ammoReserveLVL = 0;
-        private static int ammoReserveMaxLVL = 1;
+        private static int ammoReserveMaxLVL = 5;
 
         public AmmoReserve()
         {
             title = "AmmoReserve";
-            description = "Max ammo +50%";
+            description = "Max ammo +20%";
         }
 
         public override void Execute()
         {
             ammoReserveLVL++;
 
-            ShootingController.ammo += (int)(0.5f * ShootingController.ammo);
+            ShootingController.ammo += (int)(0.20f * ShootingController.ammo);
             ShootingController.currentAmmo = ShootingController.ammo;
         }
 
