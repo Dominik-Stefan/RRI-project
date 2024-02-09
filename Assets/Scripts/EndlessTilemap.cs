@@ -1,37 +1,48 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class EndlessTilemap : MonoBehaviour
 {
     public const float maxViewDistance = 39f;
     public Transform playerTransform;
     public static Vector2 playerPosition;
-    public int chunkSize;
     public GameObject tilemapPrefab;
+    private int chunkSize;
     private int chunksVisible;
     private Dictionary<Vector2, TerrainChunk> terrainChunkDictionary = new Dictionary<Vector2, TerrainChunk>();
     private List<TerrainChunk> terrainChunksVisibleLastUpdate = new List<TerrainChunk>();
+    private List<TerrainChunk> terrainChunksVisibleThisUpdate = new List<TerrainChunk>();
 
     void Start()
     {
+        Tilemap tilemap = tilemapPrefab.GetComponent<Tilemap>();
+
+        BoundsInt bounds = tilemap.cellBounds;
+        int n = 0;
+        foreach (Vector3Int pos in bounds.allPositionsWithin)
+        {
+            Tile tile = tilemap.GetTile<Tile>(pos);
+            if (tile != null)
+            {
+                n++;
+            }
+        }
+        
+        chunkSize = Mathf.RoundToInt(Mathf.Sqrt(n));
         chunksVisible = Mathf.RoundToInt(maxViewDistance / chunkSize);
-        Debug.Log(chunksVisible);
     }
 
     void Update()
     {
         playerPosition = new Vector2(playerTransform.position.x, playerTransform.position.y);
-        Debug.Log(playerPosition);
         UpdateVisibleChunks();
     }
 
     void UpdateVisibleChunks()
     {
-        for (int i = 0; i < terrainChunksVisibleLastUpdate.Count; i++)
-        {
-            terrainChunksVisibleLastUpdate[i].SetVisible(false);
-        }
-        terrainChunksVisibleLastUpdate.Clear();
+        terrainChunksVisibleLastUpdate = new List<TerrainChunk>(terrainChunksVisibleThisUpdate);
+        terrainChunksVisibleThisUpdate.Clear();
 
         int currentChunkCoordX = Mathf.RoundToInt(playerPosition.x / chunkSize);
         int currentChunkCoordY = Mathf.RoundToInt(playerPosition.y / chunkSize);
@@ -41,20 +52,38 @@ public class EndlessTilemap : MonoBehaviour
             for (int xOffset = -chunksVisible; xOffset <= chunksVisible; xOffset++)
             {
                 Vector2 viewedChunkCoord = new Vector2(currentChunkCoordX + xOffset, currentChunkCoordY + yOffset);
+                TerrainChunk currentTerrainChunk;
 
                 if (terrainChunkDictionary.ContainsKey(viewedChunkCoord))
                 {
-                    terrainChunkDictionary[viewedChunkCoord].UpdateTerrainChunk();
-                    if (terrainChunkDictionary[viewedChunkCoord].IsVisible())
+                    currentTerrainChunk = terrainChunkDictionary[viewedChunkCoord];
+                    currentTerrainChunk.UpdateTerrainChunk();
+                    if (currentTerrainChunk.IsVisible())
                     {
-                        terrainChunksVisibleLastUpdate.Add(terrainChunkDictionary[viewedChunkCoord]);
+                        terrainChunksVisibleThisUpdate.Add(currentTerrainChunk);
                     }
                 }
                 else
                 {
-                    terrainChunkDictionary.Add(viewedChunkCoord, new TerrainChunk(viewedChunkCoord, chunkSize, tilemapPrefab, transform));
+                    currentTerrainChunk = new TerrainChunk(viewedChunkCoord, chunkSize, tilemapPrefab, transform);
+                    terrainChunkDictionary.Add(viewedChunkCoord, currentTerrainChunk);
                 }
             }
+        }
+
+        for (int i = 0; i < terrainChunksVisibleLastUpdate.Count; i++)
+        {
+            bool visible = false;
+            for (int j = 0; j < terrainChunksVisibleThisUpdate.Count; j++)
+            {
+                if (terrainChunksVisibleLastUpdate[i].Equals(terrainChunksVisibleThisUpdate[j]))
+                {
+                    visible = true;
+                    break;
+                }
+            }
+
+            terrainChunksVisibleLastUpdate[i].SetVisible(visible);
         }
     }
 
