@@ -30,7 +30,6 @@ public class EndlessTilemap : MonoBehaviour
         }
         
         chunkSize = Mathf.RoundToInt(Mathf.Sqrt(n));
-        Debug.Log(chunkSize);
         chunksVisible = Mathf.RoundToInt(maxViewDistance / chunkSize);
     }
 
