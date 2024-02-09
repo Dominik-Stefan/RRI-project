@@ -10,13 +10,16 @@ public class UpgradeOptionController : MonoBehaviour
     public static List<Upgrade> selectedOptions;
     private bool added = false;
     private List<Upgrade> allOptions = new List<Upgrade> { new Grit(), new Rush(), new Might(), new CompanyBonus(), new QuickReload() };
+    private PlayerController player;
+    private UpgradeDisplayController upgradeDisplayController;
 
     public List<Upgrade> GetUpgradeOptions()
     {
-        PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
-
         if (!added)
         {
+            player = GameObject.Find("Player").GetComponent<PlayerController>();
+            upgradeDisplayController = GameObject.Find("UpgradeDisplay").GetComponent<UpgradeDisplayController>();
+
             selectedOptions = new List<Upgrade>();
 
             switch (Gun.selectedGun)
@@ -97,6 +100,7 @@ public class UpgradeOptionController : MonoBehaviour
     public void AddSelectedOption(Upgrade option)
     {
         selectedOptions.Add(option);
+        upgradeDisplayController.AddUpgradeToDisplay(option);
     }
 
     public static void RemoveSelectedOption(int id)

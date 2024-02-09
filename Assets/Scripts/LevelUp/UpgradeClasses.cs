@@ -6,7 +6,7 @@ namespace Upgrades
 {
     public class Upgrade
     {
-        public static Sprite sprite;
+        public Sprite sprite;
         protected string title;
         protected string description;
 
