@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class EndlessTilemap : MonoBehaviour
 {
     public const float maxViewDistance = 39f;
     public Transform playerTransform;
     public static Vector2 playerPosition;
-    public int chunkSize;
     public GameObject tilemapPrefab;
+    private int chunkSize;
     private int chunksVisible;
     private Dictionary<Vector2, TerrainChunk> terrainChunkDictionary = new Dictionary<Vector2, TerrainChunk>();
     private List<TerrainChunk> terrainChunksVisibleLastUpdate = new List<TerrainChunk>();
@@ -15,6 +16,21 @@ public class EndlessTilemap : MonoBehaviour
 
     void Start()
     {
+        Tilemap tilemap = tilemapPrefab.GetComponent<Tilemap>();
+
+        BoundsInt bounds = tilemap.cellBounds;
+        int n = 0;
+        foreach (Vector3Int pos in bounds.allPositionsWithin)
+        {
+            Tile tile = tilemap.GetTile<Tile>(pos);
+            if (tile != null)
+            {
+                n++;
+            }
+        }
+        
+        chunkSize = Mathf.RoundToInt(Mathf.Sqrt(n));
+        Debug.Log(chunkSize);
         chunksVisible = Mathf.RoundToInt(maxViewDistance / chunkSize);
     }
 
