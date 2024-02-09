@@ -8,10 +8,11 @@ public class InGameHUDController : MonoBehaviour
     private Label timeLabel;
     private ProgressBar hpBar;
     private ProgressBar expBar;
-    private Label ammoLabel;
+    private ProgressBar ammoBar;
     private PlayerController playerController;
     private GameController gameController;
     private float currentTime = 0f;
+    private float reloadTimer;
 
     private void OnEnable()
     {
@@ -20,10 +21,8 @@ public class InGameHUDController : MonoBehaviour
         timeLabel = root.Q<Label>("Time");
         hpBar = root.Q<ProgressBar>("HP");
         expBar = root.Q<ProgressBar>("EXP");
-        ammoLabel = root.Q<Label>("Ammo");
+        ammoBar = root.Q<ProgressBar>("Ammo");
     }
-
-
 
     void Start()
     {
@@ -37,19 +36,23 @@ public class InGameHUDController : MonoBehaviour
 
         expBar.value = 0;
         expBar.title = "EXP: 0/100";
-
-        ammoLabel.text = ShootingController.currentAmmo + "/" + ShootingController.ammo;
     }
 
     void Update()
     {
         if (ShootingController.currentAmmo > 0)
         {
-            ammoLabel.text = ShootingController.currentAmmo + "/" + ShootingController.ammo;
+            ammoBar.value = ShootingController.currentAmmo;
+            ammoBar.highValue = ShootingController.ammo;
+            ammoBar.title = ShootingController.currentAmmo + "/" + ShootingController.ammo;
+            reloadTimer = 0;
         }
         else
         {
-            ammoLabel.text = "---";
+            reloadTimer += Time.deltaTime;
+            float reloadProgress = reloadTimer / ShootingController.reloadTime;
+            ammoBar.value = Mathf.Lerp(ShootingController.currentAmmo, ShootingController.ammo, reloadProgress);
+            ammoBar.title = Mathf.FloorToInt((reloadProgress * 100)) + "%";
         }
 
         hpBar.value = playerController.playerHealth;

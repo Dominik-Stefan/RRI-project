@@ -10,6 +10,13 @@ namespace Upgrades
         protected string title;
         protected string description;
 
+        public Upgrade() { }
+
+        ~Upgrade()
+        {
+            ResetLVL();
+        }
+
         public virtual void Execute() { }
 
         public virtual int GetID()
@@ -26,6 +33,10 @@ namespace Upgrades
         {
             return 0;
         }
+
+        public virtual void UpdateTitle() { }
+
+        public virtual void ResetLVL() { }
 
         public string GetTitle()
         {
@@ -120,6 +131,16 @@ namespace Upgrades
         {
             return gritMaxLVL;
         }
+
+        public override void UpdateTitle()
+        {
+            title = "Grit LVL " + (gritLVL + 1);
+        }
+
+        public override void ResetLVL()
+        {
+            gritLVL = 0;
+        }
     }
 
     public class Rush : Upgrade
@@ -156,6 +177,16 @@ namespace Upgrades
         public override int GetMaxLVL()
         {
             return rushMaxLVL;
+        }
+
+        public override void UpdateTitle()
+        {
+            title = "Rush LVL " + (rushLVL + 1);
+        }
+
+        public override void ResetLVL()
+        {
+            rushLVL = 0;
         }
     }
 
@@ -194,13 +225,23 @@ namespace Upgrades
         {
             return mightMaxLVL;
         }
+
+        public override void UpdateTitle()
+        {
+            title = "Might LVL " + (mightLVL + 1);
+        }
+
+        public override void ResetLVL()
+        {
+            mightLVL = 0;
+        }
     }
 
     public class CompanyBonus : Upgrade
     {
         private static int id = 4;
         private static int companyBonusLVL = 0;
-        private static int companyBonusMaxLVL = 5;
+        private static int companyBonusMaxLVL = 1;
 
         public CompanyBonus()
         {
@@ -239,6 +280,11 @@ namespace Upgrades
         {
             return companyBonusMaxLVL;
         }
+
+        public override void ResetLVL()
+        {
+            companyBonusLVL = 0;
+        }
     }
 
     public class QuickReload : Upgrade
@@ -249,7 +295,7 @@ namespace Upgrades
 
         public QuickReload()
         {
-            title = "Quick Reload";
+            title = "Quick Reload LVL " + (quickReloadLVL + 1);
             description = "Reload speed +15%";
         }
 
@@ -274,6 +320,16 @@ namespace Upgrades
         {
             return quickReloadMaxLVL;
         }
+
+        public override void UpdateTitle()
+        {
+            title = "Quick Reload LVL " + (quickReloadLVL + 1);
+        }
+
+        public override void ResetLVL()
+        {
+            quickReloadLVL = 0;
+        }
     }
 
     public class BulletSpeed : Upgrade
@@ -284,7 +340,7 @@ namespace Upgrades
 
         public BulletSpeed()
         {
-            title = "Bullet Speed";
+            title = "Bullet Speed LVL " + (bulletSpeedLVL + 1);
             description = "Bullet speed +25%";
         }
 
@@ -309,17 +365,27 @@ namespace Upgrades
         {
             return bulletSpeedMaxLVL;
         }
+
+        public override void UpdateTitle()
+        {
+            title = "Bullet Speed LVL " + (bulletSpeedLVL + 1);
+        }
+
+        public override void ResetLVL()
+        {
+            bulletSpeedLVL = 0;
+        }
     }
 
     public class RapidFire : Upgrade
     {
         private static int id = 7;
-        private static int rapidFireLVL = 0;
-        private static int rapidFireMaxLVL = 5;
+        public static int rapidFireLVL = 0;
+        public static int rapidFireMaxLVL = 5;
 
         public RapidFire()
         {
-            title = "Rapid Fire";
+            title = "Rapid Fire LVL " + (rapidFireLVL + 1);
             description = "Fires one more bullet";
         }
 
@@ -328,6 +394,11 @@ namespace Upgrades
             rapidFireLVL++;
 
             ShootingController.quickShoot += 1;
+        }
+
+        public static void Undo()
+        {
+            ShootingController.quickShoot = 1;
         }
 
         public override int GetID()
@@ -344,6 +415,16 @@ namespace Upgrades
         {
             return rapidFireMaxLVL;
         }
+
+        public override void UpdateTitle()
+        {
+            title = "Rapid Fire LVL " + (rapidFireLVL + 1);
+        }
+
+        public override void ResetLVL()
+        {
+            rapidFireLVL = 0;
+        }
     }
 
     public class MorePellets : Upgrade
@@ -354,7 +435,7 @@ namespace Upgrades
 
         public MorePellets()
         {
-            title = "More Pellets";
+            title = "More Pellets LVL " + (morePelletsLVL + 1);
             description = "Pellet count +3";
         }
 
@@ -379,6 +460,16 @@ namespace Upgrades
         {
             return morePelletsMaxLVL;
         }
+
+        public override void UpdateTitle()
+        {
+            title = "More Pellets LVL " + (morePelletsLVL + 1);
+        }
+
+        public override void ResetLVL()
+        {
+            morePelletsLVL = 0;
+        }
     }
 
     public class IncreaseSpread : Upgrade
@@ -389,7 +480,7 @@ namespace Upgrades
 
         public IncreaseSpread()
         {
-            title = "Increase Spread";
+            title = "Increase Spread LVL " + (increaseSpreadLVL + 1);
             description = "Spread +30%";
         }
 
@@ -414,6 +505,16 @@ namespace Upgrades
         {
             return increaseSpreadMaxLVL;
         }
+
+        public override void UpdateTitle()
+        {
+            title = "Increase Spread LVL " + (increaseSpreadLVL + 1);
+        }
+
+        public override void ResetLVL()
+        {
+            increaseSpreadLVL = 0;
+        }
     }
 
     public class FireRate : Upgrade
@@ -424,7 +525,7 @@ namespace Upgrades
 
         public FireRate()
         {
-            title = "Fire Rate";
+            title = "Fire Rate LVL " + (fireRateLVL + 1);
             description = "FireRate +20%";
         }
 
@@ -449,6 +550,16 @@ namespace Upgrades
         {
             return fireRateMaxLVL;
         }
+
+        public override void UpdateTitle()
+        {
+            title = "Fire Rate LVL " + (fireRateLVL + 1);
+        }
+
+        public override void ResetLVL()
+        {
+            fireRateLVL = 0;
+        }
     }
 
     public class AmmoReserve : Upgrade
@@ -459,7 +570,7 @@ namespace Upgrades
 
         public AmmoReserve()
         {
-            title = "AmmoReserve";
+            title = "Ammo Reserve LVL " + (ammoReserveLVL + 1);
             description = "Max ammo +20%";
         }
 
@@ -484,6 +595,16 @@ namespace Upgrades
         public override int GetMaxLVL()
         {
             return ammoReserveMaxLVL;
+        }
+
+        public override void UpdateTitle()
+        {
+            title = "Ammo Reserve LVL " + (ammoReserveLVL + 1);
+        }
+
+        public override void ResetLVL()
+        {
+            ammoReserveLVL = 0;
         }
     }
 
@@ -527,6 +648,59 @@ namespace Upgrades
         public override int GetMaxLVL()
         {
             return curseMaxLVL;
+        }
+
+        public override void ResetLVL()
+        {
+            curseLVL = 0;
+        }
+    }
+
+    public class DualWielding : Upgrade
+    {
+        private static int id = 13;
+        private static int dualWieldingLVL = 0;
+        private static int dualWieldingMaxLVL = 1;
+
+        public DualWielding()
+        {
+            title = "Dual Wielding";
+            description = "x2 max ammo, x2 fire rate, x2 reload time";
+        }
+
+        public override void Execute()
+        {
+            RapidFire.Undo();
+            UpgradeOptionController.RemoveSelectedOption(7);
+
+            dualWieldingLVL++;
+
+            ShootingController.ammo = ShootingController.ammo * 2;
+            ShootingController.currentAmmo = ShootingController.ammo;
+
+            ShootingController.timeBetweenFiring = (ShootingController.timeBetweenFiring / 2f);
+
+            ShootingController.reloadTime = (ShootingController.reloadTime * 2f);
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return dualWieldingLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return dualWieldingMaxLVL;
+        }
+
+        public override void ResetLVL()
+        {
+            dualWieldingLVL = 0;
         }
     }
 }
