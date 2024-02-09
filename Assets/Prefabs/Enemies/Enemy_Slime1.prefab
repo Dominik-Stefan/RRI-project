@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7811217936782974248}
   - component: {fileID: 8122573809963652052}
   - component: {fileID: 9010329184996269557}
-  m_Layer: 0
-  m_Name: Enemy_Slime
+  m_Layer: 6
+  m_Name: Enemy_Slime1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36cb5474717a88d47b5e51c7f9d727c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameOfEnemy: Enemy_Slime1
   moveSpeed: 2
   damageTimer: 0.2
   enemyMaxHealth: 20
