@@ -6,7 +6,7 @@ namespace Upgrades
 {
     public class Upgrade
     {
-        public Sprite sprite;
+        public string spriteName;
         protected string title;
         protected string description;
 
@@ -100,6 +100,7 @@ namespace Upgrades
 
         public Grit()
         {
+            spriteName = "PlayerSprite";
             title = "Grit LVL " + (gritLVL + 1);
             description = "Max health +10%";
         }
