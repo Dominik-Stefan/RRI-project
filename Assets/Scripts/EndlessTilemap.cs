@@ -69,10 +69,7 @@ public class EndlessTilemap : MonoBehaviour
             position = coord * size;
             bounds = new Bounds(position, Vector2.one * size);
 
-            tilemap = Instantiate(tilemapPrefab, new Vector3(coord.x, coord.y, 0), Quaternion.identity);
-            //tilemap = GameObject.CreatePrimitive(PrimitiveType.Plane);
-            //tilemap.transform.position = new Vector3(coord.x, coord.y, 0);
-            //tilemap.transform.localScale = Vector3.one * size;
+            tilemap = Instantiate(tilemapPrefab, new Vector2(position.x, position.y), Quaternion.identity);
             tilemap.transform.parent = parent;
             SetVisible(false);
         }
