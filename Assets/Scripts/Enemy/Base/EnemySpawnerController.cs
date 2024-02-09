@@ -11,7 +11,7 @@ public class EnemySpawnerController : MonoBehaviour
     public float interval = 100;
     public float spawnRadius = 20;
     private float counter = 0;
-    private List<Wave> allWaves = new List<Wave> { new Wave5(), new Wave2(), new Wave3(), new Wave4(), new Wave5()};
+    private List<Wave> allWaves = new List<Wave> { new Wave1(), new Wave2(), new Wave3(), new Wave4(), new Wave5()};
     private int chosenWave = 0;
 
     void Start(){
@@ -87,8 +87,6 @@ public class EnemySpawnerController : MonoBehaviour
                 nameOfObject = "Enemy_Slime3(Clone)";
                 found = true;
             }
-
-            Debug.Log(nameOfObject);
 
             if(nameOfObject != null){
                 GameObject enemy = EnemyObjectPool.SharedInstance.getPooledEnemyObject(nameOfObject);
