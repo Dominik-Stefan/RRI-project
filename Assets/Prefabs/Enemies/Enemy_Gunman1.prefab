@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4806229452102717872}
   - component: {fileID: 4118244058927549854}
   - component: {fileID: 3284330950253644362}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy_Gunman1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb23684f4cb2854c8c200390690150b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameOfEnemy: Enemy_Gunman1
   moveSpeed: 3
   damageTimer: 0.2
   enemyMaxHealth: 20

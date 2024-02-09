@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-
+    public string nameOfEnemy = "";
     public float moveSpeed = 5f;
     public float damageTimer = 0.2f;
     public int enemyMaxHealth = 20;
