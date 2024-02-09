@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EndlessTilemap : MonoBehaviour
 {
-    public const float maxViewDistance = 1f;
+    public const float maxViewDistance = 39f;
     public Transform playerTransform;
     public static Vector2 playerPosition;
     public int chunkSize;
@@ -15,11 +15,13 @@ public class EndlessTilemap : MonoBehaviour
     void Start()
     {
         chunksVisible = Mathf.RoundToInt(maxViewDistance / chunkSize);
+        Debug.Log(chunksVisible);
     }
 
     void Update()
     {
         playerPosition = new Vector2(playerTransform.position.x, playerTransform.position.y);
+        Debug.Log(playerPosition);
         UpdateVisibleChunks();
     }
 
@@ -70,7 +72,7 @@ public class EndlessTilemap : MonoBehaviour
             tilemap = Instantiate(tilemapPrefab, new Vector3(coord.x, coord.y, 0), Quaternion.identity);
             //tilemap = GameObject.CreatePrimitive(PrimitiveType.Plane);
             //tilemap.transform.position = new Vector3(coord.x, coord.y, 0);
-            tilemap.transform.localScale = Vector3.one * size;
+            //tilemap.transform.localScale = Vector3.one * size;
             tilemap.transform.parent = parent;
             SetVisible(false);
         }
