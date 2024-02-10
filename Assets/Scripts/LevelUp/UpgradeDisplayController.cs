@@ -42,11 +42,9 @@ public class UpgradeDisplayController : MonoBehaviour
         rectTransform.anchoredPosition = new Vector2(currentXPosition, -20);
 
         Image image = imgObject.GetComponent<Image>();
-        //Sprite sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + upgrade.spriteName);
+        Sprite sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + upgrade.spriteName);
 
-        //image.sprite = sprite;
-
-        image.sprite = upgrade.sprite;
+        image.sprite = sprite;
 
         currentXPosition += rectTransform.rect.width + itemSpacing;
     }

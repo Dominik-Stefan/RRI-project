@@ -6,7 +6,6 @@ namespace Upgrades
 {
     public class Upgrade
     {
-        public Sprite sprite;
         public string spriteName;
         protected string title;
         protected string description;
@@ -102,7 +101,6 @@ namespace Upgrades
         public Grit()
         {
             spriteName = "Grit";
-            sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + spriteName);
             title = "Grit LVL " + (gritLVL + 1);
             description = "Max health +10%";
         }
@@ -155,7 +153,6 @@ namespace Upgrades
         public Rush()
         {
             spriteName = "Rush";
-            sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + spriteName);
             title = "Rush LVL " + (rushLVL + 1);
             description = "Movement speed +10%";
         }
@@ -204,7 +201,6 @@ namespace Upgrades
         public Might()
         {
             spriteName = "Might";
-            sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + spriteName);
             title = "Might LVL " + (mightLVL + 1);
             description = "Player damage +10%";
         }
@@ -253,7 +249,6 @@ namespace Upgrades
         public CompanyBonus()
         {
             spriteName = "CompanyBonus";
-            sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + spriteName);
             title = "Company bonus";
             description = "Max health, movement speed and damage +5%";
         }
@@ -305,7 +300,6 @@ namespace Upgrades
         public QuickReload()
         {
             spriteName = "QuickReload";
-            sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + spriteName);
             title = "Quick Reload LVL " + (quickReloadLVL + 1);
             description = "Reload speed +15%";
         }
@@ -352,7 +346,6 @@ namespace Upgrades
         public BulletSpeed()
         {
             spriteName = "BulletSpeed";
-            sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + spriteName);
             title = "Bullet Speed LVL " + (bulletSpeedLVL + 1);
             description = "Bullet speed +25%";
         }
@@ -399,7 +392,6 @@ namespace Upgrades
         public RapidFire()
         {
             spriteName = "RapidFire";
-            sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + spriteName);
             title = "Rapid Fire LVL " + (rapidFireLVL + 1);
             description = "Fires one more bullet";
         }
@@ -451,7 +443,6 @@ namespace Upgrades
         public MorePellets()
         {
             spriteName = "MorePellets";
-            sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + spriteName);
             title = "More Pellets LVL " + (morePelletsLVL + 1);
             description = "Pellet count +3";
         }
@@ -498,7 +489,6 @@ namespace Upgrades
         public IncreaseSpread()
         {
             spriteName = "IncreaseSpread";
-            sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + spriteName);
             title = "Increase Spread LVL " + (increaseSpreadLVL + 1);
             description = "Spread +30%";
         }
@@ -545,7 +535,6 @@ namespace Upgrades
         public FireRate()
         {
             spriteName = "FireRate";
-            sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + spriteName);
             title = "Fire Rate LVL " + (fireRateLVL + 1);
             description = "FireRate +20%";
         }
@@ -592,7 +581,6 @@ namespace Upgrades
         public AmmoReserve()
         {
             spriteName = "AmmoReserve";
-            sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + spriteName);
             title = "Ammo Reserve LVL " + (ammoReserveLVL + 1);
             description = "Max ammo +20%";
         }
@@ -640,7 +628,6 @@ namespace Upgrades
         public Curse()
         {
             spriteName = "Curse";
-            sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + spriteName);
             title = "Curse";
             description = "33% max health, +50% damage, x2 movement speed";
         }
@@ -690,7 +677,6 @@ namespace Upgrades
         public DualWielding()
         {
             spriteName = "DualWielding";
-            sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + spriteName);
             title = "Dual Wielding";
             description = "x2 max ammo, x2 fire rate, x2 reload time";
         }
