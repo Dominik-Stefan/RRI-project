@@ -1,10 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement style="flex-grow: 1; justify-content: center; background-color: rgba(65, 53, 145, 0);">
-        <ui:VisualElement style="flex-grow: 1; height: 50%; max-height: 50%; align-self: auto; justify-content: space-around; align-items: center;">
-            <ui:Label tabindex="-1" text="Game Title" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" style="align-items: auto; justify-content: flex-start; align-self: auto; font-size: 50px;" />
-            <ui:Button text="Start Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartButton" style="max-width: 50%; width: 50%;" />
-            <ui:Button text="Controls" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ControlsButton" style="width: 50%; max-width: 50%;" />
-            <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitButton" style="max-width: 50%; width: 50%;" />
+    <ui:VisualElement style="flex-grow: 1; justify-content: center; background-color: rgba(0, 128, 255, 0.55);">
+        <ui:VisualElement style="flex-grow: 1; height: auto; max-height: none; align-self: auto; justify-content: space-around; align-items: center;">
+            <ui:Label tabindex="-1" text="Gej Title" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" style="align-items: auto; justify-content: flex-start; align-self: auto; font-size: 50px;" />
+            <ui:Button text="Start Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartButton" style="max-width: 50%; width: 50%; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;" />
+            <ui:Button text="Controls" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ControlsButton" style="width: 50%; max-width: 50%; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;" />
+            <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitButton" style="max-width: 50%; width: 50%; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
