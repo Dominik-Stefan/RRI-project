@@ -7,7 +7,8 @@ public class EndlessTilemap : MonoBehaviour
     public const float maxViewDistance = 39f;
     public Transform playerTransform;
     public static Vector2 playerPosition;
-    public GameObject tilemapPrefab;
+    public GameObject tilemapPrefabUp;
+    public GameObject tilemapPrefabDown;
     private int chunkSize;
     private int chunksVisible;
     private Dictionary<Vector2, TerrainChunk> terrainChunkDictionary = new Dictionary<Vector2, TerrainChunk>();
@@ -16,7 +17,7 @@ public class EndlessTilemap : MonoBehaviour
 
     void Start()
     {
-        Tilemap tilemap = tilemapPrefab.GetComponent<Tilemap>();
+        Tilemap tilemap = tilemapPrefabDown.GetComponent<Tilemap>();
 
         BoundsInt bounds = tilemap.cellBounds;
         int n = 0;
@@ -65,7 +66,7 @@ public class EndlessTilemap : MonoBehaviour
                 }
                 else
                 {
-                    currentTerrainChunk = new TerrainChunk(viewedChunkCoord, chunkSize, tilemapPrefab, transform);
+                    currentTerrainChunk = new TerrainChunk(viewedChunkCoord, chunkSize, transform, tilemapPrefabDown, tilemapPrefabUp);
                     terrainChunkDictionary.Add(viewedChunkCoord, currentTerrainChunk);
                 }
             }
@@ -89,17 +90,21 @@ public class EndlessTilemap : MonoBehaviour
 
     public class TerrainChunk
     {
-        GameObject tilemap;
+        GameObject tilemapDown;
+        GameObject tilemapUp;
         Vector2 position;
         Bounds bounds;
 
-        public TerrainChunk(Vector2 coord, int size, GameObject tilemapPrefab, Transform parent)
+        public TerrainChunk(Vector2 coord, int size, Transform parent, GameObject tilemapPrefabDown, GameObject tilemapPrefabUp)
         {
             position = coord * size;
             bounds = new Bounds(position, Vector2.one * size);
 
-            tilemap = Instantiate(tilemapPrefab, new Vector2(position.x, position.y), Quaternion.identity);
-            tilemap.transform.parent = parent;
+            tilemapDown = Instantiate(tilemapPrefabDown, new Vector2(position.x, position.y), Quaternion.identity);
+            tilemapDown.transform.parent = parent;
+
+            tilemapUp = Instantiate(tilemapPrefabUp, new Vector2(position.x, position.y), Quaternion.identity);
+            tilemapUp.transform.parent = parent;
             SetVisible(false);
         }
 
@@ -112,12 +117,13 @@ public class EndlessTilemap : MonoBehaviour
 
         public void SetVisible(bool visible)
         {
-            tilemap.SetActive(visible);
+            tilemapDown.SetActive(visible);
+            tilemapUp.SetActive(visible);
         }
 
         public bool IsVisible()
         {
-            return tilemap.activeSelf;
+            return tilemapDown.activeSelf && tilemapUp.activeSelf;
         }
     }
 }

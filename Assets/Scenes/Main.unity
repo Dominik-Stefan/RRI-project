@@ -793,7 +793,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 8220160855789296195}
-  tilemapPrefab: {fileID: 6161047076702309363, guid: 9e549a12ad46a1e4da24822d5fff6931, type: 3}
+  tilemapPrefabUp: {fileID: 3792459501436790251, guid: 460fd8a00876e4241aa47d547ac750a1, type: 3}
+  tilemapPrefabDown: {fileID: 6161047076702309363, guid: 9e549a12ad46a1e4da24822d5fff6931, type: 3}
 --- !u!1 &1210553947
 GameObject:
   m_ObjectHideFlags: 0
