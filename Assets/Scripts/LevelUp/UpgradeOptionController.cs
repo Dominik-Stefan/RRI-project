@@ -31,6 +31,7 @@ public class UpgradeOptionController : MonoBehaviour
                 case "Shotgun":
                     allOptions.Add(new MorePellets());
                     allOptions.Add(new IncreaseSpread());
+                    allOptions.Add(new Penetration());
                     break;
                 case "Minigun":
                     allOptions.Add(new FireRate());
@@ -44,6 +45,16 @@ public class UpgradeOptionController : MonoBehaviour
         if (RapidFire.rapidFireLVL == RapidFire.rapidFireMaxLVL && !selectedOptions.Any(upgrade => upgrade.GetID() == 13))
         {
             allOptions.Add(new DualWielding());
+        }
+
+        if (AmmoReserve.ammoReserveLVL == 3 && !selectedOptions.Any(upgrade => upgrade.GetID() == 14))
+        {
+            allOptions.Add(new ExtraSupplies());
+        }
+
+        if (Might.mightLVL == Might.mightMaxLVL && Penetration.penetrationLVL == Penetration.penetrationMaxLVL && !selectedOptions.Any(upgrade => upgrade.GetID() == 16))
+        {
+            allOptions.Add(new DoublePellets());
         }
 
         List<Upgrade> options = new List<Upgrade>();
