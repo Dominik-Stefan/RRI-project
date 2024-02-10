@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 public class PauseMenuController : MonoBehaviour
 {
     public GameController gameController;
+    public UIDocument confirmationUIDocument;
     private void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
@@ -14,7 +15,9 @@ public class PauseMenuController : MonoBehaviour
         Button buttonQuit = root.Q<Button>("QuitButton");
 
         buttonResume.clicked += () => gameController.ResumeGame();
-        buttonMainMenu.clicked += () => SceneManager.LoadScene("MainMenu");
+        buttonMainMenu.clicked += () => confirmationUIDocument.rootVisualElement.style.display = DisplayStyle.Flex;
         buttonQuit.clicked += () => Application.Quit();
+
+        confirmationUIDocument.rootVisualElement.style.display = DisplayStyle.None;
     }
 }

@@ -1,42 +1,42 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement name="VisualElement" style="flex-grow: 1; justify-content: flex-start; align-items: center; align-self: auto;">
+    <ui:VisualElement name="VisualElement" style="flex-grow: 1; justify-content: flex-start; align-items: center; align-self: auto; background-color: rgba(0, 128, 255, 0.55);">
         <ui:Label tabindex="-1" text="Controls" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ControlsTitle" style="align-items: auto; justify-content: flex-start; align-self: auto; font-size: 50px; margin-top: 4px;" />
         <ui:VisualElement name="ControlsElement" style="flex-grow: 1; justify-content: flex-start; background-color: rgba(65, 53, 145, 0); flex-direction: row; align-items: center; align-self: auto; min-height: 40%; height: 100%;">
             <ui:VisualElement name="MovementElement" style="flex-grow: 1; height: 100%; max-height: 80%; align-self: auto; justify-content: flex-start; align-items: center; max-width: 50%;">
                 <ui:Label tabindex="-1" text="Movement" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MovementTitle" style="align-items: auto; justify-content: flex-start; align-self: auto; font-size: 20px; -unity-font-style: bold;" />
                 <ui:VisualElement name="MovementControlsElement" style="flex-grow: 1; width: 90%; justify-content: flex-start; align-items: auto; flex-direction: column; align-self: auto; flex-wrap: wrap;">
-                    <ui:VisualElement name="UpElement" style="flex-grow: 1; width: 100%; flex-wrap: nowrap; flex-direction: row; align-items: center; justify-content: flex-start; align-self: auto;">
-                        <ui:Label tabindex="-1" text="Move Up:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="width: 50%; align-self: auto; justify-content: flex-start; align-items: auto; flex-direction: column; -unity-text-align: upper-right;" />
-                        <ui:Label tabindex="-1" text="W" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 50%;" />
+                    <ui:VisualElement name="UpElement" style="flex-grow: 1; width: 100%; flex-wrap: nowrap; flex-direction: row; align-items: center; justify-content: center; align-self: auto; background-color: rgba(0, 0, 0, 0.1); border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                        <ui:Label tabindex="-1" text="Move Up:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="width: auto; align-self: auto; justify-content: flex-start; align-items: auto; flex-direction: column; -unity-text-align: upper-right;" />
+                        <ui:Label tabindex="-1" text="W" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: auto;" />
                     </ui:VisualElement>
-                    <ui:VisualElement name="DownElement" style="flex-grow: 1; width: 100%; flex-wrap: nowrap; flex-direction: row; align-items: center; justify-content: flex-start; align-self: auto;">
-                        <ui:Label tabindex="-1" text="Move Down:" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 50%; align-self: auto; justify-content: flex-start; align-items: auto; flex-direction: column; -unity-text-align: upper-right;" />
-                        <ui:Label tabindex="-1" text="S" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 50%;" />
+                    <ui:VisualElement name="DownElement" style="flex-grow: 1; width: 100%; flex-wrap: nowrap; flex-direction: row; align-items: center; justify-content: center; align-self: auto; background-color: rgba(0, 0, 0, 0.1);">
+                        <ui:Label tabindex="-1" text="Move Down:" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: auto; align-self: auto; justify-content: flex-start; align-items: auto; flex-direction: column; -unity-text-align: upper-right;" />
+                        <ui:Label tabindex="-1" text="S" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: auto;" />
                     </ui:VisualElement>
-                    <ui:VisualElement name="LeftElement" style="flex-grow: 1; width: 100%; flex-wrap: nowrap; flex-direction: row; align-items: center; justify-content: flex-start; align-self: auto;">
-                        <ui:Label tabindex="-1" text="Move Left:" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 50%; align-self: auto; justify-content: flex-start; align-items: auto; flex-direction: column; -unity-text-align: upper-right;" />
-                        <ui:Label tabindex="-1" text="A" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 50%;" />
+                    <ui:VisualElement name="LeftElement" style="flex-grow: 1; width: 100%; flex-wrap: nowrap; flex-direction: row; align-items: center; justify-content: center; align-self: auto; background-color: rgba(0, 0, 0, 0.1);">
+                        <ui:Label tabindex="-1" text="Move Left:" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: auto; align-self: auto; justify-content: flex-start; align-items: auto; flex-direction: column; -unity-text-align: upper-right;" />
+                        <ui:Label tabindex="-1" text="A" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: auto;" />
                     </ui:VisualElement>
-                    <ui:VisualElement name="RightElement" style="flex-grow: 1; width: 100%; flex-wrap: nowrap; flex-direction: row; align-items: center; justify-content: flex-start; align-self: auto;">
-                        <ui:Label tabindex="-1" text="Move Right:" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 50%; align-self: auto; justify-content: flex-start; align-items: auto; flex-direction: column; -unity-text-align: upper-right;" />
-                        <ui:Label tabindex="-1" text="D" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 50%;" />
+                    <ui:VisualElement name="RightElement" style="flex-grow: 1; width: 100%; flex-wrap: nowrap; flex-direction: row; align-items: center; justify-content: center; align-self: auto; background-color: rgba(0, 0, 0, 0.1); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+                        <ui:Label tabindex="-1" text="Move Right:" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: auto; align-self: auto; justify-content: flex-start; align-items: auto; flex-direction: column; -unity-text-align: upper-right;" />
+                        <ui:Label tabindex="-1" text="D" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: auto;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="ShootingAndPausingElement" style="flex-grow: 1; height: 100%; max-height: 80%; align-self: auto; justify-content: flex-start; align-items: center; max-width: 50%;">
                 <ui:Label tabindex="-1" text="Shooting and Pausing" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ShootingAndPausingElement" style="align-items: auto; justify-content: flex-start; align-self: auto; font-size: 20px; -unity-font-style: bold;" />
                 <ui:VisualElement name="ShootingAndPausingControlsElement" style="flex-grow: 1; width: 90%; justify-content: flex-start; align-items: auto; flex-direction: column; align-self: auto; flex-wrap: wrap;">
-                    <ui:VisualElement name="ShootElement" style="flex-grow: 1; width: 100%; flex-wrap: nowrap; flex-direction: row; align-items: center; justify-content: flex-start; align-self: auto;">
-                        <ui:Label tabindex="-1" text="Shoot:" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 50%; align-self: auto; justify-content: flex-start; align-items: auto; flex-direction: column; -unity-text-align: upper-right;" />
-                        <ui:Label tabindex="-1" text="Left Mouse Button" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 50%;" />
+                    <ui:VisualElement name="ShootElement" style="flex-grow: 1; width: 100%; flex-wrap: nowrap; flex-direction: row; align-items: center; justify-content: center; align-self: auto; background-color: rgba(0, 0, 0, 0.1); border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; margin-top: 1px; margin-bottom: 3px;">
+                        <ui:Label tabindex="-1" text="Shoot:" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: auto; align-self: auto; justify-content: flex-start; align-items: auto; flex-direction: column; -unity-text-align: upper-right;" />
+                        <ui:Label tabindex="-1" text="Left Mouse Button" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: auto;" />
                     </ui:VisualElement>
-                    <ui:VisualElement name="PauseElement" style="flex-grow: 1; width: 100%; flex-wrap: nowrap; flex-direction: row; align-items: center; justify-content: flex-start; align-self: auto;">
-                        <ui:Label tabindex="-1" text="Pause and Unpause:" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 50%; align-self: auto; justify-content: flex-start; align-items: auto; flex-direction: column; -unity-text-align: upper-right;" />
-                        <ui:Label tabindex="-1" text="Escape" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 50%;" />
+                    <ui:VisualElement name="PauseElement" style="flex-grow: 1; width: 100%; flex-wrap: nowrap; flex-direction: row; align-items: center; justify-content: center; align-self: auto; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-color: rgba(0, 0, 0, 0.1); border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;">
+                        <ui:Label tabindex="-1" text="Pause and Unpause:" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: auto; align-self: auto; justify-content: flex-start; align-items: auto; flex-direction: column; -unity-text-align: upper-right;" />
+                        <ui:Label tabindex="-1" text="Escape" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: auto;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:Button text="Back" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BackButton" style="margin-bottom: 2px; width: 50%; max-width: 50%; align-self: auto; justify-content: flex-start; align-items: auto; flex-direction: column;" />
+        <ui:Button text="Back" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BackButton" style="margin-bottom: 2px; width: 50%; max-width: 50%; align-self: auto; justify-content: flex-start; align-items: auto; flex-direction: column; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;" />
     </ui:VisualElement>
 </ui:UXML>
