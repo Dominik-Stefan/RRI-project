@@ -13,6 +13,7 @@ TagManager:
   - EnemyStandCheck
   - EnemyShootCheck
   - Explosion
+  - UpgradeDisplay
   layers:
   - Default
   - TransparentFX

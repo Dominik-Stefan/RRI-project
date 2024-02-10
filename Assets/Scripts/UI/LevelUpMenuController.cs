@@ -10,12 +10,13 @@ public class LevelUpMenuController : MonoBehaviour
 {
     private VisualElement root;
     private Button buttonConfirm;
-    private PlayerController playerController;
+    private GameObject player;
     private GameController gameController;
     private UpgradeOptionController upgradeOptionController;
     private RadioButtonGroup levelUpOptions;
     private List<Upgrade> options;
     private List<string> choices;
+
     private void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
@@ -39,7 +40,7 @@ public class LevelUpMenuController : MonoBehaviour
 
     void Start()
     {
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        player = GameObject.FindGameObjectWithTag("Player");
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
