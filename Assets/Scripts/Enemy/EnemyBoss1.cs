@@ -108,4 +108,8 @@ public class EnemyBoss1 : EnemyController
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step * direction);
         timer += Time.deltaTime;    
     }
+
+    public override void OutsideOfBorder(){
+        gameObject.transform.position = new Vector2(player.transform.position.x - 5, player.transform.position.y - 5);
+    }
 }

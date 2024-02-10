@@ -79,7 +79,6 @@ public class EnemyController : MonoBehaviour
     }
 
     public virtual void OutsideOfBorder(){
-        
         gameObject.SetActive(false);
     }
 }

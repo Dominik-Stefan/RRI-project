@@ -25,7 +25,7 @@ public class EnemyTreasure : EnemyController
     }
 
     public override void OutsideOfBorder(){
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     public override void Death(){

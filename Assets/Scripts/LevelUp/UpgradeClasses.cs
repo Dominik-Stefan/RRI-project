@@ -776,8 +776,8 @@ namespace Upgrades
         public Penetration()
         {
             spriteName = "Penetration";
-            title = "Penetration LVL " + (penetrationLVL + 1);
-            description = "Bullet penetration +1";
+            title = "Piercing LVL " + (penetrationLVL + 1);
+            description = "Bullet piercing +1";
             BulletController.penetration = 0;
         }
 
@@ -805,7 +805,7 @@ namespace Upgrades
 
         public override void UpdateTitle()
         {
-            title = "Penetration LVL " + (penetrationLVL + 1);
+            title = "Piercing LVL " + (penetrationLVL + 1);
         }
 
         public override void ResetLVL()

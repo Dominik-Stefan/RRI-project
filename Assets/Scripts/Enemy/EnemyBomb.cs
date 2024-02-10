@@ -32,4 +32,8 @@ public class EnemyBomb : EnemyController
             Death();
         }
     }
+
+    public override void OutsideOfBorder(){
+        Destroy(gameObject);
+    }
 }

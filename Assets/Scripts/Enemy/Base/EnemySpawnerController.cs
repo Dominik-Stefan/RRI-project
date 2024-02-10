@@ -35,7 +35,7 @@ public class EnemySpawnerController : MonoBehaviour
         Vector2 spawnPosition = (Vector2)transform.position - Random.insideUnitCircle.normalized * spawnRadius;
         Instantiate(boss1, spawnPosition, transform.rotation);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(300f);
         spawnPosition = (Vector2)transform.position - Random.insideUnitCircle.normalized * spawnRadius;
         Instantiate(boss1, spawnPosition, transform.rotation);
         spawnPosition = (Vector2)transform.position - Random.insideUnitCircle.normalized * spawnRadius;
