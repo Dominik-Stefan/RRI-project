@@ -14,6 +14,9 @@ TagManager:
   - EnemyShootCheck
   - Explosion
   - UpgradeDisplay
+  - Weapon
+  - RotatePoint
+  - Grid
   layers:
   - Default
   - TransparentFX
@@ -54,6 +57,12 @@ TagManager:
   - name: Gems
     uniqueID: 2610975403
     locked: 0
+  - name: GunBack
+    uniqueID: 2075381765
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: GunFront
+    uniqueID: 133212225
     locked: 0

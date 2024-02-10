@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
         inGameHUD.rootVisualElement.style.display = DisplayStyle.Flex;
         ResumeGame();
         gameOver = false;
+        //RendererSettings.ambientLight = Color.red;
     }
 
     void Update()
@@ -36,8 +37,8 @@ public class GameController : MonoBehaviour
         }
         if (gameOver)
         {
+            Time.timeScale = 0f;          
             gameOverMenuUI.rootVisualElement.style.display = DisplayStyle.Flex;
-            Time.timeScale = 0f;
             timerActive = false;
         }
     }

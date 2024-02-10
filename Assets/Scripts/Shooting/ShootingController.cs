@@ -16,11 +16,19 @@ public class ShootingController : MonoBehaviour
     private Vector3 localMousePosition;
     private GameController gameController;
     private PlayerController playerController;
+    private GameObject weapon;
+    private GameObject player;
+    private SpriteRenderer spr;
+    private Animator animator;
 
     void Start()
     {
         playerController = GetComponentInParent<PlayerController>();
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        weapon = GameObject.FindGameObjectWithTag("Weapon");
+        player = GameObject.FindGameObjectWithTag("Player");
+        spr = player.GetComponent<SpriteRenderer>();
+        animator = player.GetComponent<Animator>();
         canFire = true;
         switch (Gun.selectedGun)
         {
@@ -59,6 +67,22 @@ public class ShootingController : MonoBehaviour
             localMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             float rotationZ = Mathf.Atan2(localMousePosition.y, localMousePosition.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, rotationZ);
+
+            if(weapon.transform.position.x < player.transform.position.x){
+                weapon.GetComponent<SpriteRenderer>().flipY = true;
+                spr.flipX = true;
+            }else{
+                weapon.GetComponent<SpriteRenderer>().flipY = false;
+                spr.flipX = false;
+            }
+
+            if(weapon.transform.position.y < player.transform.position.y){
+                weapon.GetComponent<SpriteRenderer>().sortingLayerName = "GunFront";
+                animator.SetBool("LookingDown", true);
+            }else{
+                weapon.GetComponent<SpriteRenderer>().sortingLayerName = "GunBack";
+                animator.SetBool("LookingDown", false);
+            }
 
             if (!canFire)
             {

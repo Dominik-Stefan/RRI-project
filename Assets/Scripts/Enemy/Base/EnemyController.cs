@@ -58,10 +58,7 @@ public class EnemyController : MonoBehaviour
                 playerController.playerHealth -= enemyDamage;
                 timer = 0;
             }
-            if (playerController.playerHealth <= 0)
-            {
-                gameController.gameOver = true;
-            }
+            playerController.CheckLife();
         }
     }
 

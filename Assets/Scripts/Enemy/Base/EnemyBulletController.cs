@@ -14,11 +14,12 @@ public class EnemyBulletController : MonoBehaviour
             gameObject.SetActive(false);
 
             collison.gameObject.GetComponent<PlayerController>().playerHealth -= bulletDamage;
-            if (collison.gameObject.GetComponent<PlayerController>().playerHealth <= 0){
+            collison.gameObject.GetComponent<PlayerController>().CheckLife();
+            /*if (collison.gameObject.GetComponent<PlayerController>().playerHealth <= 0){
                 collison.gameObject.GetComponent<PlayerController>().playerHealth = 0;
                 GameController gameController = GameObject.Find("GameController").GetComponent<GameController>();
                 gameController.gameOver = true;
-            }
+            }*/
         }
     }
 
