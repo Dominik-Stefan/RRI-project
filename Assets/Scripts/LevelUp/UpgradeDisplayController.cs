@@ -24,7 +24,7 @@ public class UpgradeDisplayController : MonoBehaviour
             return;
         }
 
-        if (upgrade.GetLevel() == upgrade.GetMaxLVL())
+        if (upgrade.GetLVL() == upgrade.GetMaxLVL())
         {
             foreach (Transform child in gameObject.transform)
             {
