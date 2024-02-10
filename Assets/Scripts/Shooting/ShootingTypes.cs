@@ -24,7 +24,7 @@ public class ShootingTypes : MonoBehaviour
             bulletCopy.transform.rotation = Quaternion.identity;
             bulletCopy.SetActive(true);
 
-            bulletCopy.GetComponent<BulletController>().penetrationCount = BulletController.penetration;
+            bulletCopy.GetComponent<BulletController>().piercingCount = BulletController.piercing;
 
             bulletCopy.GetComponent<Rigidbody2D>().velocity = (transform.rotation * direction).normalized * force;
         }

@@ -31,7 +31,7 @@ public class UpgradeOptionController : MonoBehaviour
                 case "Shotgun":
                     allOptions.Add(new MorePellets());
                     allOptions.Add(new IncreaseSpread());
-                    allOptions.Add(new Penetration());
+                    allOptions.Add(new Piercing());
                     break;
                 case "Minigun":
                     allOptions.Add(new FireRate());
@@ -52,9 +52,14 @@ public class UpgradeOptionController : MonoBehaviour
             allOptions.Add(new ExtraSupplies());
         }
 
-        if (Might.mightLVL == Might.mightMaxLVL && Penetration.penetrationLVL == Penetration.penetrationMaxLVL && !selectedOptions.Any(upgrade => upgrade.GetID() == 16))
+        if (Might.mightLVL == Might.mightMaxLVL && Piercing.piercingLVL == Piercing.piercingMaxLVL && !selectedOptions.Any(upgrade => upgrade.GetID() == 16))
         {
             allOptions.Add(new DoublePellets());
+        }
+
+        if (Gun.selectedGun == "Minigun" && Might.mightLVL == 3 && Grit.gritLVL == 3 && !selectedOptions.Any(upgrade => upgrade.GetID() == 17))
+        {
+            allOptions.Add(new LifeSteal());
         }
 
         List<Upgrade> options = new List<Upgrade>();
@@ -96,6 +101,8 @@ public class UpgradeOptionController : MonoBehaviour
         {
             options.Add(new Curse());
         }
+
+        options.Add(new Heal());
 
         return options;
     }
