@@ -195,8 +195,8 @@ namespace Upgrades
     public class Might : Upgrade
     {
         private static int id = 3;
-        private static int mightLVL = 0;
-        private static int mightMaxLVL = 5;
+        public static int mightLVL = 0;
+        public static int mightMaxLVL = 5;
 
         public Might()
         {
@@ -490,14 +490,14 @@ namespace Upgrades
         {
             spriteName = "IncreaseSpread";
             title = "Increase Spread LVL " + (increaseSpreadLVL + 1);
-            description = "Spread +30%";
+            description = "Spread +20%";
         }
 
         public override void Execute()
         {
             increaseSpreadLVL++;
 
-            ShootingController.spreadAngle += (0.3f * ShootingController.spreadAngle);
+            ShootingController.spreadAngle += (0.2f * ShootingController.spreadAngle);
         }
 
         public override int GetID()
@@ -575,7 +575,7 @@ namespace Upgrades
     public class AmmoReserve : Upgrade
     {
         private static int id = 11;
-        private static int ammoReserveLVL = 0;
+        public static int ammoReserveLVL = 0;
         private static int ammoReserveMaxLVL = 5;
 
         public AmmoReserve()
@@ -678,7 +678,7 @@ namespace Upgrades
         {
             spriteName = "DualWielding";
             title = "Dual Wielding";
-            description = "x2 max ammo, x2 fire rate, x2 reload time";
+            description = "x2 max ammo, x2 fire rate, removes rapid fire";
         }
 
         public override void Execute()
@@ -692,8 +692,6 @@ namespace Upgrades
             ShootingController.currentAmmo = ShootingController.ammo;
 
             ShootingController.timeBetweenFiring = (ShootingController.timeBetweenFiring / 2f);
-
-            ShootingController.reloadTime = (ShootingController.reloadTime * 2f);
         }
 
         public override int GetID()
@@ -714,6 +712,146 @@ namespace Upgrades
         public override void ResetLVL()
         {
             dualWieldingLVL = 0;
+        }
+    }
+
+    public class ExtraSupplies : Upgrade
+    {
+        private static int id = 14;
+        private static int extraSuppliesLVL = 0;
+        private static int extraSuppliesMaxLVL = 1;
+
+        public ExtraSupplies()
+        {
+            spriteName = "ExtraSupplies";
+            title = "Extra Supplies";
+            description = "-30% movement speed, x2 max ammo, +50% max health";
+        }
+
+        public override void Execute()
+        {
+            extraSuppliesLVL++;
+
+            ShootingController.ammo = ShootingController.ammo * 2;
+            ShootingController.currentAmmo = ShootingController.ammo;
+
+            PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
+
+            player.moveSpeed -= (player.GetBaseMoveSpeed() * 0.3f);
+
+            int healthGain = (int)(player.GetPlayerBaseHealth() * 0.5f);
+
+            player.playerMaxHealth += healthGain;
+
+            player.playerHealth += healthGain;
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return extraSuppliesLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return extraSuppliesMaxLVL;
+        }
+
+        public override void ResetLVL()
+        {
+            extraSuppliesLVL = 0;
+        }
+    }
+
+    public class Penetration : Upgrade
+    {
+        private static int id = 15;
+        public static int penetrationLVL = 0;
+        public static int penetrationMaxLVL = 2;
+
+        public Penetration()
+        {
+            spriteName = "Penetration";
+            title = "Penetration LVL " + (penetrationLVL + 1);
+            description = "Bullet penetration +1";
+            BulletController.penetration = 0;
+        }
+
+        public override void Execute()
+        {
+            penetrationLVL++;
+
+            BulletController.penetration++;
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return penetrationLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return penetrationMaxLVL;
+        }
+
+        public override void UpdateTitle()
+        {
+            title = "Penetration LVL " + (penetrationLVL + 1);
+        }
+
+        public override void ResetLVL()
+        {
+            penetrationLVL = 0;
+        }
+    }
+
+    public class DoublePellets : Upgrade
+    {
+        private static int id = 16;
+        public static int doublePelletsLVL = 0;
+        public static int doublePelletsMaxLVL = 1;
+
+        public DoublePellets()
+        {
+            spriteName = "DoublePellets";
+            title = "Double Pellets";
+            description = "x2 pellets";
+        }
+
+        public override void Execute()
+        {
+            doublePelletsLVL++;
+
+            ShootingController.pellets *= 2;
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return doublePelletsLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return doublePelletsMaxLVL;
+        }
+
+        public override void ResetLVL()
+        {
+            doublePelletsLVL = 0;
         }
     }
 }
