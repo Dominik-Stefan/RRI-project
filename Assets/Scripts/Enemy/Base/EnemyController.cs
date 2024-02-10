@@ -29,6 +29,10 @@ public class EnemyController : MonoBehaviour
         if (this.enemyHealth > 0)
         {
             this.enemyHealth -= playerController.playerDamage;
+            if (playerController.playerHealth + (playerController.GetPlayerBaseDamage() * playerController.lifeSteal) <= playerController.playerMaxHealth)
+            {
+                playerController.playerHealth += (playerController.GetPlayerBaseDamage() * playerController.lifeSteal);
+            }
         }
         if (this.enemyHealth <= 0)
         {
@@ -37,7 +41,8 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void TakeExplosionDamage(){
+    public void TakeExplosionDamage()
+    {
         if (this.enemyHealth > 0)
         {
             this.enemyHealth -= 200;
@@ -65,21 +70,24 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision){
+    private void OnTriggerExit2D(Collider2D collision)
+    {
         if (collision.gameObject.CompareTag("DistanceCheck"))
         {
             OutsideOfBorder();
         }
     }
 
-    public virtual void Death(){
+    public virtual void Death()
+    {
         Instantiate(gem, transform.position, transform.rotation);
         this.enemyHealth = this.enemyMaxHealth;
         gameObject.SetActive(false);
     }
 
-    public virtual void OutsideOfBorder(){
-        
+    public virtual void OutsideOfBorder()
+    {
+
         gameObject.SetActive(false);
     }
 }

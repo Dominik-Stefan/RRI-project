@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -95,7 +96,7 @@ namespace Upgrades
     public class Grit : Upgrade
     {
         private static int id = 1;
-        private static int gritLVL = 0;
+        public static int gritLVL = 0;
         private static int gritMaxLVL = 5;
 
         public Grit()
@@ -211,7 +212,7 @@ namespace Upgrades
 
             PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
 
-            player.playerDamage += (int)(player.GetPlayerBaseDamage() * 0.1f);
+            player.playerDamage += (Mathf.CeilToInt(player.GetPlayerBaseDamage() * 0.1f) < 1 ? 1 : Mathf.CeilToInt(player.GetPlayerBaseDamage() * 0.1f));
         }
 
         public override int GetID()
@@ -267,7 +268,8 @@ namespace Upgrades
 
             player.moveSpeed += (player.GetBaseMoveSpeed() * 0.05f);
 
-            player.playerDamage += (int)(player.GetPlayerBaseDamage() * 0.05f);
+            player.playerDamage += (Mathf.CeilToInt(player.GetPlayerBaseDamage() * 0.05f) < 1 ? 1 : Mathf.CeilToInt(player.GetPlayerBaseDamage() * 0.05f));
+
         }
 
         public override int GetID()
@@ -644,7 +646,7 @@ namespace Upgrades
 
             player.moveSpeed = player.GetBaseMoveSpeed() * 2f;
 
-            player.playerDamage += (int)(player.GetPlayerBaseDamage() * 0.5f);
+            player.playerDamage += Mathf.CeilToInt(player.GetPlayerBaseDamage() * 0.5f);
         }
 
         public override int GetID()
@@ -767,25 +769,25 @@ namespace Upgrades
         }
     }
 
-    public class Penetration : Upgrade
+    public class Piercing : Upgrade
     {
         private static int id = 15;
-        public static int penetrationLVL = 0;
-        public static int penetrationMaxLVL = 2;
+        public static int piercingLVL = 0;
+        public static int piercingMaxLVL = 2;
 
-        public Penetration()
+        public Piercing()
         {
-            spriteName = "Penetration";
-            title = "Penetration LVL " + (penetrationLVL + 1);
-            description = "Bullet penetration +1";
-            BulletController.penetration = 0;
+            spriteName = "Piercing";
+            title = "Piercing LVL " + (piercingLVL + 1);
+            description = "Bullet piercing +1";
+            BulletController.piercing = 0;
         }
 
         public override void Execute()
         {
-            penetrationLVL++;
+            piercingLVL++;
 
-            BulletController.penetration++;
+            BulletController.piercing++;
         }
 
         public override int GetID()
@@ -795,22 +797,22 @@ namespace Upgrades
 
         public override int GetLVL()
         {
-            return penetrationLVL;
+            return piercingLVL;
         }
 
         public override int GetMaxLVL()
         {
-            return penetrationMaxLVL;
+            return piercingMaxLVL;
         }
 
         public override void UpdateTitle()
         {
-            title = "Penetration LVL " + (penetrationLVL + 1);
+            title = "Piercing LVL " + (piercingLVL + 1);
         }
 
         public override void ResetLVL()
         {
-            penetrationLVL = 0;
+            piercingLVL = 0;
         }
     }
 
@@ -852,6 +854,49 @@ namespace Upgrades
         public override void ResetLVL()
         {
             doublePelletsLVL = 0;
+        }
+    }
+
+    public class LifeSteal : Upgrade
+    {
+        private static int id = 17;
+        public static int lifeStealLVL = 0;
+        public static int lifeStealMaxLVL = 1;
+
+        public LifeSteal()
+        {
+            spriteName = "LifeSteal";
+            title = "Life Steal";
+            description = "heal for 100% of your base damage to enemies";
+        }
+
+        public override void Execute()
+        {
+            lifeStealLVL++;
+
+            PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
+
+            player.lifeSteal = 1;
+        }
+
+        public override int GetID()
+        {
+            return id;
+        }
+
+        public override int GetLVL()
+        {
+            return lifeStealLVL;
+        }
+
+        public override int GetMaxLVL()
+        {
+            return lifeStealMaxLVL;
+        }
+
+        public override void ResetLVL()
+        {
+            lifeStealLVL = 0;
         }
     }
 }
