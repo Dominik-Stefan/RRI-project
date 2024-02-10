@@ -100,7 +100,7 @@ namespace Upgrades
 
         public Grit()
         {
-            spriteName = "PlayerSprite";
+            spriteName = "Grit";
             title = "Grit LVL " + (gritLVL + 1);
             description = "Max health +10%";
         }
@@ -152,6 +152,7 @@ namespace Upgrades
 
         public Rush()
         {
+            spriteName = "Rush";
             title = "Rush LVL " + (rushLVL + 1);
             description = "Movement speed +10%";
         }
@@ -199,6 +200,7 @@ namespace Upgrades
 
         public Might()
         {
+            spriteName = "Might";
             title = "Might LVL " + (mightLVL + 1);
             description = "Player damage +10%";
         }
@@ -246,6 +248,7 @@ namespace Upgrades
 
         public CompanyBonus()
         {
+            spriteName = "CompanyBonus";
             title = "Company bonus";
             description = "Max health, movement speed and damage +5%";
         }
@@ -296,6 +299,7 @@ namespace Upgrades
 
         public QuickReload()
         {
+            spriteName = "QuickReload";
             title = "Quick Reload LVL " + (quickReloadLVL + 1);
             description = "Reload speed +15%";
         }
@@ -341,6 +345,7 @@ namespace Upgrades
 
         public BulletSpeed()
         {
+            spriteName = "BulletSpeed";
             title = "Bullet Speed LVL " + (bulletSpeedLVL + 1);
             description = "Bullet speed +25%";
         }
@@ -386,6 +391,7 @@ namespace Upgrades
 
         public RapidFire()
         {
+            spriteName = "RapidFire";
             title = "Rapid Fire LVL " + (rapidFireLVL + 1);
             description = "Fires one more bullet";
         }
@@ -436,6 +442,7 @@ namespace Upgrades
 
         public MorePellets()
         {
+            spriteName = "MorePellets";
             title = "More Pellets LVL " + (morePelletsLVL + 1);
             description = "Pellet count +3";
         }
@@ -481,6 +488,7 @@ namespace Upgrades
 
         public IncreaseSpread()
         {
+            spriteName = "IncreaseSpread";
             title = "Increase Spread LVL " + (increaseSpreadLVL + 1);
             description = "Spread +30%";
         }
@@ -526,6 +534,7 @@ namespace Upgrades
 
         public FireRate()
         {
+            spriteName = "FireRate";
             title = "Fire Rate LVL " + (fireRateLVL + 1);
             description = "FireRate +20%";
         }
@@ -571,6 +580,7 @@ namespace Upgrades
 
         public AmmoReserve()
         {
+            spriteName = "AmmoReserve";
             title = "Ammo Reserve LVL " + (ammoReserveLVL + 1);
             description = "Max ammo +20%";
         }
@@ -617,6 +627,7 @@ namespace Upgrades
 
         public Curse()
         {
+            spriteName = "Curse";
             title = "Curse";
             description = "33% max health, +50% damage, x2 movement speed";
         }
@@ -665,6 +676,7 @@ namespace Upgrades
 
         public DualWielding()
         {
+            spriteName = "DualWielding";
             title = "Dual Wielding";
             description = "x2 max ammo, x2 fire rate, x2 reload time";
         }
