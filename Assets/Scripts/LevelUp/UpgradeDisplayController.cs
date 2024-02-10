@@ -19,6 +19,11 @@ public class UpgradeDisplayController : MonoBehaviour
 
     public void AddUpgradeToDisplay(Upgrade upgrade)
     {
+        if (upgrade.GetID() == 0)
+        {
+            return;
+        }
+
         if (DoesUpgradeExist(upgrade.spriteName))
         {
             return;
@@ -37,9 +42,11 @@ public class UpgradeDisplayController : MonoBehaviour
         rectTransform.anchoredPosition = new Vector2(currentXPosition, -20);
 
         Image image = imgObject.GetComponent<Image>();
-        Sprite sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + upgrade.spriteName);
+        //Sprite sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + upgrade.spriteName);
 
-        image.sprite = sprite;
+        //image.sprite = sprite;
+
+        image.sprite = upgrade.sprite;
 
         currentXPosition += rectTransform.rect.width + itemSpacing;
     }
@@ -53,7 +60,6 @@ public class UpgradeDisplayController : MonoBehaviour
             {
                 return true;
             } */
-
             if (child.name == "RapidFire" && spriteName == "DualWielding")
             {
                 child.name = "DualWielding";
