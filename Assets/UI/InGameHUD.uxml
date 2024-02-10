@@ -7,4 +7,5 @@
         <ui:ProgressBar value="22" name="HP" focusable="false" style="font-size: 15px; -unity-text-align: middle-center; text-overflow: clip; position: relative; top: auto; left: auto; justify-content: center; align-items: stretch; align-self: center; height: 25px; width: 250px; background-color: rgba(0, 0, 0, 0);" />
         <ui:ProgressBar value="22" name="Ammo" style="position: absolute; justify-content: center; align-self: flex-end; align-items: stretch; bottom: 4px; right: 4px; height: 25px; width: 100px; font-size: 15px; -unity-text-align: middle-center;" />
     </ui:VisualElement>
+    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LVL" style="position: absolute; right: auto; top: auto; -unity-text-align: middle-center; font-size: 25px; -unity-font-style: normal; bottom: 0; left: 0;" />
 </ui:UXML>
