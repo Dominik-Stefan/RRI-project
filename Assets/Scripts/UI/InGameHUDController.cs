@@ -6,6 +6,7 @@ public class InGameHUDController : MonoBehaviour
 {
     private VisualElement root;
     private Label timeLabel;
+    private Label lvlLabel;
     private ProgressBar hpBar;
     private ProgressBar expBar;
     private ProgressBar ammoBar;
@@ -22,6 +23,7 @@ public class InGameHUDController : MonoBehaviour
         hpBar = root.Q<ProgressBar>("HP");
         expBar = root.Q<ProgressBar>("EXP");
         ammoBar = root.Q<ProgressBar>("Ammo");
+        lvlLabel = root.Q<Label>("LVL");
     }
 
     void Start()
@@ -30,6 +32,8 @@ public class InGameHUDController : MonoBehaviour
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
 
         timeLabel.text = "00:00";
+
+        lvlLabel.text = "LVL " + playerController.GetLevel();
 
         hpBar.value = 100;
         hpBar.title = "HP: 100/100";
@@ -62,6 +66,8 @@ public class InGameHUDController : MonoBehaviour
         expBar.value = playerController.exp;
         expBar.highValue = playerController.expToLevelUp;
         expBar.title = "EXP: " + playerController.exp + "/" + playerController.expToLevelUp;
+
+        lvlLabel.text = "LVL " + playerController.GetLevel();
 
         if (gameController.timerActive)
         {

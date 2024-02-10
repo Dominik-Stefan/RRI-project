@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public int playerDamage = 10;
     public int exp = 0;
     public int expToLevelUp = 100;
+    public int lifeSteal = 0;
     private GameController gameController;
     private Vector2 mov;
     private Rigidbody2D rb;

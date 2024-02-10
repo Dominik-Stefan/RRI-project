@@ -24,6 +24,18 @@ public class UpgradeDisplayController : MonoBehaviour
             return;
         }
 
+        if (upgrade.GetLVL() == upgrade.GetMaxLVL())
+        {
+            foreach (Transform child in gameObject.transform)
+            {
+                if (child.name == upgrade.spriteName)
+                {
+                    child.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/UpgradeSprites/" + upgrade.spriteName + "_max");
+                    return;
+                }
+            }
+        }
+
         if (DoesUpgradeExist(upgrade.spriteName))
         {
             return;
