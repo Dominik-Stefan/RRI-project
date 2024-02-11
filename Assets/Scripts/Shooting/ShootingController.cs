@@ -37,7 +37,7 @@ public class ShootingController : MonoBehaviour
                 timeBetweenFiring = 0.5f;
                 reloadTime = 2f;
                 quickShoot = 1;
-                playerController.playerDamage = 20;
+                playerController.playerDamage = 18;
                 break;
             case "Shotgun":
                 ammo = 2;
@@ -45,14 +45,14 @@ public class ShootingController : MonoBehaviour
                 reloadTime = 3f;
                 pellets = 4;
                 spreadAngle = 1f;
-                playerController.playerDamage = 10;
+                playerController.playerDamage = 12;
                 break;
             case "Minigun":
                 ammo = 50;
                 timeBetweenFiring = 0.2f;
                 reloadTime = 5f;
                 spreadAngle = 0.01f;
-                playerController.playerDamage = 5;
+                playerController.playerDamage = 6;
                 break;
         }
 
@@ -68,18 +68,24 @@ public class ShootingController : MonoBehaviour
             float rotationZ = Mathf.Atan2(localMousePosition.y, localMousePosition.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, rotationZ);
 
-            if(weapon.transform.position.x < player.transform.position.x){
+            if (weapon.transform.position.x < player.transform.position.x)
+            {
                 weapon.GetComponent<SpriteRenderer>().flipY = true;
                 spr.flipX = true;
-            }else{
+            }
+            else
+            {
                 weapon.GetComponent<SpriteRenderer>().flipY = false;
                 spr.flipX = false;
             }
 
-            if(weapon.transform.position.y < player.transform.position.y){
+            if (weapon.transform.position.y < player.transform.position.y)
+            {
                 weapon.GetComponent<SpriteRenderer>().sortingLayerName = "GunFront";
                 animator.SetBool("LookingDown", true);
-            }else{
+            }
+            else
+            {
                 weapon.GetComponent<SpriteRenderer>().sortingLayerName = "GunBack";
                 animator.SetBool("LookingDown", false);
             }
