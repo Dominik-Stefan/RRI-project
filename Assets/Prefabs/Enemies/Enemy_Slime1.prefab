@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 9049193495688393281}
   - component: {fileID: -7517688987297666604}
   - component: {fileID: 7811217936782974248}
-  - component: {fileID: 8122573809963652052}
   - component: {fileID: 9010329184996269557}
+  - component: {fileID: 6456264197178056052}
   m_Layer: 6
   m_Name: Enemy_Slime1
   m_TagString: Enemy
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,8 +103,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 9d0fc32cf3e27444d94508d456f1aae2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -114,8 +114,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &8122573809963652052
-CircleCollider2D:
+--- !u!114 &9010329184996269557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5836843166377663602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36cb5474717a88d47b5e51c7f9d727c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameOfEnemy: Enemy_Slime1
+  moveSpeed: 2
+  damageTimer: 0.2
+  enemyMaxHealth: 20
+  enemyDamage: 25
+  gem: {fileID: 182031664735509766, guid: 9685bb87b20543e45918da3b8a9fe8e3, type: 3}
+--- !u!60 &6456264197178056052
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -147,23 +165,44 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.072
---- !u!114 &9010329184996269557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5836843166377663602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36cb5474717a88d47b5e51c7f9d727c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameOfEnemy: Enemy_Slime1
-  moveSpeed: 2
-  damageTimer: 0.2
-  enemyMaxHealth: 20
-  enemyDamage: 25
-  gem: {fileID: 182031664735509766, guid: 9685bb87b20543e45918da3b8a9fe8e3, type: 3}
+  m_SpriteTilingProperty:
+    border: {x: 0.24, y: 0, z: 0.35999998, w: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 1.6}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.45999998, y: -0.45}
+      - {x: 0.39999998, y: -0.19}
+      - {x: 0.38, y: -0.17999999}
+      - {x: 0.29999998, y: -0.17999999}
+      - {x: 0.29, y: -0.19}
+      - {x: 0.29, y: -0.37}
+      - {x: 0.03, y: -0.34}
+      - {x: -0.11, y: -0.22999999}
+      - {x: -0.29, y: -0.29999998}
+      - {x: -0.28, y: -0.37}
+      - {x: -0.11, y: -0.45}
+      - {x: -0.25, y: -0.47}
+      - {x: -0.53999996, y: -0.5}
+      - {x: -0.53999996, y: -0.56}
+      - {x: -0.44, y: -0.65999997}
+      - {x: -0.39999998, y: -0.65999997}
+      - {x: -0.38, y: -0.64}
+      - {x: -0.38, y: -0.65999997}
+      - {x: -0.39999998, y: -0.65999997}
+      - {x: -0.44, y: -0.66999996}
+      - {x: -0.42, y: -0.79999995}
+      - {x: 0.35999998, y: -0.79999995}
+      - {x: 0.41, y: -0.78999996}
+      - {x: 0.45999998, y: -0.71999997}
+    - - {x: -0.58, y: -0.78}
+      - {x: -0.42, y: -0.78}
+      - {x: -0.42, y: -0.65999997}
+      - {x: -0.56, y: -0.65999997}
+      - {x: -0.58, y: -0.66999996}
+  m_UseDelaunayMesh: 0

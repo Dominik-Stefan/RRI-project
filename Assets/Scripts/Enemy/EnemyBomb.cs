@@ -12,14 +12,18 @@ public class EnemyBomb : EnemyController
         float step = moveSpeed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
         timer += Time.deltaTime;
+
+        FlipSprite();
     }
 
-    public override void Death(){
+    public override void Death()
+    {
         //this.enemyHealth = this.enemyMaxHealth;
         Destroy(gameObject);
         Instantiate(explosion, transform.position, transform.rotation);
 
-        if(getXp){
+        if (getXp)
+        {
             Instantiate(gem, transform.position, transform.rotation);
         }
     }
@@ -33,7 +37,8 @@ public class EnemyBomb : EnemyController
         }
     }
 
-    public override void OutsideOfBorder(){
+    public override void OutsideOfBorder()
+    {
         Destroy(gameObject);
     }
 }

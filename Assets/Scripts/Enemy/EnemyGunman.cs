@@ -16,8 +16,10 @@ public class EnemyGunman : EnemyController
     public int bulletCount = 4;
 
     //1 - pistol, 2 - shotgun
-    void Update(){
-        switch(follow){
+    void Update()
+    {
+        switch (follow)
+        {
             case 1:
                 Move(1);
                 break;
@@ -29,13 +31,18 @@ public class EnemyGunman : EnemyController
         }
 
         counter += 1;
-        if (counter >= shootingInterval && canShoot && GameController.paused == false && !gameController.levelUp && !gameController.gameOver){
+        if (counter >= shootingInterval && canShoot && GameController.paused == false && !gameController.levelUp && !gameController.gameOver)
+        {
             counter = 0;
 
-            if(level == 1){
+            if (level == 1)
+            {
                 SingleShoot();
-            }else if(level == 2){
-                for (int i = 0; i < bulletCount; i++){
+            }
+            else if (level == 2)
+            {
+                for (int i = 0; i < bulletCount; i++)
+                {
                     float spreadDirection = Random.Range(-spreadAngle / 2f, spreadAngle / 2f);
                     Vector2 randomOffset = Random.insideUnitCircle * spreadDirection;
                     Vector2 direction = ((Vector2)player.transform.position - (Vector2)transform.position).normalized * shootingForce + randomOffset;
@@ -43,11 +50,15 @@ public class EnemyGunman : EnemyController
                 }
             }
         }
+
+        FlipSprite();
     }
 
-    private void SingleShoot(){
+    private void SingleShoot()
+    {
         GameObject bulletCopy = EnemyBulletObjectPool.SharedInstance.getPooledEnemyBulletObject();
-        if(bulletCopy != null){
+        if (bulletCopy != null)
+        {
             bulletCopy.transform.position = transform.position;
             bulletCopy.transform.rotation = transform.rotation;
             bulletCopy.SetActive(true);
@@ -57,7 +68,8 @@ public class EnemyGunman : EnemyController
         }
     }
 
-    private void SingleShoot(Vector2 direction){
+    private void SingleShoot(Vector2 direction)
+    {
         GameObject bulletCopy = EnemyBulletObjectPool.SharedInstance.getPooledEnemyBulletObject();
         if (bulletCopy != null)
         {
@@ -69,27 +81,35 @@ public class EnemyGunman : EnemyController
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision){
-        if(collision.gameObject.CompareTag("EnemyStandCheck")){
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyStandCheck"))
+        {
             follow = 2;
         }
-        if(collision.gameObject.CompareTag("EnemyRunCheck")){
+        if (collision.gameObject.CompareTag("EnemyRunCheck"))
+        {
             follow = 3;
         }
-        if(collision.gameObject.CompareTag("EnemyShootCheck")){
+        if (collision.gameObject.CompareTag("EnemyShootCheck"))
+        {
             canShoot = true;
         }
     }
 
 
-    private void OnTriggerExit2D(Collider2D collision){
-        if(collision.gameObject.CompareTag("EnemyStandCheck")){
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyStandCheck"))
+        {
             follow = 1;
         }
-        if(collision.gameObject.CompareTag("EnemyRunCheck")){
+        if (collision.gameObject.CompareTag("EnemyRunCheck"))
+        {
             follow = 2;
         }
-        if(collision.gameObject.CompareTag("EnemyShootCheck")){
+        if (collision.gameObject.CompareTag("EnemyShootCheck"))
+        {
             canShoot = false;
         }
         if (collision.gameObject.CompareTag("DistanceCheck"))
@@ -98,9 +118,10 @@ public class EnemyGunman : EnemyController
         }
     }
 
-    private void Move(int direction){
+    private void Move(int direction)
+    {
         float step = moveSpeed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step * direction);
-        timer += Time.deltaTime;    
+        timer += Time.deltaTime;
     }
 }

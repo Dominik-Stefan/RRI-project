@@ -9,5 +9,7 @@ public class EnemySlime : EnemyController
         float step = moveSpeed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
         timer += Time.deltaTime;
+
+        FlipSprite();
     }
 }
