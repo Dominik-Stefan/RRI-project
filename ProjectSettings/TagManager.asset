@@ -17,6 +17,7 @@ TagManager:
   - Weapon
   - RotatePoint
   - Grid
+  - Gem
   layers:
   - Default
   - TransparentFX

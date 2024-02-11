@@ -926,9 +926,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2028841133376352525, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 862396276, guid: 53a6e690bf7c2fc4188630c8b7d9ecf6, type: 3}
+    - target: {fileID: 2028841133376352525, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2056727756358632589, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
       propertyPath: m_TagString
       value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553496147054739282, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553496147054739282, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553496147054739282, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2553496147054739282, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1034,21 +1054,29 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 133212225
       objectReference: {fileID: 0}
+    - target: {fileID: 4864236329555033359, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864236329555033359, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.16
+      objectReference: {fileID: 0}
     - target: {fileID: 7300053752888322676, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6645008
+      value: 0.53874403
       objectReference: {fileID: 0}
     - target: {fileID: 7300053752888322676, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.63738614
+      value: 0.5459276
       objectReference: {fileID: 0}
     - target: {fileID: 7300053752888322676, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.084
+      value: 0.062
       objectReference: {fileID: 0}
     - target: {fileID: 7300053752888322676, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.018
+      value: -0.016
       objectReference: {fileID: 0}
     - target: {fileID: 8998586925694226959, guid: 711595af9f491e942a3d165ed9b9719c, type: 3}
       propertyPath: orthographic size
@@ -1089,7 +1117,7 @@ Animator:
   m_GameObject: {fileID: 783018149}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f1c99167ad8489b4a904dff3d1b38035, type: 2}
+  m_Controller: {fileID: 9100000, guid: c52954752e9b57d409c709e4699b28b4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

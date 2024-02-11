@@ -59,14 +59,14 @@ namespace Upgrades
         public Heal()
         {
             title = "Heal";
-            description = "Heal 25% base health";
+            description = "Heal 25% max health";
         }
 
         public override void Execute()
         {
             PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
 
-            int healthGain = (int)(player.GetPlayerBaseHealth() * 0.25f);
+            int healthGain = (int)(player.playerMaxHealth * 0.25f);
 
             if (player.playerHealth + healthGain >= player.playerMaxHealth)
             {

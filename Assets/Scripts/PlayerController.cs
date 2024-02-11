@@ -63,20 +63,40 @@ public class PlayerController : MonoBehaviour
     }
 
     public void CheckLife(){
-        if (playerHealth <= 0){
+        bool check = false;
+        if (playerHealth <= 0 && check == false){
+                check = true;
                 playerHealth = 0;
                 animator.SetBool("Dead", true);
 
-                GameObject.FindGameObjectWithTag("Grid").SetActive(false);
-                GameObject.FindGameObjectWithTag("RotatePoint").SetActive(false);
+                GameObject grid = GameObject.FindGameObjectWithTag("Grid");
+                if(grid != null){
+                    grid.SetActive(false);
+                }
+                GameObject rp = GameObject.FindGameObjectWithTag("RotatePoint");
+                if(rp != null){
+                    rp.SetActive(false);
+                }
                 GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
                 foreach(GameObject go in gos){
                     if(go.activeInHierarchy){
                         go.SetActive(false);
                     }
                 }
-                GameObject[] gos1 = GameObject.FindGameObjectsWithTag("Bullet");
-                foreach(GameObject go in gos1){
+                gos = GameObject.FindGameObjectsWithTag("Bullet");
+                foreach(GameObject go in gos){
+                    if(go.activeInHierarchy){
+                        go.SetActive(false);
+                    }
+                }
+                gos = GameObject.FindGameObjectsWithTag("Gem");
+                foreach(GameObject go in gos){
+                    if(go.activeInHierarchy){
+                        go.SetActive(false);
+                    }
+                }
+                gos = GameObject.FindGameObjectsWithTag("Explosion");
+                foreach(GameObject go in gos){
                     if(go.activeInHierarchy){
                         go.SetActive(false);
                     }
