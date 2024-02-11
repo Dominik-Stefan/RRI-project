@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
                 gameController.inGameHUD.rootVisualElement.style.display = DisplayStyle.None;
                 
 
-                Invoke("goToGameOver", 2.8f);
+                Invoke("goToGameOver", 2.7f);
         }
     }
 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4008643126271455987}
   - component: {fileID: 9049424042981685698}
   - component: {fileID: 2641996027632304175}
+  - component: {fileID: 7595234677956245345}
   m_Layer: 6
   m_Name: Enemy_Bomb
   m_TagString: Enemy
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.01, y: 4.89, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.5505238, y: 4.5505238, z: 4.5505238}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -4976566198409629721, guid: 91067abf9e1e3454ca0c5797b3d14cab, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -146,9 +147,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.008977862, y: 0.276}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.12960733
 --- !u!114 &2641996027632304175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,3 +170,24 @@ MonoBehaviour:
   gem: {fileID: 182031664735509766, guid: abd37e1db41ece44c9592a88460bc9d1, type: 3}
   explosion: {fileID: 7703007472648496176, guid: 5493585d84b9ad9448805a2e67ef474e, type: 3}
   getXp: 1
+--- !u!95 &7595234677956245345
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5734637452143191351}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7463f2287f3cd404fb37464d6a11d90b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
