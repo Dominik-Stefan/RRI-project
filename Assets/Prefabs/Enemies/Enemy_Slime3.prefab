@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7811217936782974248}
   - component: {fileID: 9010329184996269557}
   - component: {fileID: 6536266942410573388}
+  - component: {fileID: -9131984941326867754}
   m_Layer: 6
   m_Name: Enemy_Slime3
   m_TagString: Enemy
@@ -287,3 +288,24 @@ PolygonCollider2D:
       - {x: -0.22999999, y: -1.43}
       - {x: -0.19999999, y: -1.4599999}
   m_UseDelaunayMesh: 0
+--- !u!95 &-9131984941326867754
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5836843166377663602}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 87bdc02f038d2e54cb81cc3b4b24ba33, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -49,7 +49,7 @@ public class UpgradeDisplayController : MonoBehaviour
         rectTransform.anchorMin = new Vector2(0, 1);
         rectTransform.anchorMax = new Vector2(0, 1);
 
-        rectTransform.sizeDelta = new Vector2(30, 30);
+        rectTransform.sizeDelta = new Vector2(50, 50);
 
         rectTransform.anchoredPosition = new Vector2(currentXPosition, -20);
 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4806229452102717872}
   - component: {fileID: 3284330950253644362}
   - component: {fileID: 5441884677698172785}
+  - component: {fileID: 4590164872045062229}
   m_Layer: 6
   m_Name: Enemy_Gunman1
   m_TagString: Enemy
@@ -216,3 +217,24 @@ PolygonCollider2D:
       - {x: 0.02, y: -0.64}
       - {x: 0.04, y: -0.65999997}
   m_UseDelaunayMesh: 0
+--- !u!95 &4590164872045062229
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714037705373689396}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0ab5e5ab1a579d14aab367e9f1fdb4df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
