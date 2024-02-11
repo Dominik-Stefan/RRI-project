@@ -7,11 +7,42 @@ public class ShootingTypes : MonoBehaviour
     //public float bulletTimeToDeath = 5;
     public static float force;
     public GameObject bullet;
-    public Transform bulletTransform;
+    public Transform bulletTransform = null;
+    public GameObject prefabRevolver;
+    public GameObject prefabShotgun;
+    public GameObject prefabMinigun;
+    public float speed = 5.0f;
+    public float intensity = 0.1f;
+
+
+    private Vector3 startPos;
+    private Vector3 randomPos;
+    public float time = 0.2f;
+    public float distance = 0.1f;
+    public float delaybetween = 0f;
+    private float timer = 0f;
+    
+    void Awake(){
+        switch(Gun.selectedGun){
+            case "Pistol":
+                Instantiate(prefabRevolver, this.transform);
+                break;
+            case "Shotgun":
+                Instantiate(prefabShotgun, this.transform);
+                break;
+            case "Minigun":
+                Instantiate(prefabMinigun, this.transform);
+                break;
+            default:
+                Instantiate(prefabRevolver, this.transform);
+                break;
+        }
+        bulletTransform = this.transform.GetChild(0);
+        startPos = bulletTransform.transform.localPosition;
+    }
 
     public void Start()
     {
-
     }
 
     public void SingleShoot(Vector2 direction)
@@ -29,6 +60,8 @@ public class ShootingTypes : MonoBehaviour
             bulletCopy.GetComponent<Rigidbody2D>().velocity = (transform.rotation * direction).normalized * force;
         }
         //Destroy(copy, bulletTimeToDeath);
+
+        StartCoroutine(Shake());
     }
 
     public void SingleShoot()
@@ -44,6 +77,24 @@ public class ShootingTypes : MonoBehaviour
             bulletCopy.GetComponent<Rigidbody2D>().velocity = (transform.rotation * Vector2.right).normalized * force;
         }
         //Destroy(copy, bulletTimeToDeath);
+
+        StartCoroutine(Shake());
+    }
+
+    private IEnumerator Shake(){
+        timer = 0f;
+
+        while(timer < time){
+            timer += Time.deltaTime;
+            randomPos = startPos + (Random.insideUnitSphere * distance);
+            bulletTransform.transform.localPosition = randomPos;
+            if(delaybetween > 0f){
+                yield return new WaitForSeconds(delaybetween);
+            }else{
+                yield return null;
+            }
+        }
+        bulletTransform.transform.localPosition = startPos;
     }
 
     public void QuickShoot(int bulletNumber)
@@ -77,6 +128,7 @@ public class ShootingTypes : MonoBehaviour
             Vector2 randomDirection = new Vector2((transform.right.x + randomOffsetX), (transform.right.y + randomOffsetY)).normalized;
             bulletCopy.GetComponent<Rigidbody2D>().velocity = randomDirection * force;
         }
+        StartCoroutine(Shake());
     }
 
     public void SpreadShoot(int bulletNumber = 4, float spreadAngle = 1f)

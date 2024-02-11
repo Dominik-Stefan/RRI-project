@@ -2,15 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemyTreasure : EnemyController
 {
     private bool alerted = false;
+
+    private Animator animator;
+
+    private void Awake(){
+        animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
         if (!alerted && enemyHealth < enemyMaxHealth)
         {
             alerted = true;
+            animator.SetBool("Alerted", true);
         }
 
         if (alerted)
@@ -28,6 +36,7 @@ public class EnemyTreasure : EnemyController
         if (collision.gameObject.CompareTag("EnemyRunCheck"))
         {
             alerted = true;
+            animator.SetBool("Alerted", true);
         }
     }
 

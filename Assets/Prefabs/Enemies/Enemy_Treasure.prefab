@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5108867375951963336}
   - component: {fileID: 88466374096110369}
   - component: {fileID: 2791297816742529576}
+  - component: {fileID: 5256998908872453430}
   m_Layer: 6
   m_Name: Enemy_Treasure
   m_TagString: Enemy
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.38, y: 4.96, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 8.656831, y: 8.656831, z: 8.656831}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
-  m_Color: {r: 1, g: 0.97319543, b: 0.2320754, a: 1}
+  m_Sprite: {fileID: 417690367, guid: 9da46fd410362944bac4c64963809a91, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -150,7 +151,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.8828125}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 1, y: 0.8828125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -158,12 +159,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.25, y: 0.43359375}
-      - {x: -0.5, y: 0}
-      - {x: -0.25, y: -0.43359375}
-      - {x: 0.25, y: -0.43359375}
-      - {x: 0.5, y: 0}
-      - {x: 0.25, y: 0.43359375}
+    - - {x: -0.053326964, y: 0.045761675}
+      - {x: -0.06621641, y: 0.014704537}
+      - {x: -0.06619331, y: -0.07333261}
+      - {x: 0.06251712, y: -0.07517061}
+      - {x: 0.06621623, y: 0.020218728}
+      - {x: 0.049650684, y: 0.045761816}
   m_UseDelaunayMesh: 0
 --- !u!114 &2791297816742529576
 MonoBehaviour:
@@ -183,3 +184,24 @@ MonoBehaviour:
   enemyMaxHealth: 20
   enemyDamage: 5
   gem: {fileID: 182031664735509766, guid: 79057001562896a4cbbe502fc7b1fd32, type: 3}
+--- !u!95 &5256998908872453430
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3738024585381819635}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0956934feec1fc345b9ce0643829fb83, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
