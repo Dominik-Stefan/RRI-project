@@ -5,6 +5,7 @@ public class GameController : MonoBehaviour
 {
     public UIDocument pauseMenuUI;
     public UIDocument gameOverMenuUI;
+    public UIDocument gameDoneMenuUI;
     public UIDocument inGameHUD;
     public UIDocument levelUpMenuUI;
     public static bool paused;
@@ -15,11 +16,11 @@ public class GameController : MonoBehaviour
     void Start()
     {
         gameOverMenuUI.rootVisualElement.style.display = DisplayStyle.None;
+        gameDoneMenuUI.rootVisualElement.style.display = DisplayStyle.None;
         levelUpMenuUI.rootVisualElement.style.display = DisplayStyle.None;
         inGameHUD.rootVisualElement.style.display = DisplayStyle.Flex;
         ResumeGame();
         gameOver = false;
-        //RendererSettings.ambientLight = Color.red;
     }
 
     void Update()
@@ -37,10 +38,17 @@ public class GameController : MonoBehaviour
         }
         if (gameOver)
         {
-            Time.timeScale = 0f;          
             gameOverMenuUI.rootVisualElement.style.display = DisplayStyle.Flex;
+            Time.timeScale = 0f;
             timerActive = false;
         }
+    }
+
+    public void GameDone()
+    {
+        timerActive = false;
+        gameDoneMenuUI.rootVisualElement.style.display = DisplayStyle.Flex;
+        Time.timeScale = 0f;
     }
 
     public void ResumeGame()
