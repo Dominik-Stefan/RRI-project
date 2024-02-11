@@ -31,12 +31,7 @@ public class ExplosionController : MonoBehaviour
         {
             PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
             playerController.playerHealth -= 250;
-            if (playerController.playerHealth <= 0)
-            {
-                GameController gameController = GameObject.Find("GameController").GetComponent<GameController>();
-                playerController.playerHealth = 0;
-                gameController.gameOver = true;
-            }
+            playerController.CheckLife();
         }
 
         if (collision.gameObject.CompareTag("Enemy"))

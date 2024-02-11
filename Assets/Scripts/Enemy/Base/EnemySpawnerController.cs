@@ -8,6 +8,8 @@ public class EnemySpawnerController : MonoBehaviour
 {
     public GameObject bombPrefab;
     public GameObject treasurePrefab;
+    public GameObject boss1;
+    public GameObject boss2;
     public float interval = 100;
     public float spawnRadius = 20;
     private float counter = 0;
@@ -16,6 +18,7 @@ public class EnemySpawnerController : MonoBehaviour
 
     void Start(){
         StartCoroutine(ManageWaves());
+        StartCoroutine(SpawnBosses());
     }
 
     IEnumerator ManageWaves(){
@@ -25,6 +28,22 @@ public class EnemySpawnerController : MonoBehaviour
             chosenWave += 1;
         }
         chosenWave -= 1;
+    }
+
+    IEnumerator SpawnBosses(){
+        yield return new WaitForSeconds(300f);
+        Vector2 spawnPosition = (Vector2)transform.position - Random.insideUnitCircle.normalized * spawnRadius;
+        Instantiate(boss1, spawnPosition, transform.rotation);
+
+        yield return new WaitForSeconds(300f);
+        spawnPosition = (Vector2)transform.position - Random.insideUnitCircle.normalized * spawnRadius;
+        Instantiate(boss1, spawnPosition, transform.rotation);
+        spawnPosition = (Vector2)transform.position - Random.insideUnitCircle.normalized * spawnRadius;
+        Instantiate(boss1, spawnPosition, transform.rotation);
+
+        yield return new WaitForSeconds(180f);
+        spawnPosition = (Vector2)transform.position - Random.insideUnitCircle.normalized * spawnRadius;
+        Instantiate(boss2, spawnPosition, transform.rotation);
     }
 
     void FixedUpdate()

@@ -15,8 +15,8 @@ public class EnemyBomb : EnemyController
     }
 
     public override void Death(){
-        this.enemyHealth = this.enemyMaxHealth;
-        gameObject.SetActive(false);
+        //this.enemyHealth = this.enemyMaxHealth;
+        Destroy(gameObject);
         Instantiate(explosion, transform.position, transform.rotation);
 
         if(getXp){
@@ -31,5 +31,9 @@ public class EnemyBomb : EnemyController
             getXp = false;
             Death();
         }
+    }
+
+    public override void OutsideOfBorder(){
+        Destroy(gameObject);
     }
 }

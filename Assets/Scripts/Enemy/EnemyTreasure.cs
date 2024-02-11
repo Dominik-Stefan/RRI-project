@@ -25,6 +25,12 @@ public class EnemyTreasure : EnemyController
     }
 
     public override void OutsideOfBorder(){
-        gameObject.SetActive(false);
+        Destroy(gameObject);
+    }
+
+    public override void Death(){
+        Instantiate(gem, transform.position, transform.rotation);
+        //this.enemyHealth = this.enemyMaxHealth;
+        Destroy(gameObject);
     }
 }
