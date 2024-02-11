@@ -71,15 +71,18 @@ public class UpgradeOptionController : MonoBehaviour
                 return options;
             case 1:
                 options.Add(allOptions[0]);
+                options.Add(new Heal());
                 return options;
             case 2:
                 options.Add(allOptions[0]);
                 options.Add(allOptions[1]);
+                options.Add(new Heal());
                 return options;
             case 3:
                 options.Add(allOptions[0]);
                 options.Add(allOptions[1]);
                 options.Add(allOptions[2]);
+                options.Add(new Heal());
                 return options;
         }
 
