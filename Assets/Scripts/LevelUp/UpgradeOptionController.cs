@@ -57,7 +57,7 @@ public class UpgradeOptionController : MonoBehaviour
             allOptions.Add(new DoublePellets());
         }
 
-        if (Gun.selectedGun == "Minigun" && Might.mightLVL == 3 && Grit.gritLVL == 3 && !selectedOptions.Any(upgrade => upgrade.GetID() == 17))
+        if (Gun.selectedGun == "Minigun" && Might.mightLVL == 2 && Grit.gritLVL == 2 && !selectedOptions.Any(upgrade => upgrade.GetID() == 17))
         {
             allOptions.Add(new LifeSteal());
         }

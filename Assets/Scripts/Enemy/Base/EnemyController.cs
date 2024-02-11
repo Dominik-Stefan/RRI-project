@@ -49,9 +49,9 @@ public class EnemyController : MonoBehaviour
         if (this.enemyHealth > 0)
         {
             this.enemyHealth -= playerController.playerDamage;
-            if (playerController.playerHealth + (playerController.GetPlayerBaseDamage() * playerController.lifeSteal) <= playerController.playerMaxHealth)
+            if (playerController.playerHealth + (5 * playerController.lifeSteal) <= playerController.playerMaxHealth)
             {
-                playerController.playerHealth += (playerController.GetPlayerBaseDamage() * playerController.lifeSteal);
+                playerController.playerHealth += (5 * playerController.lifeSteal);
             }
         }
         if (this.enemyHealth <= 0)
