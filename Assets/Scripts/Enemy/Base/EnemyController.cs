@@ -16,13 +16,33 @@ public class EnemyController : MonoBehaviour
     protected GameController gameController;
     protected float timer;
 
+    protected SpriteRenderer spriteRenderer;
+
     void Start()
     {
         this.enemyHealth = this.enemyMaxHealth;
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
+    protected void FlipSprite()
+    {
+        Vector3 directionToPlayer = player.transform.position - transform.position;
+
+        float projectionOnRight = Vector3.Dot(directionToPlayer, transform.right);
+
+        if (projectionOnRight < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (projectionOnRight > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+    }
+
 
     public void TakeDamage()
     {
@@ -82,7 +102,8 @@ public class EnemyController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public virtual void OutsideOfBorder(){
+    public virtual void OutsideOfBorder()
+    {
         gameObject.SetActive(false);
     }
 }

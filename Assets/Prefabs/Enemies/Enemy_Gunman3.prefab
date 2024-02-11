@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7850701267466965797}
   - component: {fileID: 7054660657763809139}
   - component: {fileID: 4806229452102717872}
-  - component: {fileID: 4118244058927549854}
   - component: {fileID: 3284330950253644362}
+  - component: {fileID: 6755120346304996199}
   m_Layer: 6
   m_Name: Enemy_Gunman3
   m_TagString: Enemy
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.89, y: 8.13, z: 0}
-  m_LocalScale: {x: 0.97530603, y: 0.7882652, z: 1.2546}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.2603773, g: 0.2603773, b: 0.2603773, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c16c2eba27e4af744a6e2d206a2f6c24, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -114,8 +114,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!70 &4118244058927549854
-CapsuleCollider2D:
+--- !u!114 &3284330950253644362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714037705373689396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb23684f4cb2854c8c200390690150b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameOfEnemy: Enemy_Gunman3
+  moveSpeed: 3
+  damageTimer: 0.2
+  enemyMaxHealth: 40
+  enemyDamage: 25
+  gem: {fileID: 182031664735509766, guid: 174efbe50321a0647b72faf48c0b2f39, type: 3}
+  shootingInterval: 3000
+  shootingForce: 6
+  level: 2
+  spreadAngle: 4
+  bulletCount: 8
+--- !u!60 &6755120346304996199
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -147,28 +170,75 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
---- !u!114 &3284330950253644362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714037705373689396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bb23684f4cb2854c8c200390690150b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameOfEnemy: Enemy_Gunman3
-  moveSpeed: 3
-  damageTimer: 0.2
-  enemyMaxHealth: 40
-  enemyDamage: 25
-  gem: {fileID: 182031664735509766, guid: 174efbe50321a0647b72faf48c0b2f39, type: 3}
-  shootingInterval: 3000
-  shootingForce: 6
-  level: 2
-  spreadAngle: 4
-  bulletCount: 8
+  m_SpriteTilingProperty:
+    border: {x: 1.1899999, y: 0.08, z: 1.04, w: 1.7199999}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.2, y: 3.2}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.26, y: -1.56}
+      - {x: 0.26, y: -1.5999999}
+      - {x: 0.5, y: -1.5999999}
+      - {x: 0.5, y: -1.56}
+      - {x: 0.48, y: -1.54}
+      - {x: 0.28, y: -1.54}
+    - - {x: -0.32, y: -1.4599999}
+      - {x: -0.34, y: -1.48}
+      - {x: -0.34, y: -1.52}
+      - {x: -0.32, y: -1.54}
+      - {x: 0.32999998, y: -1.54}
+      - {x: 0.34, y: -1.52}
+      - {x: 0.34, y: -1.4699999}
+      - {x: 0.32, y: -1.4599999}
+    - - {x: 0.58, y: -0.28}
+      - {x: 0.58, y: -0.17999999}
+      - {x: 0.31, y: -0.17999999}
+      - {x: 0.29999998, y: -0.19999999}
+      - {x: 0.29, y: -0.25}
+      - {x: 0.35999998, y: -0.32}
+      - {x: 0.34, y: -0.44}
+      - {x: 0.34, y: -0.62}
+      - {x: 0.26999998, y: -0.61}
+      - {x: 0.16, y: -0.58}
+      - {x: 0.14999999, y: -0.35}
+      - {x: 0.089999996, y: -0.29}
+      - {x: 0, y: -0.29999998}
+      - {x: -0.16, y: -0.35}
+      - {x: -0.14999999, y: -0.48999998}
+      - {x: -0.11, y: -0.51}
+      - {x: -0.29, y: -0.57}
+      - {x: -0.35, y: -0.63}
+      - {x: -0.42, y: -0.81}
+      - {x: -0.42, y: -0.96}
+      - {x: -0.31, y: -1.01}
+      - {x: -0.26999998, y: -0.93}
+      - {x: -0.28, y: -1.0699999}
+      - {x: -0.26, y: -1.28}
+      - {x: -0.17, y: -1.35}
+      - {x: -0.11, y: -1.35}
+      - {x: 0.16, y: -1.26}
+      - {x: 0.17999999, y: -1.24}
+      - {x: 0.17999999, y: -0.74}
+      - {x: 0.29, y: -0.75}
+      - {x: 0.29999998, y: -0.84}
+      - {x: 0.25, y: -1.2099999}
+      - {x: 0.24, y: -1.4499999}
+      - {x: 0.28, y: -1.4599999}
+      - {x: 0.34, y: -1.4599999}
+      - {x: 0.39999998, y: -1.25}
+      - {x: 0.42, y: -0.84}
+      - {x: 0.45, y: -0.45999998}
+    - - {x: 0.39999998, y: -0.099999994}
+      - {x: 0.38, y: -0.12}
+      - {x: 0.38, y: -0.19999999}
+      - {x: 0.39999998, y: -0.22}
+      - {x: 0.48, y: -0.22}
+      - {x: 0.5, y: -0.19999999}
+      - {x: 0.5, y: -0.12}
+      - {x: 0.48, y: -0.099999994}
+  m_UseDelaunayMesh: 0
