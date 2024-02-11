@@ -212,7 +212,7 @@ namespace Upgrades
 
             PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
 
-            player.playerDamage += (Mathf.CeilToInt(player.GetPlayerBaseDamage() * 0.1f) < 1 ? 1 : Mathf.CeilToInt(player.GetPlayerBaseDamage() * 0.1f));
+            player.playerDamage += (Mathf.CeilToInt(player.playerDamage * 0.1f) < 1 ? 1 : Mathf.CeilToInt(player.playerDamage * 0.1f));
         }
 
         public override int GetID()
@@ -268,7 +268,7 @@ namespace Upgrades
 
             player.moveSpeed += (player.GetBaseMoveSpeed() * 0.05f);
 
-            player.playerDamage += (Mathf.CeilToInt(player.GetPlayerBaseDamage() * 0.05f) < 1 ? 1 : Mathf.CeilToInt(player.GetPlayerBaseDamage() * 0.05f));
+            player.playerDamage += (Mathf.CeilToInt(player.playerDamage * 0.05f) < 1 ? 1 : Mathf.CeilToInt(player.playerDamage * 0.05f));
 
         }
 
@@ -646,7 +646,7 @@ namespace Upgrades
 
             player.moveSpeed = player.GetBaseMoveSpeed() * 2f;
 
-            player.playerDamage += Mathf.CeilToInt(player.GetPlayerBaseDamage() * 0.5f);
+            player.playerDamage += Mathf.CeilToInt(player.playerDamage * 0.5f);
         }
 
         public override int GetID()
@@ -867,7 +867,7 @@ namespace Upgrades
         {
             spriteName = "LifeSteal";
             title = "Life Steal";
-            description = "heal for 100% of your base damage to enemies";
+            description = "Heal for 5 HP per enemy hit";
         }
 
         public override void Execute()

@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     private int level = 1;
     private int playerBaseHealth;
     private float baseMoveSpeed;
-    private int playerBaseDamage;
     private Animator animator;
     //private SpriteRenderer spr;
 
@@ -49,9 +48,12 @@ public class PlayerController : MonoBehaviour
             spr.flipX = true;
         }*/
 
-        if(mov.x != 0 || mov.y != 0){
+        if (mov.x != 0 || mov.y != 0)
+        {
             animator.SetBool("Moving", true);
-        }else{
+        }
+        else
+        {
             animator.SetBool("Moving", false);
         }
     }
@@ -62,53 +64,66 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + mov);
     }
 
-    public void CheckLife(){
+    public void CheckLife()
+    {
         bool check = false;
-        if (playerHealth <= 0 && check == false){
-                check = true;
-                playerHealth = 0;
-                animator.SetBool("Dead", true);
+        if (playerHealth <= 0 && check == false)
+        {
+            check = true;
+            playerHealth = 0;
+            animator.SetBool("Dead", true);
 
-                GameObject grid = GameObject.FindGameObjectWithTag("Grid");
-                if(grid != null){
-                    grid.SetActive(false);
+            GameObject grid = GameObject.FindGameObjectWithTag("Grid");
+            if (grid != null)
+            {
+                grid.SetActive(false);
+            }
+            GameObject rp = GameObject.FindGameObjectWithTag("RotatePoint");
+            if (rp != null)
+            {
+                rp.SetActive(false);
+            }
+            GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject go in gos)
+            {
+                if (go.activeInHierarchy)
+                {
+                    go.SetActive(false);
                 }
-                GameObject rp = GameObject.FindGameObjectWithTag("RotatePoint");
-                if(rp != null){
-                    rp.SetActive(false);
+            }
+            gos = GameObject.FindGameObjectsWithTag("Bullet");
+            foreach (GameObject go in gos)
+            {
+                if (go.activeInHierarchy)
+                {
+                    go.SetActive(false);
                 }
-                GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
-                foreach(GameObject go in gos){
-                    if(go.activeInHierarchy){
-                        go.SetActive(false);
-                    }
+            }
+            gos = GameObject.FindGameObjectsWithTag("Gem");
+            foreach (GameObject go in gos)
+            {
+                if (go.activeInHierarchy)
+                {
+                    go.SetActive(false);
                 }
-                gos = GameObject.FindGameObjectsWithTag("Bullet");
-                foreach(GameObject go in gos){
-                    if(go.activeInHierarchy){
-                        go.SetActive(false);
-                    }
+            }
+            gos = GameObject.FindGameObjectsWithTag("Explosion");
+            foreach (GameObject go in gos)
+            {
+                if (go.activeInHierarchy)
+                {
+                    go.SetActive(false);
                 }
-                gos = GameObject.FindGameObjectsWithTag("Gem");
-                foreach(GameObject go in gos){
-                    if(go.activeInHierarchy){
-                        go.SetActive(false);
-                    }
-                }
-                gos = GameObject.FindGameObjectsWithTag("Explosion");
-                foreach(GameObject go in gos){
-                    if(go.activeInHierarchy){
-                        go.SetActive(false);
-                    }
-                }
-                gameController.inGameHUD.rootVisualElement.style.display = DisplayStyle.None;
-                
+            }
+            gameController.inGameHUD.rootVisualElement.style.display = DisplayStyle.None;
 
-                Invoke("goToGameOver", 2.7f);
+
+            Invoke("goToGameOver", 2.7f);
         }
     }
 
-    public void goToGameOver(){
+    public void goToGameOver()
+    {
         gameController.gameOver = true;
     }
 
@@ -143,10 +158,5 @@ public class PlayerController : MonoBehaviour
     public float GetBaseMoveSpeed()
     {
         return baseMoveSpeed;
-    }
-
-    public int GetPlayerBaseDamage()
-    {
-        return playerBaseDamage;
     }
 }
