@@ -1,0 +1,359 @@
+fileFormatVersion: 2
+guid: 8f1881aa610f0054ca7650292bd4a555
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GUI_3
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 226
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c04763e80e270c749ad17ad6ce77aaa2
+      internalID: 1736921037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_19
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 177
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c0c9d572180bf04ab9aa3a616302aed
+      internalID: -890165496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 176
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd1e61705a5ef8445ad58048c9059b35
+      internalID: 784994679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_24
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 177
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 494be4334dcb57d4f9787db7eb1bac6b
+      internalID: -561918339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_25
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 193
+        width: 30
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5881bd13641a60f459bce1456d8b056f
+      internalID: 628315680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_26
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 193
+        width: 46
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b5b7ba1248eb842bf00ea3fed11303
+      internalID: -387527207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      GUI_0: -1371961409
+      GUI_1: 2132432175
+      GUI_10: -982617903
+      GUI_11: 733524106
+      GUI_12: -114320998
+      GUI_13: 153172708
+      GUI_14: -1494905584
+      GUI_15: 501449059
+      GUI_16: 2046125982
+      GUI_17: -2045190961
+      GUI_18: -420998525
+      GUI_19: -890165496
+      GUI_2: -1035588035
+      GUI_20: -36933510
+      GUI_21: 753129710
+      GUI_22: -2074541549
+      GUI_23: 784994679
+      GUI_24: -561918339
+      GUI_25: 628315680
+      GUI_26: -387527207
+      GUI_27: -1714440259
+      GUI_28: -1390307257
+      GUI_29: 1343357100
+      GUI_3: 1736921037
+      GUI_30: -739998330
+      GUI_31: -152265159
+      GUI_32: -943939576
+      GUI_33: 1616438368
+      GUI_34: 655224052
+      GUI_35: 1629974397
+      GUI_36: -1454900155
+      GUI_37: 654261333
+      GUI_38: 420402646
+      GUI_39: -1465208353
+      GUI_4: 1066941648
+      GUI_40: -71930138
+      GUI_41: 1574252022
+      GUI_42: 1610697340
+      GUI_43: 1410615154
+      GUI_44: -1731879857
+      GUI_45: -374286372
+      GUI_46: 572864581
+      GUI_47: -1988646873
+      GUI_48: 674662425
+      GUI_49: -1976686871
+      GUI_5: -418186208
+      GUI_50: -1346187088
+      GUI_51: -771971558
+      GUI_52: 823426555
+      GUI_53: 632415898
+      GUI_54: 564410129
+      GUI_55: -904245391
+      GUI_56: 1217739085
+      GUI_57: -1588256487
+      GUI_58: -1803538272
+      GUI_59: 267775100
+      GUI_6: 1758630942
+      GUI_60: 1400692485
+      GUI_61: -1217422379
+      GUI_62: 514904457
+      GUI_63: -1665071014
+      GUI_64: -1634620025
+      GUI_65: -127003864
+      GUI_66: -1577620153
+      GUI_67: -1593966909
+      GUI_68: 866810950
+      GUI_69: 1759351049
+      GUI_7: 949182953
+      GUI_70: 1709732686
+      GUI_71: -727635607
+      GUI_72: 1404783287
+      GUI_73: 830280941
+      GUI_74: -991737694
+      GUI_75: 723576611
+      GUI_76: 1985565173
+      GUI_77: 1722424948
+      GUI_78: -821964549
+      GUI_79: -218285671
+      GUI_8: 400517317
+      GUI_80: 1134992671
+      GUI_81: 1882533627
+      GUI_82: -12386337
+      GUI_83: 616949920
+      GUI_84: 1838762338
+      GUI_85: 1759866533
+      GUI_86: 108269988
+      GUI_87: -390866314
+      GUI_88: -1518021828
+      GUI_89: -982567986
+      GUI_9: -2053875541
+      GUI_90: 1213416641
+      GUI_91: -612354681
+      GUI_92: 1098392677
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
