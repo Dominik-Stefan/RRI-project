@@ -164,7 +164,7 @@ MonoBehaviour:
   nameOfEnemy: Enemy_Gunman2
   moveSpeed: 3
   damageTimer: 0.2
-  enemyMaxHealth: 20
+  enemyMaxHealth: 30
   enemyDamage: 25
   gem: {fileID: 182031664735509766, guid: 174efbe50321a0647b72faf48c0b2f39, type: 3}
   shootingInterval: 3000

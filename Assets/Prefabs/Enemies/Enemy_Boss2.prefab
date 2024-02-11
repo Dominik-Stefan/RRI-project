@@ -164,7 +164,7 @@ MonoBehaviour:
   nameOfEnemy: Enemy_Boss1
   moveSpeed: 5
   damageTimer: 0.2
-  enemyMaxHealth: 20
+  enemyMaxHealth: 200
   enemyDamage: 5
   gem: {fileID: 182031664735509766, guid: 79057001562896a4cbbe502fc7b1fd32, type: 3}
   shootingInterval: 2000
