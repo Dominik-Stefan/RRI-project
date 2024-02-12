@@ -110,14 +110,16 @@ public class ShootingController : MonoBehaviour
                 {
                     if (!playedSound)
                     {
-                        float clipLength = reloadSound.length;
+                        /* float clipLength = reloadSound.length;
                         float playDuration = reloadTime;
 
                         float stopTime = (float)AudioSettings.dspTime + playDuration;
 
                         audioSo.clip = reloadSound;
 
-                        audioSo.PlayScheduled(stopTime - clipLength);
+                        audioSo.PlayScheduled(stopTime - clipLength); */
+
+                        audioSo.PlayOneShot(reloadSound);
 
                         playedSound = true;
                     }

@@ -631,7 +631,7 @@ namespace Upgrades
         {
             spriteName = "Curse";
             title = "Curse";
-            description = "-66% max health, +50% damage, x2 movement speed";
+            description = "-66% max health, +50% damage, +15% movement speed";
         }
 
         public override void Execute()
@@ -644,7 +644,7 @@ namespace Upgrades
 
             player.playerHealth = player.playerMaxHealth;
 
-            player.moveSpeed = player.GetBaseMoveSpeed() * 2f;
+            player.moveSpeed = player.GetBaseMoveSpeed() * 1.15f;
 
             player.playerDamage += Mathf.CeilToInt(player.playerDamage * 0.5f);
         }
