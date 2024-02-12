@@ -27,7 +27,7 @@ public class EnemySpawnerController : MonoBehaviour
         for (int i = 0; i < allWaves.Count - 1; i++)
         {
             yield return new WaitForSeconds(180f);
-            interval -= 10;
+            interval -= 4;
             chosenWave += 1;
         }
         chosenWave -= 1;

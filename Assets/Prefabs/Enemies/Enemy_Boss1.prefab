@@ -135,7 +135,7 @@ MonoBehaviour:
   enemyDamage: 5
   gem: {fileID: 182031664735509766, guid: 79057001562896a4cbbe502fc7b1fd32, type: 3}
   enemyShoot: {fileID: 8300000, guid: d24a4e2cefafb8548a222c98d6e7f93f, type: 3}
-  shootingInterval: 500
+  shootingInterval: 750
   shootingForce: 10
   level: 2
   spreadAngle: 6

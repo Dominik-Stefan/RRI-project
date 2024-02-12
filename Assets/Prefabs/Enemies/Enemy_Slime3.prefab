@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfEnemy: Enemy_Slime3
-  moveSpeed: 5
+  moveSpeed: 4.5
   damageTimer: 0.2
   enemyMaxHealth: 100
   enemyDamage: 60
