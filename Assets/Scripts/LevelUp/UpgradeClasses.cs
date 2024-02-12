@@ -631,7 +631,7 @@ namespace Upgrades
         {
             spriteName = "Curse";
             title = "Curse";
-            description = "33% max health, +50% damage, x2 movement speed";
+            description = "-66% max health, +50% damage, x2 movement speed";
         }
 
         public override void Execute()
