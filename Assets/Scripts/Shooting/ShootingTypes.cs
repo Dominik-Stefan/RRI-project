@@ -60,8 +60,6 @@ public class ShootingTypes : MonoBehaviour
             bulletCopy.GetComponent<Rigidbody2D>().velocity = (transform.rotation * direction).normalized * force;
         }
         //Destroy(copy, bulletTimeToDeath);
-
-        StartCoroutine(Shake());
     }
 
     public void SingleShoot()
@@ -145,5 +143,6 @@ public class ShootingTypes : MonoBehaviour
 
             SingleShoot(direction * force);
         }
+        StartCoroutine(Shake());
     }
 }
