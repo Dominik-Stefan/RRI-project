@@ -58,6 +58,7 @@ public class EnemyBoss1 : EnemyController
             Vector2 direction = ((Vector2)player.transform.position - (Vector2)transform.position).normalized * shootingForce + randomOffset;
             SingleShoot(direction * shootingForce);
         }
+        PlayShoot();
     }
 
     private void SingleShoot()
@@ -72,6 +73,7 @@ public class EnemyBoss1 : EnemyController
             Vector2 moveDirection = (player.transform.position - transform.position).normalized * shootingForce;
             bulletCopy.GetComponent<Rigidbody2D>().velocity = new Vector2(moveDirection.x, moveDirection.y);
         }
+        PlayShoot();
     }
 
     private void SingleShoot(Vector2 direction)

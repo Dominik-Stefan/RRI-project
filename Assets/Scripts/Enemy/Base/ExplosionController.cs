@@ -6,9 +6,14 @@ public class ExplosionController : MonoBehaviour
 {   
     private bool exploded = false;
 
+    private AudioSource audioSo;
+    public AudioClip explosion;
+
     public void Start(){
         StartCoroutine(Cor());
         StartCoroutine(Fade());
+        audioSo = GetComponent<AudioSource>();
+        audioSo.PlayOneShot(explosion);
     }
 
     IEnumerator Cor(){

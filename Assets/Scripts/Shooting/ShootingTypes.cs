@@ -21,6 +21,13 @@ public class ShootingTypes : MonoBehaviour
     public float distance = 0.1f;
     public float delaybetween = 0f;
     private float timer = 0f;
+
+
+    public AudioSource audioSo;
+    public AudioClip revolverFire;
+    public AudioClip minigunFire;
+    public AudioClip shotgunFire;
+
     
     void Awake(){
         switch(Gun.selectedGun){
@@ -39,6 +46,8 @@ public class ShootingTypes : MonoBehaviour
         }
         bulletTransform = this.transform.GetChild(0);
         startPos = bulletTransform.transform.localPosition;
+
+        audioSo = GetComponent<AudioSource>();
     }
 
     public void Start()
@@ -77,6 +86,7 @@ public class ShootingTypes : MonoBehaviour
         //Destroy(copy, bulletTimeToDeath);
 
         StartCoroutine(Shake());
+        audioSo.PlayOneShot(revolverFire);
     }
 
     private IEnumerator Shake(){
@@ -127,6 +137,7 @@ public class ShootingTypes : MonoBehaviour
             bulletCopy.GetComponent<Rigidbody2D>().velocity = randomDirection * force;
         }
         StartCoroutine(Shake());
+        audioSo.PlayOneShot(minigunFire);
     }
 
     public void SpreadShoot(int bulletNumber = 4, float spreadAngle = 1f)
@@ -144,5 +155,6 @@ public class ShootingTypes : MonoBehaviour
             SingleShoot(direction * force);
         }
         StartCoroutine(Shake());
+        audioSo.PlayOneShot(shotgunFire);
     }
 }

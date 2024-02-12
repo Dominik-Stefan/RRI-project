@@ -18,6 +18,9 @@ public class EnemyController : MonoBehaviour
 
     protected SpriteRenderer spriteRenderer;
 
+    protected AudioSource audioSo;
+    public AudioClip enemyShoot;
+
     void Start()
     {
         this.enemyHealth = this.enemyMaxHealth;
@@ -25,6 +28,11 @@ public class EnemyController : MonoBehaviour
         playerController = player.GetComponent<PlayerController>();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSo = GetComponent<AudioSource>();
+    }
+
+    protected void PlayShoot(){
+        audioSo.PlayOneShot(enemyShoot);
     }
 
     protected void FlipSprite()
