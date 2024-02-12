@@ -10,6 +10,8 @@ public class ShootingController : MonoBehaviour
     public static int pellets;
     public static float spreadAngle;
     public static int quickShoot;
+    public AudioSource audioSo;
+    public AudioClip reloadSound;
     private bool canFire;
     private float timerForReload;
     private float timerForShooting;
@@ -20,9 +22,11 @@ public class ShootingController : MonoBehaviour
     private GameObject player;
     private SpriteRenderer spr;
     private Animator animator;
+    private bool playedSound = false;
 
     void Start()
     {
+        audioSo = GetComponent<AudioSource>();
         playerController = GetComponentInParent<PlayerController>();
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
         weapon = GameObject.FindGameObjectWithTag("Weapon");
@@ -104,11 +108,25 @@ public class ShootingController : MonoBehaviour
                 }
                 else
                 {
+                    if (!playedSound)
+                    {
+                        float clipLength = reloadSound.length;
+                        float playDuration = reloadTime;
+
+                        float stopTime = (float)AudioSettings.dspTime + playDuration;
+
+                        audioSo.clip = reloadSound;
+
+                        audioSo.PlayScheduled(stopTime - clipLength);
+
+                        playedSound = true;
+                    }
                     timerForReload += Time.deltaTime;
                     if (timerForReload >= reloadTime)
                     {
                         timerForReload = 0;
                         currentAmmo = ammo;
+                        playedSound = false;
                     }
                 }
 
