@@ -58,6 +58,12 @@ TagManager:
   - name: Gems
     uniqueID: 2610975403
     locked: 0
+  - name: Enemy
+    uniqueID: 2463897709
+    locked: 0
+  - name: Bullet
+    uniqueID: 3699028775
+    locked: 0
   - name: GunBack
     uniqueID: 2075381765
     locked: 0

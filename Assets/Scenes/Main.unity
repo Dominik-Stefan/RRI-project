@@ -759,6 +759,75 @@ MonoBehaviour:
   pooledEnemyBulletObjects: []
   objectToPool: {fileID: 8098148162706533617, guid: af3f69bab8ab1484083d3e73c23c8258, type: 3}
   amountToPool: 1000
+--- !u!1001 &943900761
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6130000168076591230, guid: 53206dfa721102c43bc4654080b82723, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.9042852
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130000168076591230, guid: 53206dfa721102c43bc4654080b82723, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.9042852
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130000168076591230, guid: 53206dfa721102c43bc4654080b82723, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.9042852
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130000168076591230, guid: 53206dfa721102c43bc4654080b82723, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.9074129
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130000168076591230, guid: 53206dfa721102c43bc4654080b82723, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.083716854
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130000168076591230, guid: 53206dfa721102c43bc4654080b82723, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130000168076591230, guid: 53206dfa721102c43bc4654080b82723, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130000168076591230, guid: 53206dfa721102c43bc4654080b82723, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130000168076591230, guid: 53206dfa721102c43bc4654080b82723, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130000168076591230, guid: 53206dfa721102c43bc4654080b82723, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130000168076591230, guid: 53206dfa721102c43bc4654080b82723, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130000168076591230, guid: 53206dfa721102c43bc4654080b82723, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130000168076591230, guid: 53206dfa721102c43bc4654080b82723, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8098148162706533617, guid: 53206dfa721102c43bc4654080b82723, type: 3}
+      propertyPath: m_Name
+      value: Bullet
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 53206dfa721102c43bc4654080b82723, type: 3}
 --- !u!1 &1102585873
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,8 +886,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 8220160855789296195}
-  tilemapPrefabUp: {fileID: 3792459501436790251, guid: 460fd8a00876e4241aa47d547ac750a1, type: 3}
-  tilemapPrefabDown: {fileID: 6161047076702309363, guid: 9e549a12ad46a1e4da24822d5fff6931, type: 3}
+  tilemapPrefabUp: {fileID: 3933481795714381884, guid: 9ba84c3c38b68724aa9332e2114c2791, type: 3}
+  tilemapPrefabDown: {fileID: 3933481795714381884, guid: c375f6c772331344281456a4abba0549, type: 3}
+  tilemapPrefabUppest: {fileID: 3933481795714381884, guid: 22a3082c372cb194e845516a9150c486, type: 3}
 --- !u!1 &1105694207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,3 +1196,4 @@ SceneRoots:
   - {fileID: 452311881193369737}
   - {fileID: 1102585875}
   - {fileID: 237108854}
+  - {fileID: 943900761}

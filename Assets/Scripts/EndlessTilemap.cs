@@ -4,11 +4,12 @@ using UnityEngine.Tilemaps;
 
 public class EndlessTilemap : MonoBehaviour
 {
-    public const float maxViewDistance = 39f;
+    public const float maxViewDistance = 55f;
     public Transform playerTransform;
     public static Vector2 playerPosition;
     public GameObject tilemapPrefabUp;
     public GameObject tilemapPrefabDown;
+    public GameObject tilemapPrefabUppest;
     private int chunkSize;
     private int chunksVisible;
     private Dictionary<Vector2, TerrainChunk> terrainChunkDictionary = new Dictionary<Vector2, TerrainChunk>();
@@ -32,6 +33,8 @@ public class EndlessTilemap : MonoBehaviour
         
         chunkSize = Mathf.RoundToInt(Mathf.Sqrt(n));
         chunksVisible = Mathf.RoundToInt(maxViewDistance / chunkSize);
+
+        Debug.Log(chunkSize);
     }
 
     void Update()
@@ -66,7 +69,7 @@ public class EndlessTilemap : MonoBehaviour
                 }
                 else
                 {
-                    currentTerrainChunk = new TerrainChunk(viewedChunkCoord, chunkSize, transform, tilemapPrefabDown, tilemapPrefabUp);
+                    currentTerrainChunk = new TerrainChunk(viewedChunkCoord, chunkSize, transform, tilemapPrefabDown, tilemapPrefabUp, tilemapPrefabUppest);
                     terrainChunkDictionary.Add(viewedChunkCoord, currentTerrainChunk);
                 }
             }
@@ -92,10 +95,11 @@ public class EndlessTilemap : MonoBehaviour
     {
         GameObject tilemapDown;
         GameObject tilemapUp;
+        GameObject tilemapUppest;
         Vector2 position;
         Bounds bounds;
 
-        public TerrainChunk(Vector2 coord, int size, Transform parent, GameObject tilemapPrefabDown, GameObject tilemapPrefabUp)
+        public TerrainChunk(Vector2 coord, int size, Transform parent, GameObject tilemapPrefabDown, GameObject tilemapPrefabUp, GameObject tilemapPrefabUppest)
         {
             position = coord * size;
             bounds = new Bounds(position, Vector2.one * size);
@@ -105,6 +109,9 @@ public class EndlessTilemap : MonoBehaviour
 
             tilemapUp = Instantiate(tilemapPrefabUp, new Vector2(position.x, position.y), Quaternion.identity);
             tilemapUp.transform.parent = parent;
+
+            tilemapUppest = Instantiate(tilemapPrefabUppest, new Vector2(position.x, position.y), Quaternion.identity);
+            tilemapUppest.transform.parent = parent;
             SetVisible(false);
         }
 
@@ -119,11 +126,12 @@ public class EndlessTilemap : MonoBehaviour
         {
             tilemapDown.SetActive(visible);
             tilemapUp.SetActive(visible);
+            tilemapUppest.SetActive(visible);
         }
 
         public bool IsVisible()
         {
-            return tilemapDown.activeSelf && tilemapUp.activeSelf;
+            return tilemapDown.activeSelf && tilemapUp.activeSelf && tilemapUppest.activeSelf;
         }
     }
 }
