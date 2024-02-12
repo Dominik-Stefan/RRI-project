@@ -73,19 +73,22 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + mov);
     }
 
-    IEnumerator CanPlay(){
+    IEnumerator CanPlay()
+    {
         yield return new WaitForSeconds(0.5f);
         canPlaySound = true;
     }
 
-    IEnumerator DeathSound(){
+    IEnumerator DeathSound()
+    {
         yield return new WaitForSeconds(1.7f);
         audioSo.PlayOneShot(PlayerDeath2);
     }
 
     public void CheckLife()
-    {   
-        if(canPlaySound == true){
+    {
+        if (canPlaySound == true)
+        {
             canPlaySound = false;
             StartCoroutine("CanPlay");
             audioSo.PlayOneShot(PlayerHurt);
