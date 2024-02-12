@@ -37,10 +37,12 @@ public class EnemyGunman : EnemyController
 
             if (level == 1)
             {
+                PlayShoot();
                 SingleShoot();
             }
             else if (level == 2)
             {
+                PlayShoot();
                 for (int i = 0; i < bulletCount; i++)
                 {
                     float spreadDirection = Random.Range(-spreadAngle / 2f, spreadAngle / 2f);

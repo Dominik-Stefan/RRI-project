@@ -13,12 +13,15 @@ public class GameController : MonoBehaviour
     public bool timerActive = true;
     public bool levelUp = false;
     public KeyCode pauseButton;
+    private AudioSource audioSo;
+    public AudioClip levelUpSound;
     void Start()
     {
         gameOverMenuUI.rootVisualElement.style.display = DisplayStyle.None;
         gameDoneMenuUI.rootVisualElement.style.display = DisplayStyle.None;
         levelUpMenuUI.rootVisualElement.style.display = DisplayStyle.None;
         inGameHUD.rootVisualElement.style.display = DisplayStyle.Flex;
+        audioSo = GetComponent<AudioSource>();
         ResumeGame();
         gameOver = false;
     }
@@ -74,6 +77,7 @@ public class GameController : MonoBehaviour
         levelUpMenuUI.rootVisualElement.style.display = DisplayStyle.Flex;
         Time.timeScale = 0f;
         timerActive = false;
+        audioSo.PlayOneShot(levelUpSound);
     }
 
     public void HideLevelUpMenu()

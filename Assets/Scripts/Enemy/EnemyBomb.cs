@@ -6,6 +6,7 @@ public class EnemyBomb : EnemyController
 {
     public GameObject explosion;
     public bool getXp = true;
+    public AudioClip enemyExplosion;
 
     private void Update()
     {

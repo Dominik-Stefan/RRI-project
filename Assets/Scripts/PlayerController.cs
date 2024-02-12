@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using System.Collections;
 using Upgrades;
 
 public class PlayerController : MonoBehaviour
@@ -18,7 +19,14 @@ public class PlayerController : MonoBehaviour
     private int playerBaseHealth;
     private float baseMoveSpeed;
     private Animator animator;
+    private bool check = false;
     //private SpriteRenderer spr;
+
+    private AudioSource audioSo;
+    public AudioClip PlayerHurt;
+    public AudioClip PlayerDeath;
+    public AudioClip PlayerDeath2;
+    private bool canPlaySound = true;
 
     void Start()
     {
@@ -27,6 +35,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         animator = GetComponent<Animator>();
+        audioSo = GetComponent<AudioSource>();
         //spr = GetComponent<SpriteRenderer>();
     }
 
@@ -64,14 +73,32 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + mov);
     }
 
+    IEnumerator CanPlay(){
+        yield return new WaitForSeconds(0.5f);
+        canPlaySound = true;
+    }
+
+    IEnumerator DeathSound(){
+        yield return new WaitForSeconds(1.7f);
+        audioSo.PlayOneShot(PlayerDeath2);
+    }
+
     public void CheckLife()
-    {
-        bool check = false;
+    {   
+        if(canPlaySound == true){
+            canPlaySound = false;
+            StartCoroutine("CanPlay");
+            audioSo.PlayOneShot(PlayerHurt);
+        }
         if (playerHealth <= 0 && check == false)
         {
             check = true;
             playerHealth = 0;
             animator.SetBool("Dead", true);
+
+            audioSo.Stop();
+            audioSo.PlayOneShot(PlayerDeath);
+            StartCoroutine("DeathSound");
 
             GameObject grid = GameObject.FindGameObjectWithTag("Grid");
             if (grid != null)
