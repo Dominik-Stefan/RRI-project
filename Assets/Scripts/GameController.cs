@@ -49,9 +49,9 @@ public class GameController : MonoBehaviour
 
     public void GameDone()
     {
-        timerActive = false;
         gameDoneMenuUI.rootVisualElement.style.display = DisplayStyle.Flex;
         Time.timeScale = 0f;
+        timerActive = false;
     }
 
     public void ResumeGame()

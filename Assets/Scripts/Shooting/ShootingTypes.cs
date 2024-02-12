@@ -28,9 +28,11 @@ public class ShootingTypes : MonoBehaviour
     public AudioClip minigunFire;
     public AudioClip shotgunFire;
 
-    
-    void Awake(){
-        switch(Gun.selectedGun){
+
+    void Awake()
+    {
+        switch (Gun.selectedGun)
+        {
             case "Pistol":
                 Instantiate(prefabRevolver, this.transform);
                 break;
@@ -89,16 +91,21 @@ public class ShootingTypes : MonoBehaviour
         audioSo.PlayOneShot(revolverFire);
     }
 
-    private IEnumerator Shake(){
+    private IEnumerator Shake()
+    {
         timer = 0f;
 
-        while(timer < time){
+        while (timer < time)
+        {
             timer += Time.deltaTime;
             randomPos = startPos + (Random.insideUnitSphere * distance);
             bulletTransform.transform.localPosition = randomPos;
-            if(delaybetween > 0f){
+            if (delaybetween > 0f)
+            {
                 yield return new WaitForSeconds(delaybetween);
-            }else{
+            }
+            else
+            {
                 yield return null;
             }
         }
@@ -137,6 +144,7 @@ public class ShootingTypes : MonoBehaviour
             bulletCopy.GetComponent<Rigidbody2D>().velocity = randomDirection * force;
         }
         StartCoroutine(Shake());
+        audioSo.volume = 0.75f;
         audioSo.PlayOneShot(minigunFire);
     }
 
