@@ -817,8 +817,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 8220160855789296195}
-  tilemapPrefabUp: {fileID: 3933481795714381884, guid: 9ba84c3c38b68724aa9332e2114c2791, type: 3}
-  tilemapPrefabDown: {fileID: 3933481795714381884, guid: c375f6c772331344281456a4abba0549, type: 3}
+  tilemapPrefabUp: {fileID: 3933481795714381884, guid: c375f6c772331344281456a4abba0549, type: 3}
+  tilemapPrefabDown: {fileID: 3933481795714381884, guid: 9ba84c3c38b68724aa9332e2114c2791, type: 3}
   tilemapPrefabUppest: {fileID: 3933481795714381884, guid: 22a3082c372cb194e845516a9150c486, type: 3}
 --- !u!1 &1105694207
 GameObject:
