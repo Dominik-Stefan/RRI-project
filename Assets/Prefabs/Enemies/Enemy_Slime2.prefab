@@ -131,7 +131,7 @@ MonoBehaviour:
   nameOfEnemy: Enemy_Slime2
   moveSpeed: 4
   damageTimer: 0.2
-  enemyMaxHealth: 50
+  enemyMaxHealth: 45
   enemyDamage: 50
   gem: {fileID: 182031664735509766, guid: 9685bb87b20543e45918da3b8a9fe8e3, type: 3}
   enemyShoot: {fileID: 8300000, guid: d24a4e2cefafb8548a222c98d6e7f93f, type: 3}
